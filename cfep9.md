@@ -1,20 +1,20 @@
 
 Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
-Maintaing ABI consistancy helps enable the "just use conda-forge" experience for many of our users,
+Maintaining ABI consistency helps enable the "just use conda-forge" experience for many of our users,
 making certain that numpy's blas is the same as scipy's.
 As libraries update their code, the new versions may be ABI incompatible, as function signatures and other symbols
 may have changed, leading to the dreaded ``SegmentationFault``and other errors.
 
 Conda-Forge handles this by having a pinning file which tracks all the currently supported ABIs.
-These pinned ABIs are then used to build the downstream packages, making certain that all are consistant.
+These pinned ABIs are then used to build the downstream packages, making certain that all are consistent.
 As new versions of pinned software are released the pins are updated, causing a migration of the pin, and the
 rebuilding of all packages which rely on the pinned package.
-In the past this was handled by a change to the global pinnings, and a subsiquent migration via the auto-tick bot.
+In the past this was handled by a change to the global pinnings, and a subsequent migration via the auto-tick bot.
 While this worked, there were issues that this created.
 Firstly, this approach could cause unsatisfiable build dependencies for new packages, as some of the new package's
 dependencies had been compiled with the new pins, but not all.
 Secondly, migrations happened in series, if a second pin was moved while the first was being migrated then the 
-migration could go ary as packages which were being rebuilt for the first pin got the second pin before they were
+migration could go wrong as packages which were being rebuilt for the first pin got the second pin before they were
 ready.
 
 Conda-Forge Core has recently approved CFEP-9, a migration policy to fix these issues.
