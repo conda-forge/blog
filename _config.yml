@@ -1,3 +1,7 @@
+www:
+  type: CNAME
+  value: conda-forge.org
+
 # This is the default format.
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:categories/:year/:month/:day/:title
@@ -23,7 +27,7 @@ url: https://conda-forge.io/blog
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : https://conda-forge.io/blog
+production_url : https://conda-forge.org/blog
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
