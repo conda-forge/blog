@@ -1,9 +1,10 @@
 
-https://conda-forge.io/blog/atom.xml
-https://conda-forge.io/blog/documentation
-https://conda-forge.io/blog/
-https://conda-forge.io/blog/sitemap.txt
-https://conda-forge.io/blog/tags
-https://conda-forge.io/blog/assets/css/style.css
+https://conda-forge.org/blog//atom.xml
+https://conda-forge.org/blog//documentation
+https://conda-forge.org/blog//
+https://conda-forge.org/blog//sitemap.txt
+https://conda-forge.org/blog//tags
+https://conda-forge.org/blog//assets/css/style.css
 
-https://conda-forge.io/blog/2019/12/06/cfep09
+https://conda-forge.org/blog//2020/02/04/GSoC
+https://conda-forge.org/blog//2019/12/06/cfep09
