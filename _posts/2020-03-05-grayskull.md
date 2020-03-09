@@ -240,7 +240,7 @@ extra:
 | **License**       | <span style="color: green;">Added the license file and license type correctly</span> | <span style="color: brown;">Added just the license type</span> |
 | **Host Requirements** | <span style="color: green;">Added correctly all the host requirements</span> | <span style="color: red;">it didn't add the correctly the host dependencies. It added unnecessary dependencies and it is missing quite a few of them necessary to build the package</span> |
 | **Run Requirements**  | <span style="color: green;">Missing just ``setuptools`` from the host requirements (but this dependency is not defined on ``pytest`` package)</span> | <span style="color: red;">Incorrectly dependencies added to the project, it will not build the recipe as well</span>  |
-| **Selectors** | <span style="color: green;">Skipping correctly Python 2 and added selectors for windows and python versions</span> | <span style="color: red;">it didn't add any information regarding selectors</span> |
+| **Selectors** | <span style="color: green;">Skipping correctly Python 2 and added selectors for windows and python versions</span> | <span style="color: red;">it didn't add any information regarding selectors. Actually, ``conda-build`` added wrong information which will result in a broken recipe.</span> |
 | **Entry points** | <span style="color: green;">Added all entry points correctly</span> | <span style="color: red;">No entry points</span> | 
 | **Does it build?** | <span style="color: green;">YES</span> | <span style="color: red;">NO</span> |
 
