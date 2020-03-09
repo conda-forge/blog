@@ -15,7 +15,7 @@ The GitHub repository for this package is: [https://github.com/marcelotrevisani/
 Before Grayskull, we basically just had ``conda-build skeleton`` to generate recipes for Python packages on PyPI. In all other aspects, the difference of quality of the generated recipes, and also the time spent to generate them have a big discrepancy when compared to``conda-build skeleton`` and ``grayskull``. Grayskull generates recipes taking in consideration the platform, Python version available, selectors, compilers (Fortran, C and C++), packages constrains, license type, license file, and so forth. It uses metadata available from multiple sources to try to create the best recipe possible.
 
 ### Installation
-You can install ``grayskull`` using ``pip`` or ``conda``.
+You can install ``grayskull`` using ``pip`` or ``conda``. ``Grayskull`` does not rely on ``conda`` to run.
 
 #### With pip
 ```
