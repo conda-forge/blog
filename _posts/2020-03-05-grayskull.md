@@ -1,6 +1,6 @@
 # By the power of Grayskull... I have the Conda recipe!
 
-*The main goal of the Skeleto~~n~~r is to conquer Grayskull.*
+*The main goal of the Skeleto<s>n</s>r is to conquer Grayskull.*
 
 ## Introduction
 
@@ -58,234 +58,217 @@ Python version constrains, and has several package constrains as well.
 #### Grayskull (0.2.1) - took 4 seconds to generate the recipe
 
 ```yaml
+{% raw  %}
 {% set name = "pytest" %}
 {% set version = "5.3.5" %}
 
 
 package:
-name: {{ name|lower }}
-version: {{ version }}
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{
-version }}.tar.gz
-sha256: 0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d
 
 build:
-number: 0
-skip: true   # [py2k]
-entry_points:
-- pytest=pytest:main
-- py.test=pytest:main
-script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+  skip: true   # [py2k]
+  entry_points:
+    - pytest=pytest:main
+    - py.test=pytest:main
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-host:
-- pip
-- python
-- setuptools >=40.0
-- setuptools_scm
-run:
-- atomicwrites >=1.0      # [win]
-- attrs >=17.4.0
-- colorama      # [win]
-- importlib-metadata >=0.12        # [py<38]
-- more-itertools >=4.0.0
-- packaging
-- pathlib2 >=2.2.0        # [py<36]
-- pluggy <1.0,>=0.12
-- py >=1.5.0
-- python
-- wcwidth
+  host:
+    - pip
+    - python
+    - setuptools >=40.0
+    - setuptools_scm
+  run:
+    - atomicwrites >=1.0      # [win]
+    - attrs >=17.4.0
+    - colorama      # [win]
+    - importlib-metadata >=0.12        # [py<38]
+    - more-itertools >=4.0.0
+    - packaging
+    - pathlib2 >=2.2.0        # [py<36]
+    - pluggy <1.0,>=0.12
+    - py >=1.5.0
+    - python
+    - wcwidth
 
 test:
-imports:
-- pytest
-commands:
-- pip check
-- pytest --help
-- py.test --help
-
-requires:
-- pip
+  imports:
+    - pytest
+  commands:
+    - pip check
+    - pytest --help
+    - py.test --help
+  requires:
+    - pip
 
 about:
-home: https://pypi.org/project/pytest/
-summary: 'pytest: simple powerful testing with Python'
-dev_url: https://github.com/pytest-dev/pytest
-license: MIT
-license_file: LICENSE
+  home: https://pypi.org/project/pytest/
+  summary: 'pytest: simple powerful testing with Python'
+  dev_url: https://github.com/pytest-dev/pytest
+  license: MIT
+  license_file: LICENSE
 
 extra:
-recipe-maintainers:
-- marcelotrevisani
+  recipe-maintainers:
+    - marcelotrevisani
+{% endraw  %}
 ```
 
 
 #### Skeleton (3.18.11) - took  31 seconds to generate the recipe
 
 ```yaml
+{% raw  %}
 {% set name = "pytest" %}
 {% set version = "5.3.5" %}
 
 package:
-name: "{{ name|lower }}"
-version: "{{ version }}"
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
 
 source:
-url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{
-version }}.tar.gz"
-sha256: 0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d
 
 build:
-number: 0
-script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
-host:
-- atomicwrites >=1.0
-- attrs >=17.4.0
-- colorama;sys_platform =="win32"
-- importlib-metadata >=0.12
-- more-itertools >=4.0.0
-- packaging
-- pathlib2 >=2.2.0
-- pip
-- pluggy >=0.12,<1.0
-- py >=1.5.0
-- python
-- wcwidth
-run:
-- atomicwrites >=1.0
-- attrs >=17.4.0
-- colorama;sys_platform =="win32"
-- importlib-metadata >=0.12
-- more-itertools >=4.0.0
-- packaging
-- pathlib2 >=2.2.0
-- pluggy >=0.12,<1.0
-- py >=1.5.0
-- python
-- wcwidth
+  host:
+    - atomicwrites >=1.0
+    - attrs >=17.4.0
+    - colorama;sys_platform =="win32"
+    - importlib-metadata >=0.12
+    - more-itertools >=4.0.0
+    - packaging
+    - pathlib2 >=2.2.0
+    - pip
+    - pluggy >=0.12,<1.0
+    - py >=1.5.0
+    - python
+    - wcwidth
+  run:
+    - atomicwrites >=1.0
+    - attrs >=17.4.0
+    - colorama;sys_platform =="win32"
+    - importlib-metadata >=0.12
+    - more-itertools >=4.0.0
+    - packaging
+    - pathlib2 >=2.2.0
+    - pluggy >=0.12,<1.0
+    - py >=1.5.0
+    - python
+    - wcwidth
 
 about:
-home: The package home page
-license: MIT
-license_family: MIT
-license_file: 
-summary: "pytest: simple powerful testing with Python"
-doc_url: 
-dev_url: 
+  home: The package home page
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "pytest: simple powerful testing with Python"
+  doc_url: 
+  dev_url: 
 
 extra:
-recipe-maintainers:
-- your-github-id-here
+  recipe-maintainers:
+    - your-github-id-here
+{% endraw  %}
 ```
 
 
 #### Original recipe on `conda-forge` for `pytest 5.3.5`
 
 ```yaml
+{% raw  %}
 {% set version = "5.3.5" %}
 
 package:
-name: pytest
-version: {{ version }}
+  name: pytest
+  version: {{ version }}
 
 source:
-url: https://pypi.io/packages/source/p/pytest/pytest-{{ version }}.tar.gz
-sha256: 0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d
+  url: https://pypi.io/packages/source/p/pytest/pytest-{{ version }}.tar.gz
+  sha256: 0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d
 
 build:
-skip: True  # [py27]
-number: 1
-script: "{{ PYTHON }} setup.py install --single-version-externally-managed
---record record.txt"
-entry_points:
-- py.test = py.test:main
-- pytest = py.test:main
+  skip: True  # [py27]
+  number: 1
+  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt"
+  entry_points:
+    - py.test = py.test:main
+    - pytest = py.test:main
 
 requirements:
-host:
-- pip
-- python
-- setuptools >=40.0
-- setuptools_scm
-run:
-- atomicwrites >=1.0  # [win]
-- attrs >=17.4.0
-- colorama  # [win]
-- importlib_metadata >=0.12  # [py<38]
-- more-itertools >=4.0
-- packaging
-- pathlib2 >=2.2.0  # [py<36]
-- pluggy >=0.12,<1.0
-- py >=1.5.0
-- python
-- setuptools >=40.0
-- wcwidth
-run_constrained:
-# pytest-faulthandler 2 is a dummy package.
-# if an older version of fault-handler is installed, it will conflict with
-pytest >=5.
-- pytest-faulthandler >=2
+  host:
+    - pip
+    - python
+    - setuptools >=40.0
+    - setuptools_scm
+  run:
+    - atomicwrites >=1.0  # [win]
+    - attrs >=17.4.0
+    - colorama  # [win]
+    - importlib_metadata >=0.12  # [py<38]
+    - more-itertools >=4.0
+    - packaging
+    - pathlib2 >=2.2.0  # [py<36]
+    - pluggy >=0.12,<1.0
+    - py >=1.5.0
+    - python
+    - setuptools >=40.0
+    - wcwidth
+  run_constrained:
+    # pytest-faulthandler 2 is a dummy package.
+    # if an older version of fault-handler is installed, it will conflict with pytest >=5.
+    - pytest-faulthandler >=2
 
 test:
-commands:
-- pytest -h
-imports:
-- pytest
+  commands:
+    - pytest -h
+  imports:
+    - pytest
 
 about:
-home: https://docs.pytest.org/en/latest/
-license: MIT
-license_file: LICENSE
-summary: 'Simple and powerful testing with Python.'
-description: |
-The pytest framework makes it easy to write small tests, yet scales to
-support complex functional testing for applications and libraries.
-doc_url: https://docs.pytest.org/en/latest/
-dev_url: https://github.com/pytest-dev/pytest/
+  home: https://docs.pytest.org/en/latest/
+  license: MIT
+  license_file: LICENSE
+  summary: 'Simple and powerful testing with Python.'
+  description: |
+    The pytest framework makes it easy to write small tests, yet scales to
+    support complex functional testing for applications and libraries.
+    doc_url: https://docs.pytest.org/en/latest/
+    dev_url: https://github.com/pytest-dev/pytest/
 
 extra:
-recipe-maintainers:
-- flub
-- goanpeca
-- nicoddemus
-- ocefpaf
-- mingwandroid
+  recipe-maintainers:
+    - flub
+    - goanpeca
+    - nicoddemus
+    - ocefpaf
+    - mingwandroid
+{% endraw  %}
 ```
 
 #### Major differences
 
 |                   | Grayskull (0.2.1)     | Skeleton (3.18.11)         |
 |------------------:|:----------------------:|:---------------------------:|
-| **Command**       | <span style="color: green;">grayskull pypi pytest</span>
-| <span style="color: green;">conda skeleton pypi pytest</span> |
-| **Time**          | <span style="color: green;">4 seconds</span>           |
-<span style="color: red;">31 seconds</span>                 |
-| **License**       | <span style="color: green;">Added the license file and
-license type correctly</span> | <span style="color: brown;">Added just the
-license type</span> |
-| **Host Requirements** | <span style="color: green;">Added correctly all the
-host requirements</span> | <span style="color: red;">it didn't add the
-correctly the host dependencies. It added unnecessary dependencies and it is
-missing quite a few of them necessary to build the package</span> |
-| **Run Requirements**  | <span style="color: green;">Missing just
-`setuptools` from the host requirements (but this dependency is not defined
-on `pytest` package)</span> | <span style="color: red;">Incorrectly
-dependencies added to the project, it will not build the recipe as well</span>
-|
-| **Selectors** | <span style="color: green;">Skipping correctly Python 2 and
-added selectors for windows and python versions</span> | <span style="color:
-red;">it didn't add any information regarding selectors. Actually,
-`conda-build` added wrong information which will result in a broken recipe.
-For example `;sys_platform =="win32` was added, which is a wrong format for
-conda recipes</span> |
-| **Entry points** | <span style="color: green;">Added all entry points
-correctly</span> | <span style="color: red;">No entry points</span> | 
-| **Does it build?** | <span style="color: green;">YES</span> | <span
-style="color: red;">NO</span> |
+| **Command**       | <span style="color: green;">grayskull pypi pytest</span> | <span style="color: green;">conda skeleton pypi pytest</span> |
+| **Time**          | <span style="color: green;">4 seconds</span>           | <span style="color: red;">31 seconds</span>                 |
+| **License**       | <span style="color: green;">Added the license file and license type correctly</span> | <span style="color: brown;">Added just the license type</span> |
+| **Host Requirements** | <span style="color: green;">Added correctly all the host requirements</span> | <span style="color: red;">it didn't add the correctly the host dependencies. It added unnecessary dependencies and it is missing quite a few of them necessary to build the package</span> |
+| **Run Requirements**  | <span style="color: green;">Missing just `setuptools` from the host requirements (but this dependency is not defined on `pytest` package)</span> | <span style="color: red;">Incorrectly dependencies added to the project, it will not build the recipe as well</span> |
+| **Selectors** | <span style="color: green;">Skipping correctly Python 2 and added selectors for windows and python versions</span> | <span style="color: red;">it didn't add any information regarding selectors. Actually, `conda-build` added wrong information which will result in a broken recipe. For example `;sys_platform =="win32` was added, which is a wrong format for conda recipes</span> |
+| **Entry points** | <span style="color: green;">Added all entry points correctly</span> | <span style="color: red;">No entry points</span> | 
+| **Does it build?** | <span style="color: green;">YES</span> | <span style="color: red;">NO</span> |
 
 
 In the case of `noarch: python`, Grayskull is smart enough to detect when the
@@ -314,8 +297,7 @@ optional arguments:
 
 `grayskull pypi --help`
 ```
-usage: grayskull pypi [-h] [--maintainers MAINTAINERS [MAINTAINERS
-...]]
+usage: grayskull pypi [-h] [--maintainers MAINTAINERS [MAINTAINERS...]]
 [--output OUTPUT]
 pypi_packages [pypi_packages ...]
 
@@ -324,11 +306,8 @@ pypi_packages         Specify the PyPI package name.
 
 optional arguments:
 -h, --help            show this help message and exit
---maintainers MAINTAINERS [MAINTAINERS ...], -m MAINTAINERS [MAINTAINERS
-...]
-List of maintainers which will be added to the recipe.
---output OUTPUT, -o OUTPUT
-Path to where the recipe will be created
+--maintainers MAINTAINERS [MAINTAINERS ...], -m MAINTAINERS [MAINTAINERS...] List of maintainers which will be added to the recipe.
+--output OUTPUT, -o OUTPUT Path to where the recipe will be created
 
 ```
 
@@ -373,7 +352,8 @@ be able to load the recipe and update just parts of it;
 
 Any problem, question, suggestions please feel free to open an issue on the
 repository:
-https://github.com/marcelotrevisani/grayskull/issues
+
+[https://github.com/marcelotrevisani/grayskull/issues](https://github.com/marcelotrevisani/grayskull/issues)
 
 Contributions are very welcome! :)
 
