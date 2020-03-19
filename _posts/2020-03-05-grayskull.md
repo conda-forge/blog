@@ -361,5 +361,8 @@ Contributions are very welcome! :)
 
 ---
 
+This work was possible thanks to the [NumFOCUS](https://numfocus.org/) Small Development Grant program.
+
+---
 
 [Marcelo Duarte Trevisani(@marcelotrevisani)](https://github.com/marcelotrevisani)
