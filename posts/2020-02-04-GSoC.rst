@@ -1,6 +1,7 @@
 .. post:: 2020-02-04
    :tags: autotick-bot
    :author: ocefpaf
+   :redirect: 2020/02/04/GSoC
 
 Google Summer of Code 2020 improved automatic maintenance of ``conda-forge``
 ============================================================================

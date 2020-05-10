@@ -1,6 +1,7 @@
 .. post:: 2019-12-06
    :tags: autotick-bot
    :author: cj
+   :redirect: 2019/12/06/cfep09
 
 Automatically Deployed ABI Migrations
 =====================================

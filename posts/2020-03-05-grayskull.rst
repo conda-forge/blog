@@ -1,6 +1,7 @@
 .. post:: 2020-02-04
    :tags: conda
    :author: marcello
+   :redirect: 2020/03/05/grayskull
 
 .. role:: raw-html(raw)
    :format: html
