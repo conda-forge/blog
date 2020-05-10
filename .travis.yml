@@ -1,0 +1,40 @@
+language: generic
+
+env:
+    global:
+       - CONDA_INSTALL_LOCN="${HOME}/conda"
+
+install:
+    - mkdir -p ${HOME}/cache/pkgs
+    - "[ ! -f ${HOME}/cache/miniconda.sh ] && wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ${HOME}/cache/miniconda.sh || :"
+    - bash ${HOME}/cache/miniconda.sh -b -p ${CONDA_INSTALL_LOCN} && export PATH=${CONDA_INSTALL_LOCN}/bin:$PATH
+
+    # Re-use the packages in the cache, and download any new ones into that location.
+    - rm -rf ${CONDA_INSTALL_LOCN}/pkgs && ln -s ${HOME}/cache/pkgs ${CONDA_INSTALL_LOCN}/pkgs
+
+    # Configure Bot account.
+    - git config --global user.name "Travis-CI on github.com/conda-forge/blog"
+    - git config --global user.email conda.forge.coordinator@gmail.com
+
+    # Update conda.
+    - conda update --yes --quiet conda
+
+    # Configure conda.
+    - conda config --set show_channel_urls true
+    - conda config --set auto_update_conda false
+    - conda config --prepend channels conda-forge
+
+    # install stuff
+    - conda install --file requiremnts.txt --yes --quiet
+
+script:
+    - echo "Updating docs";
+    - bash ./.ci_scripts/update_docs;
+
+# We store the files that are downloaded from continuum.io, but not the environments that are created.
+cache:
+    directories:
+      - $HOME/cache
+before_cache:
+  # Remove all untarred directories.
+  - find $CONDA_INSTALL_LOCN/pkgs/ -mindepth 1 -maxdepth 1 -type d -exec rm -r {} \;
