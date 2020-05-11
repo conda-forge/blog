@@ -16,6 +16,7 @@ if [ -n "$GH_TOKEN" ]; then
         pushd blog_repo
         git checkout gh_pages
         cp -r ../_website/* .
+        touch .nojekyll
         git add -A :/
         git commit -m "[ci skip] ran ablog build" || true
         git remote add pushable https://${GH_TOKEN}@github.com/conda-forge/blog.git/ > /dev/null
