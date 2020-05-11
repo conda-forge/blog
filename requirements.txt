@@ -1,0 +1,12 @@
+conda-smithy
+sphinx<3
+make
+xonsh
+ablog
+werkzeug==0.16.1
+sphinx
+invoke
+python-dateutil
+sphinx-automodapi
+nbsphinx==0.4.3
+ipython
