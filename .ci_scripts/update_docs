@@ -14,7 +14,7 @@ if [ -n "$GH_TOKEN" ]; then
     if [[ "$TRAVIS_BRANCH" == "master" ]] && [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
         git clone https://github.com/conda-forge/blog.git blog_repo
         pushd blog_repo
-        git checkout gh_pages
+        git checkout gh-pages
         cp -r ../_website/* .
         touch .nojekyll
         git add -A :/
@@ -25,9 +25,9 @@ if [ -n "$GH_TOKEN" ]; then
         # This should give us more info if the push will not be
         # a simple fast-forward push.
         git fetch --all 2> /dev/null
-        git branch -u pushable/gh_pages
+        git branch -u pushable/gh-pages
         git status
-        git push pushable gh_pages:gh_pages 2> /dev/null
+        git push pushable gh-pages:gh-pages 2> /dev/null
         popd
     fi
 fi
