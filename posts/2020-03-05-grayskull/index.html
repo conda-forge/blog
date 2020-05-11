@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>By the power of Grayskull… I have the Conda recipe! &#8212; the conda-forge blog</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+  
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../blog/atom.xml" title="conda-forge Blog">
+  
+  
+  <link href="True" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="by-the-power-of-grayskull-i-have-the-conda-recipe">
+<h1>By the power of Grayskull… I have the Conda recipe!<a class="headerlink" href="#by-the-power-of-grayskull-i-have-the-conda-recipe" title="Permalink to this headline">¶</a></h1>
+<p><span class="raw-html"><em>The main goal of the Skeleto<s>n</s>r is to conquer Grayskull.</em></span></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>All jokes aside, the new project <a class="reference external" href="https://github.com/marcelotrevisani/grayskull">grayskull</a> was created with the
+<strong>intention</strong> of generating better Conda recipes that would allow to package
+properly projects available in different channels such as PyPI, CRAN, Conan,
+GitHub register, GitHub repositories and so on. On top of that, Grayskull is
+also being developed to help <a class="reference external" href="https://conda-forge.org/">conda-forge</a> to update
+recipes.</p>
+</div>
+<div class="section" id="current-status">
+<h2>Current status<a class="headerlink" href="#current-status" title="Permalink to this headline">¶</a></h2>
+<p>Currently, Grayskull (version <code class="docutils literal notranslate"><span class="pre">0.2.1</span></code>) is able to generate recipes just
+looking for packages on <a class="reference external" href="https://pypi.org/">PyPI</a>, and it is available on
+<a class="reference external" href="https://pypi.org/project/grayskull/">PyPI</a> and
+<a class="reference external" href="https://github.com/conda-forge/grayskull-feedstock">conda-forge</a>.
+The GitHub repository for this package is: <a class="reference external" href="https://github.com/marcelotrevisani/grayskull">https://github.com/marcelotrevisani/grayskull</a>.</p>
+<p>Before Grayskull, we just had <code class="docutils literal notranslate"><span class="pre">conda-build</span> <span class="pre">skeleton</span></code> to generate recipes
+for Python packages on PyPI. In all other aspects, the difference of
+quality of the generated recipes, and also the time spent to generate them have
+a big discrepancy when compared to <code class="docutils literal notranslate"><span class="pre">conda-build</span> <span class="pre">skeleton</span></code> and <code class="docutils literal notranslate"><span class="pre">grayskull</span></code>.
+Grayskull generates recipes taking in consideration the platform, Python
+version available, selectors, compilers (Fortran, C and C++), packages
+constrains, license type, license file, and so forth. It uses metadata
+available from multiple sources to try to create the best recipe possible.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can install <code class="docutils literal notranslate"><span class="pre">grayskull</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>. <code class="docutils literal notranslate"><span class="pre">Grayskull</span></code> does
+not rely on <code class="docutils literal notranslate"><span class="pre">conda</span></code> to run and can generate recipes with minimum
+dependencies.</p>
+<div class="section" id="with-conda">
+<h3>With conda<a class="headerlink" href="#with-conda" title="Permalink to this headline">¶</a></h3>
+<p>Grayskull is available on the conda-forge channel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge grayskull
+</pre></div>
+</div>
+</div>
+<div class="section" id="with-pip">
+<h3>With pip<a class="headerlink" href="#with-pip" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install grayskull
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="grayskull-vs-conda-build-skeleton">
+<h2>Grayskull vs conda-build skeleton<a class="headerlink" href="#grayskull-vs-conda-build-skeleton" title="Permalink to this headline">¶</a></h2>
+<p>There are some differences of recipes generated by <code class="docutils literal notranslate"><span class="pre">grayskull</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span>
+<span class="pre">skeleton</span></code>.
+Taking as example the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> recipe, which has selectors for platforms,
+Python version constrains, and has several package constrains as well.</p>
+<div class="section" id="grayskull-0-2-1-took-4-seconds-to-generate-the-recipe">
+<h3>Grayskull (0.2.1) - took 4 seconds to generate the recipe<a class="headerlink" href="#grayskull-0-2-1-took-4-seconds-to-generate-the-recipe" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;pytest&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span>
+
+<span class="nt">package</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="cp">{{</span> <span class="nv">name</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span>
+
+<span class="nt">source</span><span class="p">:</span>
+  <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://pypi.io/packages/source/</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">.tar.gz</span>
+  <span class="nt">sha256</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span>
+
+<span class="nt">build</span><span class="p">:</span>
+  <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+  <span class="nt">skip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>   <span class="c1"># [py2k]</span>
+  <span class="nt">entry_points</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest=pytest:main</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test=pytest:main</span>
+  <span class="nt">script</span><span class="p">:</span> <span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span> <span class="l l-Scalar l-Scalar-Plain">-m pip install . -vv</span>
+
+<span class="nt">requirements</span><span class="p">:</span>
+  <span class="nt">host</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools_scm</span>
+  <span class="nt">run</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span>      <span class="c1"># [win]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">colorama</span>      <span class="c1"># [win]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span>        <span class="c1"># [py&lt;38]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span>        <span class="c1"># [py&lt;36]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy &lt;1.0,&gt;=0.12</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wcwidth</span>
+
+<span class="nt">test</span><span class="p">:</span>
+  <span class="nt">imports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest</span>
+  <span class="nt">commands</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip check</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest --help</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test --help</span>
+  <span class="nt">requires</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
+
+<span class="nt">about</span><span class="p">:</span>
+  <span class="nt">home</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://pypi.org/project/pytest/</span>
+  <span class="nt">summary</span><span class="p">:</span> <span class="s">&#39;pytest:</span><span class="nv"> </span><span class="s">simple</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python&#39;</span>
+  <span class="nt">dev_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pytest-dev/pytest</span>
+  <span class="nt">license</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
+  <span class="nt">license_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LICENSE</span>
+
+<span class="nt">extra</span><span class="p">:</span>
+  <span class="nt">recipe-maintainers</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">marcelotrevisani</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="skeleton-3-18-11-took-31-seconds-to-generate-the-recipe">
+<h3>Skeleton (3.18.11) - took  31 seconds to generate the recipe<a class="headerlink" href="#skeleton-3-18-11-took-31-seconds-to-generate-the-recipe" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;pytest&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span>
+
+<span class="nt">package</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="s">&quot;</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="s">&quot;</span>
+
+<span class="nt">source</span><span class="p">:</span>
+  <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;https://pypi.io/packages/source/</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="cp">}}</span><span class="s">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="s">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="s">-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="s">.tar.gz&quot;</span>
+  <span class="nt">sha256</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span>
+
+<span class="nt">build</span><span class="p">:</span>
+  <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+  <span class="nt">script</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span><span class="nv"> </span><span class="s">-m</span><span class="nv"> </span><span class="s">pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">-vv&quot;</span>
+
+<span class="nt">requirements</span><span class="p">:</span>
+  <span class="nt">host</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">colorama;sys_platform ==&quot;win32&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wcwidth</span>
+  <span class="nt">run</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">colorama;sys_platform ==&quot;win32&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wcwidth</span>
+
+<span class="nt">about</span><span class="p">:</span>
+  <span class="nt">home</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The package home page</span>
+  <span class="nt">license</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
+  <span class="nt">license_family</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
+  <span class="nt">license_file</span><span class="p">:</span>
+  <span class="nt">summary</span><span class="p">:</span> <span class="s">&quot;pytest:</span><span class="nv"> </span><span class="s">simple</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python&quot;</span>
+  <span class="nt">doc_url</span><span class="p">:</span>
+  <span class="nt">dev_url</span><span class="p">:</span>
+
+<span class="nt">extra</span><span class="p">:</span>
+  <span class="nt">recipe-maintainers</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">your-github-id-here</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="original-recipe-on-conda-forge-for-pytest-5-3-5">
+<h3>Original recipe on <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> for <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">5.3.5</span></code><a class="headerlink" href="#original-recipe-on-conda-forge-for-pytest-5-3-5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span>
+
+<span class="nt">package</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pytest</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span>
+
+<span class="nt">source</span><span class="p">:</span>
+  <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://pypi.io/packages/source/p/pytest/pytest-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">.tar.gz</span>
+  <span class="nt">sha256</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span>
+
+<span class="nt">build</span><span class="p">:</span>
+  <span class="nt">skip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>  <span class="c1"># [py27]</span>
+  <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">script</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span><span class="nv"> </span><span class="s">setup.py</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">--single-version-externally-managed</span><span class="nv"> </span><span class="s">--record</span><span class="nv"> </span><span class="s">record.txt&quot;</span>
+  <span class="nt">entry_points</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test = py.test:main</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest = py.test:main</span>
+
+<span class="nt">requirements</span><span class="p">:</span>
+  <span class="nt">host</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools_scm</span>
+  <span class="nt">run</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span>  <span class="c1"># [win]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">colorama</span>  <span class="c1"># [win]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib_metadata &gt;=0.12</span>  <span class="c1"># [py&lt;38]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span>  <span class="c1"># [py&lt;36]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wcwidth</span>
+  <span class="nt">run_constrained</span><span class="p">:</span>
+    <span class="c1"># pytest-faulthandler 2 is a dummy package.</span>
+    <span class="c1"># if an older version of fault-handler is installed, it will conflict with pytest &gt;=5.</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest-faulthandler &gt;=2</span>
+
+<span class="nt">test</span><span class="p">:</span>
+  <span class="nt">commands</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest -h</span>
+  <span class="nt">imports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest</span>
+
+<span class="nt">about</span><span class="p">:</span>
+  <span class="nt">home</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.pytest.org/en/latest/</span>
+  <span class="nt">license</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
+  <span class="nt">license_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LICENSE</span>
+  <span class="nt">summary</span><span class="p">:</span> <span class="s">&#39;Simple</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python.&#39;</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">The pytest framework makes it easy to write small tests, yet scales to</span>
+    <span class="no">support complex functional testing for applications and libraries.</span>
+    <span class="no">doc_url: https://docs.pytest.org/en/latest/</span>
+    <span class="no">dev_url: https://github.com/pytest-dev/pytest/</span>
+
+<span class="nt">extra</span><span class="p">:</span>
+  <span class="nt">recipe-maintainers</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">flub</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">goanpeca</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nicoddemus</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ocefpaf</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mingwandroid</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="major-differences">
+<h3>Major differences<a class="headerlink" href="#major-differences" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Grayskull (0.2.1)</p></th>
+<th class="head"><p>Skeleton (3.18.11)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Command</strong></p></td>
+<td><p><span class="raw-html"><span style="color: green;">grayskull pypi pytest</span></span></p></td>
+<td><p><span class="raw-html"><span style="color: green;">conda skeleton pypi pytest</span></span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Time</strong></p></td>
+<td><p><span class="raw-html"><span style="color: green;">4 seconds</span></span></p></td>
+<td><p><span class="raw-html"><span style="color: red;">31 seconds</span></span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>License</strong></p></td>
+<td><p><span class="raw-html"><span style="color: green;">Added the license file and license type correctly</span></span></p></td>
+<td><p><span class="raw-html"><span style="color: brown;">Added just the license type</span></span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Host Requirements</strong></p></td>
+<td><p><span class="raw-html"><span style="color: green;">Added correctly all the host requirements</span></span></p></td>
+<td><p><span class="raw-html"><span style="color: red;">it didn't add the correctly the host dependencies. It added unnecessary dependencies and it is missing quite a few of them necessary to build the package</span></span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Run Requirements</strong></p></td>
+<td><p><span class="raw-html"><span style="color: green;">Missing just setuptools from the host requirements (but this dependency is not defined on pytest package)</span></span></p></td>
+<td><p><span class="raw-html"><span style="color: red;">incorrect dependencies added to the project</span></span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Selectors</strong></p></td>
+<td><p><span class="raw-html"><span style="color: green;">Skipping correctly Python 2 and added selectors for windows and python versions</span></span></p></td>
+<td><p><span class="raw-html"><span style="color: red;">it didn't add any information regarding selectors. Actually conda-build added wrong information which will result in a broken recipe. For example 'sys_platform == win32' was added which is a wrong format for conda recipes</span></span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Entry points</strong></p></td>
+<td><p><span class="raw-html"><span style="color: green;">Added all entry points correctly</span></span></p></td>
+<td><p><span class="raw-html"><span style="color: red;">No entry points</span></span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Does it build?</strong></p></td>
+<td><p><span class="raw-html"><span style="color: green;">YES</span></span></p></td>
+<td><p><span class="raw-html"><span style="color: red;">NO</span></span></p></td>
+</tr>
+</tbody>
+</table>
+<p>In the case of <code class="docutils literal notranslate"><span class="pre">noarch:</span> <span class="pre">python</span></code>, Grayskull is smart enough to detect when the
+recipe supports it, which is not done by Skeleton.
+It is important to highlight that Skeleton does not detect compilers as well.
+Nevertheless, Grayskull always try to detect it.</p>
+</div>
+</div>
+<div class="section" id="usage-grayskull-0-2-1">
+<h2>Usage Grayskull (0.2.1)<a class="headerlink" href="#usage-grayskull-0-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Project options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ grayskull --help
+usage: grayskull <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--version<span class="o">]</span> <span class="o">{</span>pypi<span class="o">}</span> ...
+
+Grayskull - Conda recipe generator
+
+positional arguments:
+<span class="o">{</span>pypi<span class="o">}</span>         Options to generate PyPI recipes
+pypi         Generate recipes based on PyPI
+
+optional arguments:
+-h, --help     show this <span class="nb">help</span> message and <span class="nb">exit</span>
+--version, -v  Print Grayskull version and <span class="nb">exit</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ grayskull pypi --help
+usage: grayskull pypi <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--maintainers MAINTAINERS <span class="o">[</span>MAINTAINERS...<span class="o">]]</span>
+<span class="o">[</span>--output OUTPUT<span class="o">]</span>
+pypi_packages <span class="o">[</span>pypi_packages ...<span class="o">]</span>
+
+positional arguments:
+pypi_packages         Specify the PyPI package name.
+
+optional arguments:
+-h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+--maintainers MAINTAINERS <span class="o">[</span>MAINTAINERS ...<span class="o">]</span>, -m MAINTAINERS <span class="o">[</span>MAINTAINERS...<span class="o">]</span> List of maintainers which will be added to the recipe.
+--output OUTPUT, -o OUTPUT Path to where the recipe will be created
+</pre></div>
+</div>
+<p>To generate the recipe you can just call <code class="docutils literal notranslate"><span class="pre">grayskull</span></code> and pass the channel (as
+for now we are just supporting PyPI, it should be pypi) and the package name.
+You should also specify an output folder using the option <code class="docutils literal notranslate"><span class="pre">--output</span></code> or
+<code class="docutils literal notranslate"><span class="pre">-o</span></code> and it will create the package folder, and the recipe in there. It is
+important to note that the user can specify a list of maintainers which will be
+added to the recipe using the option <code class="docutils literal notranslate"><span class="pre">--maintainers</span></code>.</p>
+<p>Example for pytest:</p>
+<img alt="Grayskull CLI" src="https://raw.githubusercontent.com/marcelotrevisani/grayskull/master/docs/images/cli_example_grayskull.gif" />
+<p>If you need to specify the package version you can do it just puting the equal
+sign after the package name and the version just right after that.
+Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grayskull pypi <span class="nv">requests</span><span class="o">=</span><span class="m">2</span>.21.0
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grayskull pypi <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.21.0
+</pre></div>
+</div>
+<img alt="Grayskull pinned package -requests" src="https://raw.githubusercontent.com/marcelotrevisani/grayskull/master/docs/images/cli_example_grayskull_version.gif" />
+<p>If you want to generate multiple recipes just pass a list of packages, such as:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grayskul pypi pytest <span class="nv">requests</span><span class="o">=</span><span class="m">2</span>.21.0 colorama
+</pre></div>
+</div>
+</div>
+<div class="section" id="future-plans">
+<h2>Future plans<a class="headerlink" href="#future-plans" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>For the next major version (1.0.0) it is planned to add the functionality to be able
+to load the recipe and update just parts of it;</p></li>
+<li><p>Generate Conda recipes using CRAN (R) channel (2.0.0);</p></li>
+<li><p>Generate Conda recipes using Conan (C++) channel (3.0.0);</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="issues">
+<h2>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">¶</a></h2>
+<p>Any problem, question, suggestions please feel free to open an issue on the
+repository: <a class="reference external" href="https://github.com/marcelotrevisani/grayskull/issues">https://github.com/marcelotrevisani/grayskull/issues</a>.</p>
+<p>Contributions are very welcome! :)</p>
+<hr class="docutils" />
+<p>This work was possible thanks to the <a class="reference external" href="https://numfocus.org/">NumFOCUS</a> Small Development Grant program.</p>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="../2019-12-06-cfep09/">
+    <i class="fa fa-arrow-circle-left"></i>
+    Automatically Deployed ABI Migrations
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="../2020-02-04-GSoC/">
+    Google Summer of Code 2020 improved automatic maintenance of conda-forge
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  
+  </span>
+</div>
+
+  
+  
+  </div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../">
+              <img class="logo" src="../../_static/logo_black_on_trans.png" alt="Logo"/>
+            </a></p><p>
+the conda-forge blog
+</p>
+  
+  
+  <h2>
+  
+  <i class="fa fa-calendar"></i>
+    2020-02-04
+  
+  </h2>
+
+  <ul>
+    
+
+  
+  <li id="author"><span><i class="fa-fw fa fa-user"></i></span>
+    
+      
+      <a href="../../blog/author/marcelo-duarte-trevisani/">Marcelo Duarte Trevisani</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  <li id="tags"><span><i class="fa-fw fa fa-tag"></i></span>
+    
+      
+      <a href="../../blog/tag/conda/">conda</a>
+      
+    </li>
+  
+  
+  </ul>
+
+
+
+  <h3><a href="../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../2020-03-10-pypy/">2020-03-10 - PyPy builds on conda-forge</a></li>
+    
+      <li><a href="../2020-02-04-GSoC/">2020-02-04 - Google Summer of Code 2020 improved automatic maintenance of conda-forge</a></li>
+    
+      <li><a href="../2019-12-06-cfep09/">2019-12-06 - Automatically Deployed ABI Migrations</a></li>
+    
+  </ul>
+
+  <h3><a href="../../blog/tag/">Tags</a></h3>
+  <style type="text/css">
+    ul.ablog-cloud {list-style: none; overflow: auto;}
+    ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
+    ul.ablog-cloud a {text-decoration: none; vertical-align: middle;}
+    li.ablog-cloud-1{font-size: 80%;}
+    li.ablog-cloud-2{font-size: 95%;}
+    li.ablog-cloud-3{font-size: 110%;}
+    li.ablog-cloud-4{font-size: 125%;}
+    li.ablog-cloud-5{font-size: 140%;}
+  </style>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="../../blog/tag/autotick-bot/">autotick-bot</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="../../blog/tag/conda/">conda</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="../../blog/tag/infrastructure/">infrastructure</a></li>
+      
+    
+  </ul>
+
+  <h3><a href="../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../blog/2020/">2020 (3)</a></li>
+    
+  
+    
+    <li><a href="../../blog/2019/">2019 (1)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2020, conda-forge.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/posts/2020-03-05-grayskull.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
