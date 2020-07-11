@@ -1,0 +1,59 @@
+.. post:: 2020-07-11
+   :tags: scipy
+   :author: cj
+   :redirect: 2020/07/11/R-4
+
+.. role:: raw-html(raw)
+   :format: html
+
+
+R 4.0 Migration Retrospective
+=============================
+
+While the R 4.0 migration has been functionally complete for quite a while the recent migration of ``r-java`` and its dependents gives a good opportunity to write a retrospective.
+The R migration rebuild every package in conda-forge that had ``r-base`` as a requirement including more than 2200 feedstocks.
+It was also an opportunity to try out a bunch of new technology to speed up the migration, enabling the bulk of the feedstocks to be rebuilt in less than a week.
+
+The enhancements that made this possible were spearheaded by Matt Becker and include:
+
+Automerge
+---------
+
+The R migration provided a great way to test the new automerge functionality.
+With the permission of the R maintainers, who maintain most of the R feedstocks, automerge was enabled for all the feedstocks
+in the migration.
+This meant that any PR form the autotick bot that passed the linter and the CI services would be merged automatically.
+The greatly sped up the migration effort as we didn't need to wait for maintainers to merge PRs, which has slowed migrations in the past.
+This also reduced the burden on the R maintainers, since they only needed to work on PRs that needed troubleshooting.
+
+
+Solvability
+-----------
+
+One potential problem posed by the automerge functionality was the possibility that PRs could be merged but the packages wouldn't be build or available in time for the next PR to run CI successfully.
+This would cause the PR to fail and automerge to not trigger, requiring a maintainer to re-trigger the build manually.
+To fix this issue the bot now performs a solvability check before opening a PR.
+The check uses mamba to try to install the dependencies for each variant produced by the feedstock to be migrated.
+If any of these fail, as they would on a CI, then the PR is not issued and the bot will try again next iteration.
+This enhancement has also been applied to many of the other migrations to provide a better experience for maintainers,
+as they can have higher expectations that a rebuild will succeed.
+This solvability is not applied for version PRs (unless a special key is provided in the ``conda-forge.yml``) or in the ``pypy`` migration where
+selectors may be required to produce the correct environment for a ``pypy`` build.
+
+Continuous Bot Runs
+-------------------
+
+Previously the bot ran every hour, which limited the number of PRs the bot could issue and its responsiveness.
+Now the bot runs continuously with each finished job triggering the next, providing more up time.
+Additionally some aspects of the bot that took a long time have been pulled into parallel jobs to enable more time spent on issuing PRs.
+More work on this front, including work done by Vinicius Cerutti as part of the Google Summer of Code program, will further streamline the bot's operation.
+
+
+Despite some initial hiccups with the bot infrastructure the migration ran quite smoothly for an endeavor of its size.
+The largest issue was solved recently, with the fixing of the ``openjdk`` recipe and the removal of ``aarch`` and ``powerpc`` builds from ``r-java``, 
+enabling the last large piece of the R ecosystem to be updated.
+
+Looking forward this approach seems broadly applicable, especially to migrations like the yearly python minor version bump.
+These kinds of migrations are particularly suitable, since they usually involve few changes to the feedstock itself and usually fail on CI when a
+broken package would be produced preventing false positives.
+This approach will help to provide the latest features to downstream users and keep transition times to a minimum, helping to foster greater stability of the ecosystem and the seamless experience users have come to expect from conda-forge.
