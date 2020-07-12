@@ -1,7 +1,6 @@
 .. post:: 2020-07-11
    :tags: scipy
    :author: cj, mrb
-   :redirect: 2020/07/11/R-4
 
 .. role:: raw-html(raw)
    :format: html
@@ -10,11 +9,26 @@
 R 4.0 Migration Retrospective
 =============================
 
-While the R 4.0 migration has been functionally complete for quite a while the recent migration of ``r-java`` and its dependents gives a good opportunity to write a retrospective.
-The R migration rebuild every package in conda-forge that had ``r-base`` as a requirement including more than 2200 feedstocks.
-It was also an opportunity to try out a bunch of new technology to speed up the migration, enabling the bulk of the feedstocks to be rebuilt in less than a week.
+While the R 4.0 migration has been functionally complete for quite a while, the recent migration of ``r-java`` and 
+its dependents gives a good opportunity to write a retrospective on the technical issues with large-scale migrations 
+in ``conda-forge`` and how we solved them. 
 
-The enhancements that made this possible were spearheaded by Matt Becker and include:
+The R 4.0 migration rebuilt every package in ``conda-forge`` that had ``r-base`` as a requirement, including more 
+than 2200 feedstocks. A migration of this size in ``conda-forge`` faces several hurdles. First, since every feedstock
+is a separate GitHub repository, one needs to merge more 2200 pull requests (PRs). Second, ``conda-forge``'s packages
+on ``anaconda.org`` are behind a CDN (content delivery network). This service reduces web hosting costs for Anaconda Inc.
+but introduces an approximately 30 minute delay from when a package is uploaded to ``anaconda.org`` and when it will 
+appear as available using ``conda`` from the command line. Thus even if the dependencies of a package have been built, 
+we have to wait until they appear on the CDN before we can successfully issue the next PR and have it build correctly. 
+Finally, the existing bot and ``conda`` infrastructure limited the throughput of the migrations, due in part to the speed 
+of the ``conda`` solver.
+
+Given the size of the R 4.0 migration, we took this opportunity to try out a bunch of new technology to speed up large-scale 
+migrations. The main enhancements were using GitHub Actions to automerge PRs, using ``mamba`` to quickly check for solvability 
+of package environments, and enabling long-running migration jobs for the autotick bot. All told, the bulk of the feedstocks 
+for R 4.0 were rebuilt in less than a week, with many PRs being merged in 30 minutes or less from when they were issued. These 
+enhancements to the autotick bot and ``conda-forge`` infrastructure can be used to enhance future migrations (e.g., Python 3.9)
+and reduce maintenance burdens for feedstocks.
 
 Automerge
 ---------
