@@ -1,6 +1,6 @@
 .. post:: 2020-07-11
    :tags: scipy
-   :author: cj
+   :author: cj, mrb
    :redirect: 2020/07/11/R-4
 
 .. role:: raw-html(raw)
