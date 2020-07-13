@@ -18,7 +18,7 @@ than 2200 feedstocks. A migration of this size in ``conda-forge`` faces several 
 is a separate GitHub repository, one needs to merge more 2200 pull requests (PRs). Second, ``conda-forge``'s packages
 on ``anaconda.org`` are behind a CDN (content delivery network). This service reduces web hosting costs for Anaconda Inc.
 but introduces an approximately 30 minute delay from when a package is uploaded to ``anaconda.org`` and when it will 
-appear as available using ``conda`` from the command line. Thus even if the dependencies of a package have been built, 
+appear as available using ``conda`` from the command line. Thus, even if the dependencies of a package have been built, 
 we have to wait until they appear on the CDN before we can successfully issue the next PR and have it build correctly. 
 Finally, the existing bot and ``conda`` infrastructure limited the throughput of the migrations, due in part to the speed 
 of the ``conda`` solver.
