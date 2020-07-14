@@ -87,7 +87,7 @@ large piece of the R ecosystem to be updated.
 Looking forward, the improvements we made for the R 4.0 migration seem broadly applicable to other migration tasks,
 including the yearly python minor version bump. These kinds of large-scale migrations are particularly suitable,
 since they usually involve few changes to the feedstock itself and usually fail on CI when a broken package
-would be produced. Faster migrations approach will help to provide the latest features to downstream users and
+would be produced. Faster migrations will help to provide the latest features to downstream users and
 keep transition times to a minimum, helping to foster greater stability of the ecosystem and the seamless experience
 users have come to expect from ``conda-forge``.
 
