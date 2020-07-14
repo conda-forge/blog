@@ -39,7 +39,7 @@ make sure it passes and merge it. In the case of the R 4.0 migration, the mainta
 use a maintenance team (i.e., ``@conda-forge/r``) on the vast majority of feedstocks. This team is small and so merging
 over 2000 PRs by hand is a big undertaking. Thus, with their permission, we added the ``conda-forge`` automerge
 functionality to all R feedstocks that they maintain. The automerge bot, which relies on GitHub Actions, is able to
-automatically merge any PR form the autotick bot that passes the recipe linter, the continuous integration services,
+automatically merge any PR from the autotick bot that passes the recipe linter, the continuous integration services,
 and has the special ``[bot automerge]`` slug in the PR title. This feature removed the bottleneck of waiting for
 maintainers to merge PRs and reduced the maintenance burden on the R maintenance team.
 
