@@ -49,6 +49,7 @@ blog_authors = {
     'ocefpaf': ('Filipe Pires Alvarenga Fernandes', 'https://github.com/ocefpaf'),
     'marcello': ('Marcelo Duarte Trevisani', 'https://github.com/marcelotrevisani'),
     'cj': ('C.J. Wright', 'https://github.com/CJ-Wright'),
+    'mrb': ('Matthew R. Becker', 'https://beckermr.github.io'),
 }
 
 
