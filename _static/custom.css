@@ -1,0 +1,38 @@
+:target > h1, :target > h2, :target > h3, :target > h4, :target > h5, :target > h6 {
+    background-color: #ffc;
+}
+
+ul.postlist li {
+  margin-bottom:2.5em;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+div.body h2 {
+  background-color: #cd5c5c;
+  color: #ffffff;
+  text-shadow: 1px 1px rgba(0,0,0,.125);
+  border-radius: 3px;
+  margin: 0.8em 1px 0.8em 1px;
+  padding: 6px 10px;
+  border: 1px solid rgba(0,0,0,.125);
+  border-width: 0 0 0 6px;
+  text-shadow: 1px 1px rgba(0,0,0,.125);
+  font-family: "Noticia Text", serif;
+  font-weight: normal;
+}
+
+h2 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+ul.ablog-archive li {
+  margin-bottom: 0em;
+}
+
+div.sphinxsidebar h3 a {
+  color: #444;
+}
