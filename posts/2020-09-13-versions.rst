@@ -1,0 +1,98 @@
+.. post:: 2020-07-02
+   :tags: conda-forge
+   :author: cj
+   :redirect: 2020/07/02/op-risk
+
+.. role:: raw-html(raw)
+   :format: html
+
+The Treachery of Version Numbers
+================================
+
+*Image: The Treachery of Images but with a version number in place of a pipe, and the caption "This is not an API"*
+
+
+What Constitutes a Good Version Number
+--------------------------------------
+
+Version numbers should constitute a set that has the following properties
+
+1. The set must be unbounded
+1. The set must be orderable
+
+Of course sets that meet these requirements might not convey a lot of information
+about the software other than if two things are equivalent and if one is newer than 
+the other.
+So in many cases additional information is provided in the structure of the version number.
+For some projects the date of the release is included in the version number.
+Many projects use semantic versioning, which attempts to encode information about the underlying
+source code's API in the version number.
+
+Version Numbers and API Pinning
+-------------------------------
+
+One of the most important places where version numbers are specified is during the pinning of APIs.
+When source code is written it often requires specific APIs from the libraries it uses.
+This requires a pin specifying which versions of the underlying libraries can be used.
+These pins are then used by the conda solver to make certain a compatible environment is created.
+
+However, these pins (or even the lack of pins) produce problems.
+Firstly, the pins are a local statement about the current global ecosystem of packages.
+For instance a pin of ``scipy`` to the current major version number may not hold up over time,
+newer versions of ``scipy`` may break the API while not changing the major version number.
+Similarly the lack of pin for ``scipy`` could be false as the API breaks.
+Even pins that establish firm upper and lower bounds may be false as new versions of the
+pinned library restore the missing API.
+These issues are particularly problematic for dependency systems which tie the pins to a
+particular version of the source code, requiring a new version to be created to update
+the pins.
+Conda-Forge is able to avoid some of these issues via repodata patching, dynamically updating
+a package's stated requirements.
+Overall this process is fraught as each package depends on different portions of libraries,
+a version bump that breaks one package may leave others unscathed.
+
+A Potential Path Forward
+------------------------
+
+All of the above issues are cased by the confusion of the map for the territory.
+The map, in this case the version number of a library, can not accurately represent
+the territory, the API itself.
+To fix this issue we need a more accurate description of the territory.
+Achieving this will not be easy, but I think there is an approach that gets close enough
+to limit the number of errors.
+
+We need a programmatic way to check if a particular library, for a particular version, provides
+the required API.
+I think this can be achieved iteratively, with each step providing additional clarity and difficulty
+to implement.
+Note that in the steps below, I'm using python packaging as an example, but I imagine that these
+steps are general enough to apply to other languages and ecosystems
+
+1. Determine which libraries are requirements of the code, this is provided by tools like ``depfinder``
+   and are starting to be integrated into the Conda-Forge bot systems (although they are still highly 
+   experimental and being worked on).
+2. Determine if the a version of the library provides the needed modules. This could be accomplished by
+   using depfinder to find the imports and extract the modules with ``libcfgraph`` which provides a list
+   of all the files included in a Conda-Forge package.
+3. Determine if an imported module provides the symbols being imported. This would require a listing of all
+   the symbols in a given python module, including top level scoped variables, function names, class names, methods, etc.
+4. For callables determine if the call signature matches the method or function definition.
+
+At each one of these stages we can provide significant value to users, maintainers and source code writers by helping
+them to keep their requirements consistent.
+As new versions of the imported libraries are created Conda-Forge can update the repodata to properly represent
+if that version is API compatible with it's downstream consumers.
+Additionally the tables that list all the symbols and call signatures can be provided to 3rd party consumers that
+may want to patch their own metadata or check if a piece of source code is self consistent in its requirements.
+This will also help with the loosening of pins, creating more solvable environments for Conda-Forge and other
+packaging ecosystems. 
+Furthermore, a this tooling matures and becomes more accurate it can be incorporated into the Conda-Forge bot systems
+to automatically update dependencies during version bumps and repodata patches, helping reduce maintenance burden.
+
+Conclusion
+----------
+Version number based pins are imprecise representations of API compatibility.
+More accurate representations based on source code inspection would make the Conda-Forge
+ecosystem more robust and flexible while reducing maintenance burden.
+Some of the path to achieving this is built, and near future steps can be achieved with 
+current tooling and databases.
