@@ -1,7 +1,6 @@
 .. post:: 2020-07-02
    :tags: conda-forge
    :author: cj
-   :redirect: 2020/07/02/op-risk
 
 .. role:: raw-html(raw)
    :format: html
