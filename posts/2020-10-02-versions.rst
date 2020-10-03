@@ -21,7 +21,7 @@ What Constitutes a Good Version Number
 Version numbers should constitute a set that has the following properties
 
 1. The set must be unbounded
-1. The set must be orderable (maybe)
+2. The set must be orderable (maybe)
 
 Of course sets that meet these requirements might not convey a lot of information
 about the software they represent other than if two things are equivalent and their comparative ages.
