@@ -162,6 +162,32 @@ run when cross-compiling, do the following,
 
 After these changes, another rerendering might be required.
 
+Some useful jinja variables,
+  1. ``build_platform`` - conda subdir for ``BUILD_PREFIX``. eg: ``linux-64``
+  2. ``target_platform`` - conda subdir for ``PREFIX``. eg: ``osx-arm64``
+
+Some useful environment variables,
+  1. ``build_platform``
+  2. ``target_platform``
+  3. ``CONDA_BUILD_CROSS_COMPILATION`` - 1 if cross compiling
+  4. ``CMAKE_ARGS`` - arguments to pass to cmake
+  5. ``CC_FOR_BUILD`` - C compiler for build platform
+  6. ``CXX_FOR_BUILD`` - C++ compiler for build platform
+  7. ``HOST`` - a triplet for host passed to autoconf. eg: ``arm64-apple-darwin20.0.0``
+  8. ``BUILD`` - a triplet for build passed to autoconf. eg: ``x86_64-conda-linux-gnu``
+
+Some useful configure options in ``conda-forge.yml``
+  1. ``build_platform`` - a dictionary mapping ``build`` subdir to ``host`` subdir. eg:
+       .. code-block:: yaml
+         build_platform:
+           osx_arm64: osx_64
+           linux_ppc64le: linux_64
+           linux_aarch64: linux_64
+  2.  ``test_on_native_only`` - a boolean to turn off testing on cross compiling.
+      If the tests don't require emulation (for eg: check that a file exists),
+      then ``test_on_native_only: false`` will run the tests even when cross compiling.
+
+
 Building locally
 ----------------
 
@@ -192,11 +218,18 @@ Thanks to Eli Rykoff, we are now running tests for these packages as a daily
 cron job which has led to finding several bugs in our cross compiling infrastructure
 and also bugs in our recipes.
 
+To test cross compiled recipes, transfer the built conda package to the ``host`` and run,
+
+.. code-block:: bash
+
+   conda build --test /path/to/package -c https://conda-web.anaconda.org/conda-forge
+
 This work would not have been possible without the help of many people
-including the upstream maintainers of conda, conda-build, cctools, tapi, cctools-port,
-ldid, llvm, clang, crossenv, rust, gfortran-darwin-arm64,
-``conda-forge/help-osx-arm64`` team including Matt Becker and Uwe Korn who sent
-PRs to fix recipes, ``conda-forge/bot`` team and also all the conda-forge maintainers
+including the upstream maintainers of compiler infrastructure
+(which includes conda, conda-build, cctools, tapi, cctools-port,
+ldid, llvm, clang, compiler-rt, openmp, libcxx, crossenv, rust, gcc-darwin-arm64),
+``conda-forge/help-osx-arm64`` team including Matt Becker, Eli Rykoff and Uwe Korn who
+sent PRs to fix recipes, ``conda-forge/bot`` team and also all the conda-forge maintainers
 of the 100 feedstocks who reviewed and fixed PRs.
 
 Isuru Fernando
