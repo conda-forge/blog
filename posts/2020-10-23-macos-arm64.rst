@@ -10,7 +10,7 @@ macOS ARM builds on conda-forge
 
 A new platform ``osx-arm64`` has been added to the build matrix of conda-forge.
 ``osx-arm64`` packages are built to run on upcoming macOS arm64 processors marketed
-as ``Apple Silicon``. An installer for this platform can be found 
+as ``Apple Silicon``. An installer for this platform can be found
 `here <https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh>`_.
 
 This will install a conda environment with python and conda in it. Installed conda
@@ -41,7 +41,7 @@ built ``compiler-rt=11.0.0.rc1`` as a universal build support both ``osx-64`` an
 
 Linker, archiver, ``otool``, ``install_name_tool`` was built using the
 `cctools-port project <https://github.com/tpoechtrager/cctools-port>`_  by Thomas Pöchtrager.
-These 
+
 One issue we ran into was that the macOS 11.0 Big Sur Beta 7 required that all
 executables and shared libraries be ad-hoc signed which is signing without a
 verified signature. On suggestion of ``cctools-port`` developer we added support
@@ -125,7 +125,7 @@ For python packages, add the following to ``recipe/meta.yaml``,
 For autotools package, add the following to ``recipe/meta.yaml``,
 
 .. code-block:: yaml
- 
+
    requirements:
      build:
        - libtool   # [unix]
