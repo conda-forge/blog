@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Automatically Deployed ABI Migrations &#8212; the conda-forge blog</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+  
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../blog/atom.xml" title="conda-forge Blog">
+  
+  
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="automatically-deployed-abi-migrations">
+<h1>Automatically Deployed ABI Migrations<a class="headerlink" href="#automatically-deployed-abi-migrations" title="Permalink to this headline">¶</a></h1>
+<p>Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
+Maintaining ABI consistency helps enable the “just use conda-forge” experience for many of our users,
+making certain that numpy’s blas is the same as scipy’s.
+As libraries update their code, the new versions may be ABI incompatible, as function signatures and other symbols
+may have changed, leading to the dreaded <code class="docutils literal notranslate"><span class="pre">SegmentationFault</span></code> and other errors.</p>
+<p>Conda-Forge handles this by having a pinning file which tracks all the currently supported ABIs.
+These pinned ABIs are then used to build the downstream packages, making certain that all are consistent.
+As new versions of pinned software are released the pins are updated, causing a migration of the pin, and the
+rebuilding of all packages which rely on the pinned package.
+In the past this was handled by a change to the global pinnings, and a subsequent migration via the auto-tick bot.
+While this worked, there were issues that this created.
+Firstly, this approach could cause unsatisfiable build dependencies for new packages, as some of the new package’s
+dependencies had been compiled with the new pins, but not all.
+Secondly, migrations happened in series, if a second pin was moved while the first was being migrated then the
+migration could go wrong as packages which were being rebuilt for the first pin got the second pin before they were
+ready.</p>
+<p>Conda-Forge Core has recently approved CFEP-9, a migration policy to fix these issues.
+With CFEP-9 pinnings are proposed as small yaml snippets which contain the new pins.
+The auto-tick bot then starts migrating the packages in order, applying the yaml snippet to each package in turn.
+If a second pinning change is issued then the bot starts the migration for that package too, enabling the
+two migrations to work independently.
+If a package needs a change in both pins then the maintainers can choose the order in which the apply the pins
+by merging one pin before the other.</p>
+<p>This approach will yield much greater stability in migrations, and will enable more maintainers to issue migrations.
+Migrations can be issued by putting a PR into <cite>conda-forge/conda-forge-pinning-feedstock</cite>, adding a file to the
+<cite>migrations</cite> folder, PRs into the auto-tick bot are not needed any more.</p>
+</div>
+
+  <div class="section">
+  
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="../2020-03-05-grayskull/">
+    By the power of Grayskull… I have the Conda recipe!
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  
+  </span>
+</div>
+
+  
+  
+  </div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../">
+              <img class="logo" src="../../_static/logo_black_on_trans.png" alt="Logo"/>
+            </a></p><p>
+the conda-forge blog
+</p>
+  
+  
+  <h2>
+  
+  <i class="fa fa-calendar"></i>
+    2019-12-06
+  
+  </h2>
+
+  <ul>
+    
+
+  
+  <li id="author"><span><i class="fa-fw fa fa-user"></i></span>
+    
+      
+      <a href="../../blog/author/cj-wright/">C.J. Wright</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  <li id="tags"><span><i class="fa-fw fa fa-tag"></i></span>
+    
+      
+      <a href="../../blog/tag/autotick-bot/">autotick-bot</a>
+      
+    </li>
+  
+  
+  </ul>
+
+  <h3><a href="../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../2020-10-29-macos-arm64/">2020-10-29 - macOS ARM builds on conda-forge</a></li>
+    
+      <li><a href="../2020-10-02-versions/">2020-10-02 - The API Territory and Version Number Map</a></li>
+    
+      <li><a href="../2020-07-11-R-4/">2020-07-11 - R 4.0 Migration Retrospective</a></li>
+    
+      <li><a href="../2020-07-06-scipy-bof/">2020-07-02 - Scipy 2020 Packaging BOF</a></li>
+    
+      <li><a href="../2020-07-02-op-risk/">2020-07-02 - Conda-Forge Operational Risk</a></li>
+    
+  </ul>
+
+  <h3><a href="../../blog/tag/">Tags</a></h3>
+  <style type="text/css">
+    ul.ablog-cloud {list-style: none; overflow: auto;}
+    ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
+    ul.ablog-cloud a {text-decoration: none; vertical-align: middle;}
+    li.ablog-cloud-1{font-size: 80%;}
+    li.ablog-cloud-2{font-size: 95%;}
+    li.ablog-cloud-3{font-size: 110%;}
+    li.ablog-cloud-4{font-size: 125%;}
+    li.ablog-cloud-5{font-size: 140%;}
+  </style>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="../../blog/tag/autotick-bot/">autotick-bot</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="../../blog/tag/conda/">conda</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="../../blog/tag/conda-forge/">conda-forge</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="../../blog/tag/infrastructure/">infrastructure</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="../../blog/tag/scipy/">scipy</a></li>
+      
+    
+  </ul>
+
+  <h3><a href="../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../blog/2020/">2020 (8)</a></li>
+    
+  
+    
+    <li><a href="../../blog/2019/">2019 (1)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2020, conda-forge.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/posts/2019-12-06-cfep09.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
