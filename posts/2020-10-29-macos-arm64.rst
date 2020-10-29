@@ -84,8 +84,15 @@ monkey-patching ``sys.platform`` doesn't work and therefore if a python package
 in it's ``setup.py`` uses ``sys.platform`` to differentiate OSes this will lead
 to unintended consequences if you are cross-compiling from ``linux-64``.
 Therefore, we have to use ``osx-64`` as our ``build`` system when cross-compiling
-for ``osx-arm64``.
-Note that packages using ``sysconfig.get_platform()`` will get the correct platform.
+for ``osx-arm64``. Note that packages using ``sysconfig.get_platform()`` will get
+the correct platform.
+
+For creating an installer for conda, we needed a standalone conda executable
+to bootstrap the conda environment. For other platforms we relied on
+``conda-standalone`` which is a standalone conda executable created using
+``pyinstaller``. Since ``pyinstaller`` does not support cross-compile, we
+decided to use ``micromamba`` as the bootstrapper and added features to
+``micromamba`` so that it can function as the bootstrapper.
 
 
 How to add a ``osx-arm64`` build to a feedstock
