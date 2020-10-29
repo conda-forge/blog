@@ -6,8 +6,8 @@ env:
 
 install:
     - mkdir -p ${HOME}/cache/pkgs
-    - "[ ! -f ${HOME}/cache/miniconda.sh ] && wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ${HOME}/cache/miniconda.sh || :"
-    - bash ${HOME}/cache/miniconda.sh -b -p ${CONDA_INSTALL_LOCN} && export PATH=${CONDA_INSTALL_LOCN}/bin:$PATH
+    - wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -O miniforge.sh
+    - bash miniforge.sh -b -p ${CONDA_INSTALL_LOCN} && export PATH=${CONDA_INSTALL_LOCN}/bin:$PATH
 
     # Re-use the packages in the cache, and download any new ones into that location.
     - rm -rf ${CONDA_INSTALL_LOCN}/pkgs && ln -s ${HOME}/cache/pkgs ${CONDA_INSTALL_LOCN}/pkgs
@@ -30,11 +30,3 @@ install:
 script:
     - echo "Updating docs";
     - bash ./.ci_scripts/update_docs;
-
-# We store the files that are downloaded from continuum.io, but not the environments that are created.
-cache:
-    directories:
-      - $HOME/cache
-before_cache:
-  # Remove all untarred directories.
-  - find $CONDA_INSTALL_LOCN/pkgs/ -mindepth 1 -maxdepth 1 -type d -exec rm -r {} \;
