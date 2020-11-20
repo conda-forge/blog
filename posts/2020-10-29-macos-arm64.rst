@@ -211,7 +211,7 @@ For eg: ``.ci_support/osx_arm64_.yaml``. Then run,
 
 .. code-block:: bash
 
-   conda build recipe -m .ci_support/osx_arm64_.yaml -c https://conda-web.anaconda.org/conda-forge -c conda-forge/label/rust_dev
+   conda build recipe -m .ci_support/osx_arm64_.yaml -c conda-forge -c conda-forge/label/rust_dev
 
 This should start a new build for ``osx-arm64``.
 
@@ -229,7 +229,7 @@ To test cross compiled recipes, transfer the built conda package to the ``host``
 
 .. code-block:: bash
 
-   conda build --test /path/to/package -c https://conda-web.anaconda.org/conda-forge
+   conda build --test /path/to/package -c conda-forge
 
 This work would not have been possible without the help of many people
 including the upstream maintainers of compiler infrastructure
