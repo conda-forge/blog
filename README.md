@@ -1,5 +1,5 @@
 # the conda-forge blog
-[![Build Status](https://travis-ci.com/conda-forge/blog.svg?branch=master)](https://travis-ci.com/conda-forge/blog)
+[![deploy](https://github.com/conda-forge/blog/workflows/deploy/badge.svg)](https://github.com/conda-forge/blog/actions?query=workflow%3Adeploy)
 
 ## How to Add a Blog Post
 
