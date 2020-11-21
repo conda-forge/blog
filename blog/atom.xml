@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2020-11-21T13:23:36.021454+00:00</updated>
+  <updated>2020-11-21T13:28:52.901521+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
