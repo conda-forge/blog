@@ -50,6 +50,7 @@ blog_authors = {
     'marcello': ('Marcelo Duarte Trevisani', 'https://github.com/marcelotrevisani'),
     'cj': ('C.J. Wright', 'https://github.com/CJ-Wright'),
     'mrb': ('Matthew R. Becker', 'https://beckermr.github.io'),
+    'conda-forge/core': ('conda-forge/core', 'https://conda-forge.org/'),
 }
 
 
