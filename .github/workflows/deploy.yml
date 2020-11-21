@@ -27,7 +27,9 @@ jobs:
         shell: bash -l {0}
         run: |
           make clean
-          ablog build
+          ablog build || {
+            cat /tmp/sphinx-err-* && exit 1
+          }
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
