@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Automatically Deployed ABI Migrations &#8212; the conda-forge blog</title>
+    <title>Package Distribution and the anaconda.com Terms of Service &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -63,51 +63,45 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="automatically-deployed-abi-migrations">
-<h1>Automatically Deployed ABI Migrations<a class="headerlink" href="#automatically-deployed-abi-migrations" title="Permalink to this headline">¶</a></h1>
-<p>Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
-Maintaining ABI consistency helps enable the “just use conda-forge” experience for many of our users,
-making certain that numpy’s blas is the same as scipy’s.
-As libraries update their code, the new versions may be ABI incompatible, as function signatures and other symbols
-may have changed, leading to the dreaded <code class="docutils literal notranslate"><span class="pre">SegmentationFault</span></code> and other errors.</p>
-<p>Conda-Forge handles this by having a pinning file which tracks all the currently supported ABIs.
-These pinned ABIs are then used to build the downstream packages, making certain that all are consistent.
-As new versions of pinned software are released the pins are updated, causing a migration of the pin, and the
-rebuilding of all packages which rely on the pinned package.
-In the past this was handled by a change to the global pinnings, and a subsequent migration via the auto-tick bot.
-While this worked, there were issues that this created.
-Firstly, this approach could cause unsatisfiable build dependencies for new packages, as some of the new package’s
-dependencies had been compiled with the new pins, but not all.
-Secondly, migrations happened in series, if a second pin was moved while the first was being migrated then the
-migration could go wrong as packages which were being rebuilt for the first pin got the second pin before they were
-ready.</p>
-<p>Conda-Forge Core has recently approved CFEP-9, a migration policy to fix these issues.
-With CFEP-9 pinnings are proposed as small yaml snippets which contain the new pins.
-The auto-tick bot then starts migrating the packages in order, applying the yaml snippet to each package in turn.
-If a second pinning change is issued then the bot starts the migration for that package too, enabling the
-two migrations to work independently.
-If a package needs a change in both pins then the maintainers can choose the order in which the apply the pins
-by merging one pin before the other.</p>
-<p>This approach will yield much greater stability in migrations, and will enable more maintainers to issue migrations.
-Migrations can be issued by putting a PR into <cite>conda-forge/conda-forge-pinning-feedstock</cite>, adding a file to the
-<cite>migrations</cite> folder, PRs into the auto-tick bot are not needed any more.</p>
+             <div class="section" id="package-distribution-and-the-anaconda-com-terms-of-service">
+<h1>Package Distribution and the <code class="docutils literal notranslate"><span class="pre">anaconda.com</span></code> Terms of Service<a class="headerlink" href="#package-distribution-and-the-anaconda-com-terms-of-service" title="Permalink to this headline">¶</a></h1>
+<p>Various members of the community have raised questions publicly and privately about the implications of Anaconda’s
+new Terms of Service (TOS) for <code class="docutils literal notranslate"><span class="pre">anaconda.com</span></code>. First of all, we understand your concerns. We would like to explain
+a bit how <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> works, how the TOS change affects us and <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> users, and what our plans
+as a community are for the future.</p>
+<p>What makes it non-surprising [that no other free conda package distribution services have appeared] is that, at the moment,
+any third party channel like <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is free. The TOS does not apply to <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, nor to other channels
+hosted on anaconda.org; the TOS in question applies only to the “defaults” channel and other software hosted on repo.anaconda.com.</p>
+<p>While having alternative hosting is in our plans, we cannot afford the costs. We are just a community of volunteers.
+We have experimented with uploading the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> artifacts to GitHub and continue to do so (see <code class="docutils literal notranslate"><span class="pre">regro/releases</span></code>).
+We also have put those artifacts behind an experimental repodata server. One of our core devs (&#64;wolfv) is working to setup
+<code class="docutils literal notranslate"><span class="pre">quetz</span></code> with <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> artifacts as well.</p>
+<p>It is very important to recognize that Anaconda Inc kindly donates use of their hosting and
+employee time to us and absorbs all of these costs. They host about 1.8 TB of our data and serve over
+100 million downloads of artifacts from that data each month. This is a highly significant donation and
+<code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> would not exist without it. Anaconda Inc employees also provide help with maintaining some of
+the most complex packages recipes in conda-forge.</p>
+<p>Note that the TOS also says that part of the revenue will be donated to OSS projects.
+(See this blog post: <a class="reference external" href="https://www.anaconda.com/blog/sustaining-our-stewardship-of-the-open-source-data-science-community">https://www.anaconda.com/blog/sustaining-our-stewardship-of-the-open-source-data-science-community</a>).
+You should be aware that <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is a part of NumFOCUS, and so it stands to benefit from the change in TOS, as
+do many other OSS projects.</p>
+<p>We absolutely welcome help from the community to move our efforts on building out more hosting infrastructure for
+<code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> forward. This could be anything from spending time developing <code class="docutils literal notranslate"><span class="pre">quetz</span></code> to providing hosting/mirroring
+for our data. Please do get in contact with us if you’d like to help out!</p>
 </div>
 
 <div class="section">
      
 <div class="section">
   <span style="float: left">
+     
+    <a href="../2020-10-29-macos-arm64/">
+      <i class="fa fa-arrow-circle-left"></i> macOS ARM builds on conda-forge
+    </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     
-    <a href="../2020-03-05-grayskull/">
-      By the power of Grayskull… I have the Conda recipe! <i
-        class="fa fa-arrow-circle-right"
-      ></i
-      >
-    </a>
     
   </span>
 </div>
@@ -127,7 +121,7 @@ the conda-forge blog
 </p>  
 <h2>
    <i class="fa fa-calendar"></i>
-  2019-12-06 
+  2020-11-20 
 </h2>
 
 <ul>
@@ -137,7 +131,7 @@ the conda-forge blog
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="../../blog/author/cj-wright/">C.J. Wright</a>  
+  <a href="../../blog/author/conda-forgecore/">conda-forge/core</a>  
 </li>
     
 <li id="tags">
@@ -148,7 +142,7 @@ the conda-forge blog
     ></span
   >
    
-  <a href="../../blog/tag/autotick-bot/">autotick-bot</a>  
+  <a href="../../blog/tag/conda-forge/">conda-forge</a>  
 </li>
  
 </ul>
@@ -158,12 +152,6 @@ the conda-forge blog
 </h3>
 <ul>
    
-  <li>
-    <a href="../2020-11-20-anaconda-tos/"
-      >2020-11-20 - Package Distribution and the anaconda.com Terms of Service</a
-    >
-  </li>
-  
   <li>
     <a href="../2020-10-29-macos-arm64/"
       >2020-10-29 - macOS ARM builds on conda-forge</a
@@ -185,6 +173,12 @@ the conda-forge blog
   <li>
     <a href="../2020-07-06-scipy-bof/"
       >2020-07-02 - Scipy 2020 Packaging BOF</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-07-02-op-risk/"
+      >2020-07-02 - Conda-Forge Operational Risk</a
     >
   </li>
   
@@ -283,7 +277,7 @@ the conda-forge blog
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/posts/2019-12-06-cfep09.rst.txt"
+      <a href="../../_sources/posts/2020-11-20-anaconda-tos.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
