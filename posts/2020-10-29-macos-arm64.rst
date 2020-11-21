@@ -186,10 +186,11 @@ Some useful environment variables,
 Some useful configure options in ``conda-forge.yml``
   1. ``build_platform`` - a dictionary mapping ``build`` subdir to ``host`` subdir. eg:
        .. code-block:: yaml
-         build_platform:
-           osx_arm64: osx_64
-           linux_ppc64le: linux_64
-           linux_aarch64: linux_64
+
+          build_platform:
+            osx_arm64: osx_64
+            linux_ppc64le: linux_64
+            linux_aarch64: linux_64
   2.  ``test_on_native_only`` - a boolean to turn off testing on cross compiling.
       If the tests don't require emulation (for eg: check that a file exists),
       then ``test_on_native_only: false`` will run the tests even when cross compiling.
