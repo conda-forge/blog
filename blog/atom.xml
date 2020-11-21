@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2020-11-21T13:31:12.397902+00:00</updated>
+  <updated>2020-11-21T16:21:22.294328+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
@@ -145,7 +145,7 @@ as &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Appl
       <name>conda-forge/core</name>
     </author>
     <content type="html">&lt;p&gt;Various members of the community have raised questions publicly and privately about the implications of Anaconda’s
-new Terms of Service (TOS) for &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;anaconda.com&lt;/span&gt;&lt;/code&gt;. First of all, we understand your concerns. We would like to explain
+new Terms of Service (TOS) on &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;anaconda.com&lt;/span&gt;&lt;/code&gt;. First of all, we understand your concerns. We would like to explain
 a bit how &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda-forge&lt;/span&gt;&lt;/code&gt; works, how the TOS change affects us and &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda-forge&lt;/span&gt;&lt;/code&gt; users, and what our plans
 as a community are for the future.&lt;/p&gt;
 </content>
