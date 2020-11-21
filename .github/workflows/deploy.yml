@@ -1,0 +1,39 @@
+name: deploy
+
+on:
+  push: null
+  pull_request: null
+
+jobs:
+  tests:
+    name: deploy
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.7
+          channels: conda-forge,defaults
+          channel-priority: strict
+          show-channel-urls: true
+
+      - name: install deps
+        shell: bash -l {0}
+        run: |
+          conda install --file requirements.txt --yes --quiet
+
+      - name: build site
+        shell: bash -l {0}
+        run: |
+          make clean
+          ablog build
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_website
+          user_name: conda-forge-coordinator
+          user_email: conda.forge.coordinator@gmail.com
