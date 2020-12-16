@@ -32,7 +32,7 @@ jobs:
           ablog build || {
             cat /tmp/sphinx-err-* && exit 1
           }
-          cp blog/atom.xml .
+          cp _website/blog/atom.xml _website/atom.xml
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
