@@ -20,7 +20,7 @@ scale of our growth.
 - The community has added 3,751 new, unique ``conda`` packages this year, along with a corresponding number of new feedstocks.
 - For the majority of 2020, the ``conda-forge`` channel on ``anaconda.org`` exceeded 100 million downloads per month.
 - In July of 2020, the ``conda-forge`` channel passed 2 billion total, all-time downloads.
-- We've grown our active community, adding seven new members to the ``conda-forge`` Core team and at least two members to
+- We've grown our developer community, adding seven new members to the ``conda-forge`` Core team and at least two members to
   the ``staged-recipes`` team.
 - We now have over 2,500 recipe maintainers in the ``conda-forge`` GitHub organization.
 
