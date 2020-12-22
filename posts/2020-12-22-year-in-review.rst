@@ -17,7 +17,7 @@ Strong Growth
 The ``conda-forge`` community has grown immensely this year. Here are some numbers to help give you an idea of the
 scale of our growth.
 
-- The community has added 3751 new, unique ``conda`` packages this year, along with a corresponding number of new feedstocks.
+- The community has added 3,751 new, unique ``conda`` packages this year, along with a corresponding number of new feedstocks.
 - For the majority of 2020, the ``conda-forge`` channel on ``anaconda.org`` exceeded 100 million downloads per month.
 - In July of 2020, the ``conda-forge`` channel passed 2 billion total, all-time downloads.
 - We've grown our active community, adding seven new members to the ``conda-forge`` Core team and at least two members to
