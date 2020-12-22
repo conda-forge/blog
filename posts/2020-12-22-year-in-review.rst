@@ -8,50 +8,30 @@
 2020 in Review
 ==============
 
-As 2020 winds down, the core team thought it'd be fun to review some of the big accomplishments our community has made this year. 
+As 2020 winds down, the Core team thought it'd be fun to review some of the big accomplishments our community has made this year.
+
 
 Strong Growth
 -------------
 
-``conda-forge`` has grown immensly this year.
+The ``conda-forge`` community has grown immensely this year. Here are a few statistics that measure our growth.
 
-3751 new packages
+ - The community has added 3751 new unique conda packages this year, along with a corresponding number of new feedstocks.
+ - For the majority of 2020, the ``conda-forge`` channel on ``anaconda.org`` exceeded 100 million downloads per month.
+ - In July of 2020, the ``conda-forge`` channel passed 2 billion total downloads.
+ - We've built an active community, adding seven new members to the conda-forge Core team and at least two members to the staged-recipes
+   team. We've also exceeded 2,500 recipe maintainers in the ``conda-forge`` GitHub organization.
 
-downloads in millions
-2020-01-01     99.275455
-2020-02-01     99.000914
-2020-03-01    115.990884
-2020-04-01    122.603668
-2020-05-01    117.375623
-2020-06-01    120.825988
-2020-07-01    126.489061
-2020-08-01    150.563060
-
-cumulative downloads in billions
-2020-01-01    1.323820
-2020-02-01    1.422821
-2020-03-01    1.538812
-2020-04-01    1.661416
-2020-05-01    1.778791
-2020-06-01    1.899617
-2020-07-01    2.026106
-2020-08-01    2.176669
-
-
-Apple Silicon
--------------
-
-
-Big Upgrades to Our Infrastructure
-----------------------------------
-
-python 3.8/3.9
-R 4
-cos7
-compilers
-
-New Core Members
+Big New Features
 ----------------
 
-7
+We've shipped many big updates to our core infrastructure this year. These updates include the move to ``R`` 4.0, the new
+CentOS 7 sysroot for our compilers, completing the Python 3.8 migration, and the move of our compiler versions to GCC 9
+and clang 11. Finally, we've added our first completely cross-compiler platform, ``osx-arm64`` targeting Apple Silicon.
 
+
+Our growth and expanded feature set would not have been possible without the active participation and support of our community of
+feedstock maintainers. We know this year has been extremely difficult for so many of our community members. **Thank you everyone
+so much for the work you put into making conda-forge the wonderful, community-led resource it is today.**
+
+We wish everyone a happy, healthy, equitable, and peaceful new year!
