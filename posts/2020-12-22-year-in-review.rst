@@ -52,6 +52,6 @@ We've also shipped a ton of big updates to our core infrastructure this year. Th
 
 We know this year has been extremely difficult for so many of our community members. Further, our growth and expanded feature set
 would not have been possible without the active participation and support of our community. **Thank you everyone
-so much for the work you put in this year into making ``conda-forge`` the wonderful, community-led resource it is.**
+so much for the work you put into** ``conda-forge`` **this year, making it the wonderful, community-led resource it is.**
 
 We wish everyone a happy, healthy, equitable, and peaceful new year!
