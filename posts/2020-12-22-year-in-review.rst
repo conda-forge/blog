@@ -32,6 +32,6 @@ and clang 11. Finally, we've added our first completely cross-compiler platform,
 
 Our growth and expanded feature set would not have been possible without the active participation and support of our community of
 feedstock maintainers. We know this year has been extremely difficult for so many of our community members. **Thank you everyone
-so much for the work you put into making conda-forge the wonderful, community-led resource it is today.**
+so much for the work you put in this year into making conda-forge the wonderful, community-led resource it is.**
 
 We wish everyone a happy, healthy, equitable, and peaceful new year!
