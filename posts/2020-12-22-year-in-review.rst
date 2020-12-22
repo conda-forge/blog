@@ -48,8 +48,6 @@ We've also shipped a ton of big updates to our core infrastructure this year. Th
 - **Apple silicon support**: We added support for Apple silicon with our ``osx-arm64`` platform. This platform is our first
   one to use a fully cross-compiled infrastructure.
 
-It's been a busy year!
-
 ----
 
 We know this year has been extremely difficult for so many of our community members. Further, our growth and expanded feature set
