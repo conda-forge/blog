@@ -47,7 +47,7 @@ We've also shipped a ton of big updates to our core infrastructure this year. Th
   recipes.
 - **Apple silicon support**: We added support for Apple silicon with our ``osx-arm64`` platform. This platform is our first
   one to use a fully cross-compiled infrastructure.
-
+- **CUDA support**: We added support for building CUDA packages on windows and added CUDA 11.0 support.
 ----
 
 We know this year has been extremely difficult for so many of our community members. Further, our growth and expanded feature set
