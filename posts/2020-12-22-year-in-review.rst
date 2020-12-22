@@ -30,13 +30,13 @@ Big New Features
 
 We've also shipped a ton of big updates to our core infrastructure this year. These updates include
 
-- **``PyPy`` support**: We added support for ``PyPy`` 3.6 and now supply one of the biggest stacks of
+- ``PyPy`` **support**: We added support for ``PyPy`` 3.6 and now supply one of the biggest stacks of
   ``PyPy``-enabled packages in the ``PyPy`` ecosystem.
 - **automerge**: We now support the automatic merging of PRs on feedstocks using the ``automerge`` label or through
   an opt-in setting in the ``conda-forge.yml``.
-- **``R`` 4.0 migration**: This migration was the first one to use our ``automerge`` infrastructure at scale. With it, we
+- ``R`` **4.0 migration**: This migration was the first one to use our ``automerge`` infrastructure at scale. With it, we
   completed a complete rebuild/upgrade of the ``R`` ecosystem in about a week.
-- **``Python`` updates**: We deprecated ``Python`` 2.7, completed the ``Python`` 3.8 migration, and got about 75% of the way through the
+- ``Python`` **updates**: We deprecated ``Python`` 2.7, completed the ``Python`` 3.8 migration, and got about 75% of the way through the
   ``Python`` 3.9 migration.
 - **compiler upgrades**: We upgraded our compiler infrastructure to ``GCC`` 9 and ``clang`` 11.
 - **CentOS 7 and CentOS 6 EOL**: We shipped an option to enable our compilers to use the CentOS 7 ``sysroot`` in preparation
