@@ -52,7 +52,7 @@ It's been a busy year!
 
 ----
 
-We know this year has been extremely difficult for so many of our community members. Our growth and expanded feature set
+We know this year has been extremely difficult for so many of our community members. Further, our growth and expanded feature set
 would not have been possible without the active participation and support of our community. **Thank you everyone
 so much for the work you put in this year into making ``conda-forge`` the wonderful, community-led resource it is.**
 
