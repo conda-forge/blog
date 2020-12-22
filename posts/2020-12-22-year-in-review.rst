@@ -18,9 +18,10 @@ The ``conda-forge`` community has grown immensely this year. Here are a few stat
 
 - The community has added 3751 new unique conda packages this year, along with a corresponding number of new feedstocks.
 - For the majority of 2020, the ``conda-forge`` channel on ``anaconda.org`` exceeded 100 million downloads per month.
-- In July of 2020, the ``conda-forge`` channel passed 2 billion total downloads.
-- We've built an active community, adding seven new members to the conda-forge Core team and at least two members to the staged-recipes
-  team. We've also exceeded 2,500 recipe maintainers in the ``conda-forge`` GitHub organization.
+- In July of 2020, the ``conda-forge`` channel passed 2 billion total, all-time downloads.
+- We've grown our active community, adding seven new members to the conda-forge Core team and at least two members to
+  the staged-recipes team.
+- We now have over 2,500 recipe maintainers in the ``conda-forge`` GitHub organization.
 
 Big New Features
 ----------------
@@ -29,6 +30,7 @@ We've shipped many big updates to our core infrastructure this year. These updat
 CentOS 7 sysroot for our compilers, completing the Python 3.8 migration, and the move of our compiler versions to GCC 9
 and clang 11. Finally, we've added our first completely cross-compiler platform, ``osx-arm64`` targeting Apple Silicon.
 
+----
 
 Our growth and expanded feature set would not have been possible without the active participation and support of our community of
 feedstock maintainers. We know this year has been extremely difficult for so many of our community members. **Thank you everyone
