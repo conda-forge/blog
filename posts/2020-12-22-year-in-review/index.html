@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2020 in Review &#8212; the conda-forge blog</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="conda-forge Blog"
+/>
+ 
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="in-review">
+<h1>2020 in Review<a class="headerlink" href="#in-review" title="Permalink to this headline">¶</a></h1>
+<p>As 2020 winds down, the Core team thought it’d be fun to review some of the big accomplishments our community has made this year.</p>
+<div class="section" id="strong-growth">
+<h2>Strong Growth<a class="headerlink" href="#strong-growth" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> community has grown immensely this year. Here are some numbers to help give you an idea of the
+scale of our growth.</p>
+<ul class="simple">
+<li><p>The community has added 3,751 new, unique <code class="docutils literal notranslate"><span class="pre">conda</span></code> packages this year, along with a corresponding number of new feedstocks.</p></li>
+<li><p>For the majority of 2020, the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel on <code class="docutils literal notranslate"><span class="pre">anaconda.org</span></code> exceeded 100 million downloads per month.</p></li>
+<li><p>In July of 2020, the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel passed 2 billion total, all-time downloads.</p></li>
+<li><p>We’ve grown our core developer community, adding seven new members to the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> Core team and at least two members to
+the <code class="docutils literal notranslate"><span class="pre">staged-recipes</span></code> team.</p></li>
+<li><p>We now have over 2,500 recipe maintainers in the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> GitHub organization.</p></li>
+</ul>
+</div>
+<div class="section" id="big-new-features">
+<h2>Big New Features<a class="headerlink" href="#big-new-features" title="Permalink to this headline">¶</a></h2>
+<p>We’ve also shipped a ton of big updates to our core infrastructure this year. These updates include</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PyPy</span></code> <strong>support</strong>: We added support for <code class="docutils literal notranslate"><span class="pre">PyPy</span></code> 3.6 and now supply one of the biggest stacks of
+<code class="docutils literal notranslate"><span class="pre">PyPy</span></code>-enabled packages in the <code class="docutils literal notranslate"><span class="pre">PyPy</span></code> ecosystem.</p></li>
+<li><p><strong>automerge</strong>: We now support the automatic merging of PRs on feedstocks using the <code class="docutils literal notranslate"><span class="pre">automerge</span></code> label or through
+an opt-in setting in the <code class="docutils literal notranslate"><span class="pre">conda-forge.yml</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">R</span></code> <strong>4.0 migration</strong>: This migration was the first one to use our <code class="docutils literal notranslate"><span class="pre">automerge</span></code> infrastructure at scale. With it, we
+completed a complete rebuild/upgrade of the <code class="docutils literal notranslate"><span class="pre">R</span></code> ecosystem in about a week.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Python</span></code> <strong>updates</strong>: We deprecated <code class="docutils literal notranslate"><span class="pre">Python</span></code> 2.7, completed the <code class="docutils literal notranslate"><span class="pre">Python</span></code> 3.8 migration, and got about 75% of the way through the
+<code class="docutils literal notranslate"><span class="pre">Python</span></code> 3.9 migration.</p></li>
+<li><p><strong>compiler upgrades</strong>: We upgraded our compiler infrastructure to <code class="docutils literal notranslate"><span class="pre">GCC</span></code> 9 and <code class="docutils literal notranslate"><span class="pre">clang</span></code> 11.</p></li>
+<li><p><strong>CentOS 7 and CentOS 6 EOL</strong>: We shipped an option to enable our compilers to use the CentOS 7 <code class="docutils literal notranslate"><span class="pre">sysroot</span></code> in preparation
+for the CentOS 6 EOL. We hope to complete the move to CentOS 7 early next year.</p></li>
+<li><p><strong>miniforge</strong>: We built our own standalone, <code class="docutils literal notranslate"><span class="pre">miniconda</span></code>-like installers. These support a broad range of platforms, including
+<code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> and <code class="docutils literal notranslate"><span class="pre">linux-aarch64</span></code>.</p></li>
+<li><p><strong>standalone Windows stack</strong>: We fully decoupled our Windows recipes from the <code class="docutils literal notranslate"><span class="pre">defaults</span></code> channel by rebuilding the <code class="docutils literal notranslate"><span class="pre">msys2</span></code>
+recipes.</p></li>
+<li><p><strong>Apple silicon support</strong>: We added support for Apple silicon with our <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> platform. This platform is our first
+one to use a fully cross-compiled infrastructure.</p></li>
+<li><p><strong>CUDA support</strong>: We added support for building CUDA packages on windows and added CUDA 11.0 support.</p></li>
+</ul>
+<hr class="docutils" />
+<p>We know that this year has been extremely difficult for so many of our community members and that the fantastic success of
+<code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> would not have been possible without the active participation and support of our community. <strong>Thank you everyone
+so much for the work you put into</strong> <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> <strong>this year, making it the wonderful, community-led resource that it is.</strong></p>
+<p>We wish everyone a happy, healthy, and peaceful new year!</p>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../2020-11-20-anaconda-tos/">
+      <i class="fa fa-arrow-circle-left"></i> Package Distribution and the anaconda.com Terms of Service
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../">
+              <img class="logo" src="../../_static/logo_black_on_trans.png" alt="Logo"/>
+            </a></p><p>
+the conda-forge blog
+</p>  
+<h2>
+   <i class="fa fa-calendar"></i>
+  2020-12-22 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../blog/author/conda-forgecore/">conda-forge/core</a>  
+</li>
+    
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="../../blog/tag/conda-forge/">conda-forge</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../2020-11-20-anaconda-tos/"
+      >2020-11-20 - Package Distribution and the anaconda.com Terms of Service</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-10-29-macos-arm64/"
+      >2020-10-29 - macOS ARM builds on conda-forge</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-10-02-versions/"
+      >2020-10-02 - The API Territory and Version Number Map</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-07-11-R-4/"
+      >2020-07-11 - R 4.0 Migration Retrospective</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-07-06-scipy-bof/"
+      >2020-07-02 - Scipy 2020 Packaging BOF</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="../../blog/tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../../blog/tag/autotick-bot/">autotick-bot</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/conda/">conda</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../../blog/tag/conda-forge/">conda-forge</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/infrastructure/">infrastructure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../../blog/tag/scipy/">scipy</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../blog/2020/">2020 (10)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2020, conda-forge.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/posts/2020-12-22-year-in-review.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
