@@ -1,4 +1,4 @@
-.. post:: 2020-12-22
+.. post:: 2020-12-26
    :tags: conda-forge
    :author: conda-forge/core
 
