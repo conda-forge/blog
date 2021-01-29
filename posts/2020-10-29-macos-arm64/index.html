@@ -172,12 +172,12 @@ to fix it.</p>
 <p>For autotools package, add the following to <code class="docutils literal notranslate"><span class="pre">recipe/meta.yaml</span></code>,</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
   <span class="nt">build</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">libtool</span>   <span class="c1"># [unix]</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gnuconfig</span>   <span class="c1"># [unix]</span>
 </pre></div>
 </div>
 <p>and to <code class="docutils literal notranslate"><span class="pre">recipe/build.sh</span></code>,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get an updated config.sub and config.guess</span>
-cp <span class="nv">$BUILD_PREFIX</span>/share/libtool/build-aux/config.* .
+cp BUILD_PREFIX/share/gnuconfig/config.* .
 </pre></div>
 </div>
 <p>For cmake packages, add the following to <code class="docutils literal notranslate"><span class="pre">recipe/build.sh</span></code>,</p>
