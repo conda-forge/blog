@@ -143,7 +143,12 @@ decided to use <code class="docutils literal notranslate"><span class="pre">micr
 <p>All the below changes will be done by a bot and the packages the bot
 will send PRs to is determined by the list of packages at
 <a class="reference external" href="https://github.com/conda-forge/conda-forge-pinning-feedstock/blob/master/recipe/migrations/osx_arm64.txt">conda-forge-pinning</a>
-and their dependences.</p>
+and their dependences. If you would like to add support, please send a PR
+adding the feedstock name to the above list. After that PR is merged,
+you can monitor the status at <cite>conda-forge status-page &lt;https://conda-forge.org/status/#armosxaddition&gt;</cite>
+and if a particular PR is stalled you can send a PR to the feedstock
+to fix it.</p>
+<p>Following instructions are for when you want to add support manually.</p>
 <p>Add the following to <code class="docutils literal notranslate"><span class="pre">conda-forge.yml</span></code> (on Linux or OSX),</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">build_platform</span><span class="p">:</span>
   <span class="nt">osx_arm64</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">osx_64</span>
@@ -453,7 +458,7 @@ the conda-forge blog
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2020, conda-forge.
+      &copy;2016-2021, conda-forge.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
