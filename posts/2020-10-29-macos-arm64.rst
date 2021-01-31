@@ -148,7 +148,7 @@ and to ``recipe/build.sh``,
 .. code-block:: bash
 
    # Get an updated config.sub and config.guess
-   cp BUILD_PREFIX/share/gnuconfig/config.* .
+   cp $BUILD_PREFIX/share/gnuconfig/config.* .
 
 For cmake packages, add the following to ``recipe/build.sh``,
 
