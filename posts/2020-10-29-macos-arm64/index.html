@@ -177,7 +177,7 @@ to fix it.</p>
 </div>
 <p>and to <code class="docutils literal notranslate"><span class="pre">recipe/build.sh</span></code>,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get an updated config.sub and config.guess</span>
-cp BUILD_PREFIX/share/gnuconfig/config.* .
+cp <span class="nv">$BUILD_PREFIX</span>/share/gnuconfig/config.* .
 </pre></div>
 </div>
 <p>For cmake packages, add the following to <code class="docutils literal notranslate"><span class="pre">recipe/build.sh</span></code>,</p>
