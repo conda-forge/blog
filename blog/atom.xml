@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2021-03-04T17:55:39.674750+00:00</updated>
+  <updated>2021-03-04T22:54:18.050643+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -171,10 +171,10 @@ as a community are for the future.&lt;/p&gt;
     <author>
       <name>viniciusdc</name>
     </author>
-    <content type="html">&lt;p&gt;Conda-forge is participating for this round of Outreachy. The goal of
-the program is to increase participation from under-represented groups
-in free and open source software. It is a project of the Software
-Freedom Conservancy.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Conda-forge is participating in the upcoming round of &lt;a class="reference external" href="https://www.outreachy.org/"&gt;Outreachy&lt;/a&gt; i.e May 2021 to August 2021. The goal of
+this program is to increase participation from under-represented groups
+in free and open source software. Outreachy is organized by &lt;a class="reference external" href="https://sfconservancy.org/"&gt;Software
+Freedom Conservancy&lt;/a&gt;.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2021-02-02-Outreachy/" rel="alternate"/>
     <published>2021-02-02T00:00:00+00:00</published>
