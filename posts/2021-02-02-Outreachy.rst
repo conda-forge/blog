@@ -6,10 +6,10 @@
 Conda-forge Outreachy
 =====================
 
-Conda-forge is participating for this round of Outreachy. The goal of
-the program is to increase participation from under-represented groups
-in free and open source software. It is a project of the Software
-Freedom Conservancy.
+Conda-forge is participating in the upcoming round of `Outreachy <https://www.outreachy.org/>`_ i.e May 2021 to August 2021. The goal of
+this program is to increase participation from under-represented groups
+in free and open source software. Outreachy is organized by `Software
+Freedom Conservancy <https://sfconservancy.org/>`__.
 
 Participant Application Process:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
