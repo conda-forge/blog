@@ -6,7 +6,7 @@
 Conda-forge Outreachy
 =====================
 
-COnda-forge is participating for this round of Outreachy. The goal of
+Conda-forge is participating for this round of Outreachy. The goal of
 the program is to increase participation from under-represented groups
 in free and open source software. It is a project of the Software
 Freedom Conservancy.
