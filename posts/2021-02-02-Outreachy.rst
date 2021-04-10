@@ -25,11 +25,8 @@ Steps for applicants to conda-forge:
 consider your options, and if you have questions, communicate with the
 project mentors.
 
-| Begin by contributing to the project. Most projects will describe how
-to make your first contribution. As you make contributions, record them
-on the Outreachy site. Codetribute may help you find good tasks to work
-on. For many applicants, this is the most valuable part of the
-experience!
+| Begin by contributing to the project by looking at our `issues page <https://github.com/conda-forge/conda-forge.github.io/issues>`__. 
+As you make contributions, record them on the Outreachy site. 
 | Once you have made a few contributions, begin to write your
 application. Ask the mentors to review the application before you submit
 it.
