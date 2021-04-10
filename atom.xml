@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2021-03-04T22:54:18.050643+00:00</updated>
+  <updated>2021-04-10T17:37:53.971623+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
-  <link href="www.conda-forge.org/blog/blog/atom.xml"/>
-  <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
+  <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
   <entry>
     <id>www.conda-forge.org/blog/posts/2019-12-06-cfep09/</id>
     <title>Automatically Deployed ABI Migrations</title>
@@ -20,6 +20,12 @@ As libraries update their code, the new versions may be ABI incompatible, as fun
 may have changed, leading to the dreaded &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;SegmentationFault&lt;/span&gt;&lt;/code&gt; and other errors.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2019-12-06-cfep09/" rel="alternate"/>
+    <summary>Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
+Maintaining ABI consistency helps enable the “just use conda-forge” experience for many of our users,
+making certain that numpy’s blas is the same as scipy’s.
+As libraries update their code, the new versions may be ABI incompatible, as function signatures and other symbols
+may have changed, leading to the dreaded SegmentationFault and other errors.</summary>
+    <category term="autotick-bot" label="autotick-bot"/>
     <published>2019-12-06T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -32,6 +38,8 @@ may have changed, leading to the dreaded &lt;code class="docutils literal notran
     <content type="html">&lt;p&gt;&lt;span class="raw-html"&gt;&lt;em&gt;The main goal of the Skeleto&lt;s&gt;n&lt;/s&gt;r is to conquer Grayskull.&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-03-05-grayskull/" rel="alternate"/>
+    <summary>&lt;em&gt;The main goal of the Skeleto&lt;s&gt;n&lt;/s&gt;r is to conquer Grayskull.&lt;/em&gt;</summary>
+    <category term="conda" label="conda"/>
     <published>2020-02-04T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -48,6 +56,12 @@ underlying software and enabling large migrations of packages from one dependenc
 automatic maintenance of the &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda-forge&lt;/span&gt;&lt;/code&gt; ecosystem will become even more important.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-02-04-GSoC/" rel="alternate"/>
+    <summary>The conda-forge “autotick” bot is a crucial part of conda-forge’s infrastructure.
+It enables automatic maintenance of conda-forge packages by pushing version updates to the
+underlying software and enabling large migrations of packages from one dependency to another
+(e.g., Python 3.7 to Python 3.8). As conda-forg grows in size, with over 9,000 packages to date,
+automatic maintenance of the conda-forge ecosystem will become even more important.</summary>
+    <category term="autotick-bot" label="autotick-bot"/>
     <published>2020-02-04T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -60,6 +74,8 @@ automatic maintenance of the &lt;code class="docutils literal notranslate"&gt;&l
     <content type="html">&lt;p&gt;conda-forge now supports PyPy3.6 as the python interpreter in a conda environment&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-03-10-pypy/" rel="alternate"/>
+    <summary>conda-forge now supports PyPy3.6 as the python interpreter in a conda environment</summary>
+    <category term="infrastructure" label="infrastructure"/>
     <published>2020-03-10T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -78,6 +94,14 @@ In this case the risk we incur isn’t the potential for lost earnings but frust
 In this post I explore three main sources of operational risk for Conda-Forge: Automation, Top-Down Control, and Self-Service Structure.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-07-02-op-risk/" rel="alternate"/>
+    <summary>Recently I’ve been thinking about operational risk (op. risk).
+Operational risks arise from failures of processes, for instance a missing email, or an automated software system not running properly.
+Many commercial institutions are interested in minimizing op. risk, since it is risk that produces no value, as opposed to risks associated with investing.
+This is also something I think about in my job at Lab49, where I’m a software engineering consultant focusing on financial institutions.
+I think there is also a good analogy for Conda-Forge, even though we are not a commercial outfit.
+In this case the risk we incur isn’t the potential for lost earnings but frustration for our users and maintainers in the form of bugs and lackluster user experience.
+In this post I explore three main sources of operational risk for Conda-Forge: Automation, Top-Down Control, and Self-Service Structure.</summary>
+    <category term="conda-forge" label="conda-forge"/>
     <published>2020-07-02T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -90,6 +114,8 @@ In this post I explore three main sources of operational risk for Conda-Forge: A
     <content type="html">&lt;p&gt;Have some thoughts about conda-forge and how it can be expanded in a way that is sustainable? Join us in this virtual Birds of a Feather discussion where we’ll discuss maintenance, pain points, opportunities within conda-forge. Any and all are welcome, and we especially are seeking new viewpoints and opinions!&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-07-06-scipy-bof/" rel="alternate"/>
+    <summary>Have some thoughts about conda-forge and how it can be expanded in a way that is sustainable? Join us in this virtual Birds of a Feather discussion where we’ll discuss maintenance, pain points, opportunities within conda-forge. Any and all are welcome, and we especially are seeking new viewpoints and opinions!</summary>
+    <category term="scipy" label="scipy"/>
     <published>2020-07-02T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -104,6 +130,10 @@ its dependents gives a good opportunity to write a retrospective on the technica
 in &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda-forge&lt;/span&gt;&lt;/code&gt; and how we solved them.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-07-11-R-4/" rel="alternate"/>
+    <summary>While the R 4.0 migration has been functionally complete for quite a while, the recent migration of r-java and
+its dependents gives a good opportunity to write a retrospective on the technical issues with large-scale migrations
+in conda-forge and how we solved them.</summary>
+    <category term="scipy" label="scipy"/>
     <published>2020-07-11T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -120,6 +150,12 @@ In this post I outline current and potential work on a path towards a more compl
 requirements based on APIs and dynamic pinning of libraries.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-10-02-versions/" rel="alternate"/>
+    <summary>tl;dr Depending on specific version numbers of underlying libraries may be too inaccurate and cause
+headaches as upstream libraries evolve and change.
+A more detailed approach is needed.
+In this post I outline current and potential work on a path towards a more complete inspection of
+requirements based on APIs and dynamic pinning of libraries.</summary>
+    <category term="conda-forge" label="conda-forge"/>
     <published>2020-10-02T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -135,6 +171,11 @@ as &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;Appl
 &lt;a class="reference external" href="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh"&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-10-29-macos-arm64/" rel="alternate"/>
+    <summary>A new platform osx-arm64 has been added to the build matrix of conda-forge.
+osx-arm64 packages are built to run on upcoming macOS arm64 processors marketed
+as Apple Silicon. An installer for this platform can be found
+here.</summary>
+    <category term="conda-forge" label="conda-forge"/>
     <published>2020-10-29T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -150,6 +191,11 @@ a bit how &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&
 as a community are for the future.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-11-20-anaconda-tos/" rel="alternate"/>
+    <summary>Various members of the community have raised questions publicly and privately about the implications of Anaconda’s
+new Terms of Service (TOS) on anaconda.com. First of all, we understand your concerns. We would like to explain
+a bit how conda-forge works, how the TOS change affects us and conda-forge users, and what our plans
+as a community are for the future.</summary>
+    <category term="conda-forge" label="conda-forge"/>
     <published>2020-11-20T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -162,6 +208,8 @@ as a community are for the future.&lt;/p&gt;
     <content type="html">&lt;p&gt;As 2020 winds down, the Core team thought it’d be fun to review some of the big accomplishments our community has made this year.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2020-12-26-year-in-review/" rel="alternate"/>
+    <summary>As 2020 winds down, the Core team thought it’d be fun to review some of the big accomplishments our community has made this year.</summary>
+    <category term="conda-forge" label="conda-forge"/>
     <published>2020-12-26T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -177,6 +225,11 @@ in free and open source software. Outreachy is organized by &lt;a class="referen
 Freedom Conservancy&lt;/a&gt;.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2021-02-02-Outreachy/" rel="alternate"/>
+    <summary>Conda-forge is participating in the upcoming round of Outreachy i.e May 2021 to August 2021. The goal of
+this program is to increase participation from under-represented groups
+in free and open source software. Outreachy is organized by Software
+Freedom Conservancy.</summary>
+    <category term="Outreachy" label="Outreachy"/>
     <published>2021-02-02T00:00:00+00:00</published>
   </entry>
 </feed>

@@ -3,7 +3,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>PyPy builds on conda-forge &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -63,7 +64,7 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="pypy-builds-on-conda-forge">
+             <section id="pypy-builds-on-conda-forge">
 <h1>PyPy builds on conda-forge<a class="headerlink" href="#pypy-builds-on-conda-forge" title="Permalink to this headline">¶</a></h1>
 <p>conda-forge now supports PyPy3.6 as the python interpreter in a conda environment</p>
 <p>Supported platforms are,</p>
@@ -75,7 +76,7 @@
 <li><p>Linux-ppc64le (glibc 2.17 or newer)</p></li>
 </ul>
 </div></blockquote>
-<div class="section" id="how-to-use-pypy">
+<section id="how-to-use-pypy">
 <h2>How to use PyPy<a class="headerlink" href="#how-to-use-pypy" title="Permalink to this headline">¶</a></h2>
 <p>To use the PyPy builds you can do the following,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --set channel_priority strict
@@ -97,8 +98,8 @@ conda install numpy     <span class="c1"># fails as of March 10, 2020</span>
 <p><strong>UPDATE</strong>: numpy and scipy builds are working as of April 10, 2020.</p>
 <p>All python C extensions needs to be rebuilt for the PyPy ABI. This is
 currently on the way and can be tracked at the <a class="reference external" href="https://conda-forge.org/status">status page</a>.</p>
-</div>
-<div class="section" id="python-abi-package">
+</section>
+<section id="python-abi-package">
 <h2>python_abi Package<a class="headerlink" href="#python-abi-package" title="Permalink to this headline">¶</a></h2>
 <p>As part of adding support for PyPy and to keep the older python builds
 working, a python_abi package was added. This defines the abi for the
@@ -155,8 +156,8 @@ ABI is stable only for PyPy3.6 7.3.x series.</p>
 <p>This opens up the possibility of adding debug builds of python and building
 extension packages using the Python Debug ABI.</p>
 <p>Discussion on the PyPy builds can be found in the issue <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/867">conda-forge/conda-forge.github.io#867</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
      
