@@ -14,7 +14,7 @@ automatic maintenance of the ``conda-forge`` ecosystem will become even more imp
 
 We here at ``conda-forge`` have a large number of potential Google Sumer of Code projects
 around maintenance and development of the autotick bot infrastructure. These projects are
-high-impact, effecting the entire ``conda-forge`` ecosystem. They also cover multiple systems
+high-impact, affecting the entire ``conda-forge`` ecosystem. They also cover multiple systems
 including databases, ``conda``'s CDN provider, continuous integration providers, and user interactions
 on GitHub.
 
@@ -93,7 +93,7 @@ listing of the issues that need work.
    through the use of ``Jinja2`` and ``conda-build-config.yaml`` files. Currently,
    the autotick bot examines the static metadata in the ``meta.yaml`` file and not
    the fully rendered metadata. For this reason, we sometimes miss dependencies
-   of a given package that need to be migrated first. Adressing this issue involves
+   of a given package that need to be migrated first. Addressing this issue involves
    both calling the rendering process and also scaling that process to the entire
    set of ``conda-forge`` packages.
 
