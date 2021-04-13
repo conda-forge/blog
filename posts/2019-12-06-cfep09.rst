@@ -29,7 +29,7 @@ With CFEP-9 pinnings are proposed as small yaml snippets which contain the new p
 The auto-tick bot then starts migrating the packages in order, applying the yaml snippet to each package in turn.
 If a second pinning change is issued then the bot starts the migration for that package too, enabling the
 two migrations to work independently.
-If a package needs a change in both pins then the maintainers can choose the order in which that apply the pins
+If a package needs a change in both pins then the maintainers can choose the order in which they apply the pins
 by merging one pin before the other.
 
 This approach will yield much greater stability in migrations and will enable more maintainers to issue migrations.
