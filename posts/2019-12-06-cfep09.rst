@@ -6,7 +6,7 @@
 Automatically Deployed ABI Migrations
 =====================================
 
-Handling application binary interface (ABI) migrations have always been a hassle for Conda-Forge.
+Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
 Maintaining ABI consistency helps enable the "just use conda-forge" experience for many of our users,
 making certain that numpy's blas is the same as scipy's.
 As libraries update their code, the new versions may be ABI incompatible, as function signatures and other symbols
