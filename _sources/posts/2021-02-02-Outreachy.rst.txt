@@ -8,7 +8,7 @@ Conda-forge Outreachy
 
 Conda-forge is participating in the upcoming round of `Outreachy <https://www.outreachy.org/>`_ i.e May 2021 to August 2021. The goal of
 this program is to increase participation from under-represented groups
-in free and open source software. Outreachy is organized by `Software
+in free and open-source software. Outreachy is organized by `Software
 Freedom Conservancy <https://sfconservancy.org/>`__.
 
 Participant Application Process:
@@ -20,7 +20,7 @@ Information page to learn more about eligibility for Outreachy.
 Steps for applicants to conda-forge:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| Confirm your eligibility on the outreachy site
+| Confirm your eligibility on the Outreachy site
 | Look at the Conda-forge projects available on the Outreachy site,
 consider your options, and if you have questions, communicate with the
 project mentors.
@@ -47,7 +47,7 @@ one contribution to be accepted as an intern for this project. Only
 applicants who make a contribution will be eligible to be accepted as
 interns.
 
-While we don't have one we highly recommend the first time contributor
+While we don't have one we highly recommend the first-time contributor
 to be a conda user and/or submit a package to conda-forge via
 `staged-recipes <https://github.com/conda-forge/staged-recipes>`__. That
 will ensure the contributor understands the value of what we do and
@@ -67,7 +67,7 @@ Docs, Good first issue
 
 We here at `conda-forge <https://conda-forge.org/#contribute>`__ have a
 large number of potential Outreachy endeavors around documentation,
-maintenance and development. These tasks are high-impact, affecting the
+maintenance, and development. These tasks are high-impact, affecting the
 entire conda-forge ecosystem. They also cover multiple systems including
 databases, conda's CDN provider, continuous integration providers, and
 user interactions on GitHub.
@@ -89,7 +89,7 @@ this project's public chat.
 Outreachy mentors will often be in the community public chat. The
 project mentor's usernames are: ``@viniciusdc``.
 
-Here are some read-to-go ways you can get started contributing on your own.
+Here are some ready-to-go ways you can get started contributing on your own.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Find an open issue to tackle or report a bug to the issue tracker;
@@ -97,7 +97,7 @@ Here are some read-to-go ways you can get started contributing on your own.
    feature or help Automate project setups;
 -  Improving current tooling and testing features is always welcome.
 
-As this project main goals is enhancing our current documentation, here
+As this project main goal is enhancing our current documentation, here
 are some preliminary tasks that you can inspect to get ideas:
 
 -  Write and improve the project’s documentation;
@@ -130,7 +130,7 @@ task contributions. These are included into our three main bases:
 
 -  `Users <https://conda-forge.org/docs/user/00_intro.html>`__: In this
    case, some good starter tasks are mainly checking the actual contents
-   of conda-forge users documentations, and ideas to better express it's
+   of conda-forge users documentations, and ideas to better express its
    contents.
 
 -  `Maintainers <https://conda-forge.org/docs/maintainer/00_intro.html>`__:

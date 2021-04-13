@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2021-04-10T17:37:53.971623+00:00</updated>
+  <updated>2021-04-13T14:50:59.647689+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
@@ -221,13 +221,13 @@ as a community are for the future.</summary>
     </author>
     <content type="html">&lt;p&gt;Conda-forge is participating in the upcoming round of &lt;a class="reference external" href="https://www.outreachy.org/"&gt;Outreachy&lt;/a&gt; i.e May 2021 to August 2021. The goal of
 this program is to increase participation from under-represented groups
-in free and open source software. Outreachy is organized by &lt;a class="reference external" href="https://sfconservancy.org/"&gt;Software
+in free and open-source software. Outreachy is organized by &lt;a class="reference external" href="https://sfconservancy.org/"&gt;Software
 Freedom Conservancy&lt;/a&gt;.&lt;/p&gt;
 </content>
     <link href="www.conda-forge.org/blog/posts/2021-02-02-Outreachy/" rel="alternate"/>
     <summary>Conda-forge is participating in the upcoming round of Outreachy i.e May 2021 to August 2021. The goal of
 this program is to increase participation from under-represented groups
-in free and open source software. Outreachy is organized by Software
+in free and open-source software. Outreachy is organized by Software
 Freedom Conservancy.</summary>
     <category term="Outreachy" label="Outreachy"/>
     <published>2021-02-02T00:00:00+00:00</published>
