@@ -29,7 +29,10 @@ Let us get started.
    ``git add recipe/abc/meta.yaml``
    ``git commit -m "add a commit message"``
    ``git push``
-8. Create a PR. Dropping a message in the conda-forge public `Gitter channel<https://gitter.im/conda-forge/conda-forge.github.io>`__ and a link to your PR might be a good idea to get your PR reviewed and merged.
+8. Create a PR
+9. Once the CI is passing, post a comment saying:
+    ``This is ready for review``
+    ``@conda-forge-admin, please ping team``
 
 Once the PR gets merged, your package will be available on the conda-forge channel.
 Tada! It’s that easy.
