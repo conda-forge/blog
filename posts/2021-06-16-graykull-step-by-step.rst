@@ -27,7 +27,7 @@ Let us get started.
    For simpler packages, the generated recipes are nearly perfect, but for some packages you might need to make certain tweaks.
 7. Commit and push the changes.
    ``git add.``
-   ``git commit -m “add a commit message”``
+   ``git commit -m "add a commit message"``
    ``git push``
 8. Create a PR. Dropping a message in the conda-forge public `Gitter channel<https://gitter.im/conda-forge/conda-forge.github.io>`__ and a link to your PR might be a good idea to get your PR reviewed and merged.
 
