@@ -20,7 +20,10 @@ Let us get started.
 3. Fetch a new branch from the ``master branch``.
 4. Through CLI enter inside the ‘staged-recipes’ directory.
 5. Call ``grayskull`` and pass the ``pypi`` repository, followed by the name of the package you want to contribute to conda-forge. For example:
-   ``grayskull pypi abc``
+   ``grayskull pypi abc`` 
+   
+   Or you could use ``grayskull pypi abc --strict-conda-forge`` to remove some selectors which are not necessary for conda-forge and adapt recipes to fit better in the conda-forge ecosystem. 
+   
    Grayskull will create a folder with the same name as the package (in this case: ‘abc’) in the ‘recipes’ folder of the ‘staged-recipes’ directory.
    This folder will contain the ``meta.yaml`` file and also the license file if the package includes a license in the PyPI distribution.
 6. Go through the generated ``meta.yaml`` file.
@@ -29,10 +32,11 @@ Let us get started.
    ``git add recipe/abc/meta.yaml``
    ``git commit -m "add a commit message"``
    ``git push``
-8. Create a PR
-9. Once the CI is passing, post a comment saying:
+8. Create a PR.
+9.  Once the CI is passing, post a comment saying:
     ``This is ready for review``
     ``@conda-forge-admin, please ping team``
+
 
 Once the PR gets merged, your package will be available on the conda-forge channel.
 Tada! It’s that easy.
