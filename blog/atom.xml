@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2021-04-13T14:50:59.647689+00:00</updated>
+  <updated>2021-07-06T13:04:21.089895+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
   <entry>
     <id>www.conda-forge.org/blog/posts/2019-12-06-cfep09/</id>
     <title>Automatically Deployed ABI Migrations</title>
@@ -231,5 +231,21 @@ in free and open-source software. Outreachy is organized by Software
 Freedom Conservancy.</summary>
     <category term="Outreachy" label="Outreachy"/>
     <published>2021-02-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>www.conda-forge.org/blog/posts/2021-06-16-graykull-step-by-step/</id>
+    <title>Contributing Packages To conda-forge Using Grayskull</title>
+    <updated>2021-06-16T00:00:00+00:00</updated>
+    <author>
+      <name>ForgottenProgramme</name>
+    </author>
+    <content type="html">&lt;p&gt;When contributing packages to conda-forge, Grayskull can make your life much easier.
+Grayskull generates recipes for Python packages hosted on PyPI.&lt;/p&gt;
+</content>
+    <link href="www.conda-forge.org/blog/posts/2021-06-16-graykull-step-by-step/" rel="alternate"/>
+    <summary>When contributing packages to conda-forge, Grayskull can make your life much easier.
+Grayskull generates recipes for Python packages hosted on PyPI.</summary>
+    <category term="Grayskull" label="Grayskull"/>
+    <published>2021-06-16T00:00:00+00:00</published>
   </entry>
 </feed>

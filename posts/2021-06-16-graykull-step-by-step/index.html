@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Automatically Deployed ABI Migrations &#8212; the conda-forge blog</title>
+    <title>Contributing Packages To conda-forge Using Grayskull &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -64,51 +64,55 @@
           
 
           <div class="body" role="main">
-             <section id="automatically-deployed-abi-migrations">
-<h1>Automatically Deployed ABI Migrations<a class="headerlink" href="#automatically-deployed-abi-migrations" title="Permalink to this headline">¶</a></h1>
-<p>Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
-Maintaining ABI consistency helps enable the “just use conda-forge” experience for many of our users,
-making certain that numpy’s blas is the same as scipy’s.
-As libraries update their code, the new versions may be ABI incompatible, as function signatures and other symbols
-may have changed, leading to the dreaded <code class="docutils literal notranslate"><span class="pre">SegmentationFault</span></code> and other errors.</p>
-<p>Conda-Forge handles this by having a pinning file that tracks all the currently supported ABIs.
-These pinned ABIs are then used to build the downstream packages, making certain that all are consistent.
-As new versions of pinned software are released the pins are updated, causing a migration of the pin, and the
-rebuilding of all packages which rely on the pinned package.
-In the past, this was handled by a change to the global pinnings and a subsequent migration via the auto-tick bot.
-While this worked, there were issues that this created.
-Firstly, this approach could cause unsatisfiable build dependencies for new packages, as some of the new package’s
-dependencies had been compiled with the new pins, but not all.
-Secondly, migrations happened in series, if a second pin was moved while the first was being migrated then the
-migration could go wrong as packages which were being rebuilt for the first pin got the second pin before they were
-ready.</p>
-<p>Conda-Forge Core has recently approved CFEP-9, a migration policy to fix these issues.
-With CFEP-9 pinnings are proposed as small yaml snippets which contain the new pins.
-The auto-tick bot then starts migrating the packages in order, applying the yaml snippet to each package in turn.
-If a second pinning change is issued then the bot starts the migration for that package too, enabling the
-two migrations to work independently.
-If a package needs a change in both pins then the maintainers can choose the order in which they apply the pins
-by merging one pin before the other.</p>
-<p>This approach will yield much greater stability in migrations and will enable more maintainers to issue migrations.
-Migrations can be issued by putting a PR into <cite>conda-forge/conda-forge-pinning-feedstock</cite>, adding a file to the
-<cite>migrations</cite> folder, PRs into the auto-tick bot are not needed anymore.</p>
+             <section id="contributing-packages-to-conda-forge-using-grayskull">
+<h1>Contributing Packages To conda-forge Using Grayskull<a class="headerlink" href="#contributing-packages-to-conda-forge-using-grayskull" title="Permalink to this headline">¶</a></h1>
+<p>When contributing packages to conda-forge, Grayskull can make your life much easier.
+Grayskull generates recipes for Python packages hosted on PyPI.</p>
+<p>As the <a class="reference external" href="https://github.com/conda-incubator/grayskull#introduction">introduction</a> for Grayskull reads; “The main goal of this project is to generate concise recipes for conda-forge.”
+In this tutorial we learn how to contribute a Python package to the conda-forge channel using Grayskull to generate the recipe.</p>
+<p>Let us get started.</p>
+<ol class="arabic">
+<li><dl class="simple">
+<dt>Install <code class="docutils literal notranslate"><span class="pre">grayskull</span></code> using <code class="docutils literal notranslate"><span class="pre">conda</span></code> through the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">grayskull</span></code></p>
+</dd>
+</dl>
+</li>
+<li><p>Fork and clone the conda-forge <a href="#id1"><span class="problematic" id="id2">`staged-recipes repository&lt;https://github.com/conda-forge/staged-recipes&gt;`__</span></a> from GitHub.</p></li>
+<li><p>Fetch a new branch from the <code class="docutils literal notranslate"><span class="pre">master</span> <span class="pre">branch</span></code>.</p></li>
+<li><p>Through CLI enter inside the ‘staged-recipes’ directory.</p></li>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">grayskull</span></code> and pass the <code class="docutils literal notranslate"><span class="pre">pypi</span></code> repository, followed by the name of the package you want to contribute to conda-forge. For example:
+<code class="docutils literal notranslate"><span class="pre">grayskull</span> <span class="pre">pypi</span> <span class="pre">abc</span></code></p>
+<p>Or you could use <code class="docutils literal notranslate"><span class="pre">grayskull</span> <span class="pre">pypi</span> <span class="pre">abc</span> <span class="pre">--strict-conda-forge</span></code> to remove some selectors which are not necessary for conda-forge and adapt recipes to fit better in the conda-forge ecosystem.</p>
+<p>Grayskull will create a folder with the same name as the package (in this case: ‘abc’) in the ‘recipes’ folder of the ‘staged-recipes’ directory.
+This folder will contain the <code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code> file and also the license file if the package includes a license in the PyPI distribution.</p>
+</li>
+<li><p>Go through the generated <code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code> file.
+For simpler packages, the generated recipes are nearly perfect, but for some packages you might need to make certain tweaks.</p></li>
+<li><p>Commit and push the changes.
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">recipe/abc/meta.yaml</span></code>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;add</span> <span class="pre">a</span> <span class="pre">commit</span> <span class="pre">message&quot;</span></code>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p></li>
+<li><p>Create a PR.</p></li>
+<li><p>Once the CI is passing, post a comment saying:
+<code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">ready</span> <span class="pre">for</span> <span class="pre">review</span></code>
+<code class="docutils literal notranslate"><span class="pre">&#64;conda-forge-admin,</span> <span class="pre">please</span> <span class="pre">ping</span> <span class="pre">team</span></code></p></li>
+</ol>
+<p>Once the PR gets merged, your package will be available on the conda-forge channel.
+Tada! It’s that easy.</p>
 </section>
 
 <div class="section">
      
 <div class="section">
   <span style="float: left">
+     
+    <a href="../2021-02-02-Outreachy/">
+      <i class="fa fa-arrow-circle-left"></i> Conda-forge Outreachy
+    </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     
-    <a href="../2020-03-05-grayskull/">
-      By the power of Grayskull… I have the Conda recipe! <i
-        class="fa fa-arrow-circle-right"
-      ></i
-      >
-    </a>
     
   </span>
 </div>
@@ -128,7 +132,7 @@ the conda-forge blog
 </p>  
 <h2>
    <i class="fa fa-calendar"></i>
-  2019-12-06 
+  2021-06-16 
 </h2>
 
 <ul>
@@ -138,7 +142,7 @@ the conda-forge blog
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="../../blog/author/cj-wright/">C.J. Wright</a>  
+  <a href="../../blog/author/forgottenprogramme/">ForgottenProgramme</a>  
 </li>
     
 <li id="tags">
@@ -149,7 +153,7 @@ the conda-forge blog
     ></span
   >
    
-  <a href="../../blog/tag/autotick-bot/">autotick-bot</a>  
+  <a href="../../blog/tag/grayskull/">Grayskull</a>  
 </li>
  
 </ul>
@@ -159,12 +163,6 @@ the conda-forge blog
 </h3>
 <ul>
    
-  <li>
-    <a href="../2021-06-16-graykull-step-by-step/"
-      >2021-06-16 - Contributing Packages To conda-forge Using Grayskull</a
-    >
-  </li>
-  
   <li>
     <a href="../2021-02-02-Outreachy/"
       >2021-02-02 - Conda-forge Outreachy</a
@@ -186,6 +184,12 @@ the conda-forge blog
   <li>
     <a href="../2020-10-29-macos-arm64/"
       >2020-10-29 - macOS ARM builds on conda-forge</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-10-02-versions/"
+      >2020-10-02 - The API Territory and Version Number Map</a
     >
   </li>
   
@@ -296,7 +300,7 @@ the conda-forge blog
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/posts/2019-12-06-cfep09.rst.txt"
+      <a href="../../_sources/posts/2021-06-16-graykull-step-by-step.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
