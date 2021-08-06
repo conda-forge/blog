@@ -18,7 +18,7 @@ Let us get started.
     ``conda install -c conda-forge grayskull``
 2. Fork and clone the conda-forge `staged-recipes repository<https://github.com/conda-forge/staged-recipes>`__ from GitHub.
 3. Checkout a new branch from the ``master branch``.
-4. Through CLI enter inside the ‘staged-recipes’ directory and cd into the 'recipes' sub directory.
+4. Through CLI, cd inside the ‘staged-recipes/recipes’ directory .
 5. Call ``grayskull`` and pass the ``pypi`` repository, followed by the name of the package you want to contribute to conda-forge. For example:
    ``grayskull pypi abc`` 
    
