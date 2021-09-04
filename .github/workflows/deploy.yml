@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - master
+      - main
   pull_request: null
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_website
