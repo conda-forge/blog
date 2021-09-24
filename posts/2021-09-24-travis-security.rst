@@ -13,7 +13,7 @@ On September 9, 2021 one of our core devs discovered that artifacts building on
 Travis CI were being uploaded to our conda channel from PRs running on forked
 repositories. A quick investigation revealed that Travis CI was passing encrypted
 secrets to PR builds on forks. Further examination of our logs and artifacts indicated
-that this had been happening since about September 3, 2021. See this `CVE <https://nvd.nist.gov/vuln/detail/CVE-2021-41077>`_
+that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this `CVE <https://nvd.nist.gov/vuln/detail/CVE-2021-41077>`_
 for more details on this incident. **As far as we know, there were no actual exploits against
 conda-forge which used this vulnerability.**
 
