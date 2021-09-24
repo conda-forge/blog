@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2021-09-24T11:38:56.433538+00:00</updated>
+  <updated>2021-09-24T20:02:37.333077+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
@@ -247,5 +247,31 @@ Grayskull generates recipes for Python packages hosted on PyPI.&lt;/p&gt;
 Grayskull generates recipes for Python packages hosted on PyPI.</summary>
     <category term="Grayskull" label="Grayskull"/>
     <published>2021-06-16T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>www.conda-forge.org/blog/posts/2021-09-24-travis-security/</id>
+    <title>Travis CI Security Incident</title>
+    <updated>2021-09-24T00:00:00+00:00</updated>
+    <author>
+      <name>Matthew R. Becker</name>
+    </author>
+    <content type="html">&lt;p&gt;On September 9, 2021 one of our core devs discovered that artifacts building on
+Travis CI were being uploaded to our conda channel from PRs running on forked
+repositories. A quick investigation revealed that Travis CI was passing encrypted
+secrets to PR builds on forks. Further examination of our logs and artifacts indicated
+that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this &lt;a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2021-41077"&gt;CVE&lt;/a&gt;
+for more details on this incident. &lt;strong&gt;As far as we know, there were no actual exploits against
+conda-forge which used this vulnerability.&lt;/strong&gt;&lt;/p&gt;
+</content>
+    <link href="www.conda-forge.org/blog/posts/2021-09-24-travis-security/" rel="alternate"/>
+    <summary>On September 9, 2021 one of our core devs discovered that artifacts building on
+Travis CI were being uploaded to our conda channel from PRs running on forked
+repositories. A quick investigation revealed that Travis CI was passing encrypted
+secrets to PR builds on forks. Further examination of our logs and artifacts indicated
+that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this CVE
+for more details on this incident. As far as we know, there were no actual exploits against
+conda-forge which used this vulnerability.</summary>
+    <category term="security" label="security"/>
+    <published>2021-09-24T00:00:00+00:00</published>
   </entry>
 </feed>

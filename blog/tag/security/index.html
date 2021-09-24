@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Posts tagged Grayskull &#8212; the conda-forge blog</title>
+    <title>Posts tagged security &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -24,7 +24,7 @@
   rel="alternate"
   type="application/atom+xml"
   href="../../../blog/atom.xml"
-  title="Posts tagged Grayskull"
+  title="Posts tagged security"
 />
  
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
@@ -66,20 +66,20 @@
             
 <div class="section">
   <h1>
-     Posts tagged  Grayskull 
+     Posts tagged  security 
   </h1>
    
 
   <div class="section">
     <h2>
-      <a href="../../../posts/2021-06-16-graykull-step-by-step/"
-        >Contributing Packages To conda-forge Using Grayskull</a
+      <a href="../../../posts/2021-09-24-travis-security/"
+        >Travis CI Security Incident</a
       >
     </h2>
 
     <ul class="ablog-archive">
       <li>
-         <i class="fa fa-calendar"></i> 2021-06-16 
+         <i class="fa fa-calendar"></i> 2021-09-24 
       </li>
        
 <li id="author">
@@ -87,7 +87,7 @@
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="../../author/forgottenprogramme/">ForgottenProgramme</a>  
+  <a href="../../author/matthew-r-becker/">Matthew R. Becker</a>  
 </li>
     
 <li id="tags">
@@ -98,14 +98,19 @@
     ></span
   >
    
-  <a href="#">Grayskull</a>  
+  <a href="#">security</a>  
 </li>
  
     </ul>
-    <p>When contributing packages to conda-forge, Grayskull can make your life much easier.
-Grayskull generates recipes for Python packages hosted on PyPI.</p>
+    <p>On September 9, 2021 one of our core devs discovered that artifacts building on
+Travis CI were being uploaded to our conda channel from PRs running on forked
+repositories. A quick investigation revealed that Travis CI was passing encrypted
+secrets to PR builds on forks. Further examination of our logs and artifacts indicated
+that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this <a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2021-41077">CVE</a>
+for more details on this incident. <strong>As far as we know, there were no actual exploits against
+conda-forge which used this vulnerability.</strong></p>
 
-    <p><a href="../../../posts/2021-06-16-graykull-step-by-step/">Read more ...</a></p>
+    <p><a href="../../../posts/2021-09-24-travis-security/">Read more ...</a></p>
     <hr />
   </div>
    
@@ -194,7 +199,7 @@ the conda-forge blog
 <ul class="ablog-cloud">
    
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="#">Grayskull</a>
+    <a href="../grayskull/">Grayskull</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -222,7 +227,7 @@ the conda-forge blog
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../security/">security</a>
+    <a href="#">security</a>
   </li>
    
 </ul>

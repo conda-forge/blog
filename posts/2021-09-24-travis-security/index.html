@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Scipy 2020 Packaging BOF &#8212; the conda-forge blog</title>
+    <title>Travis CI Security Incident &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -64,43 +64,40 @@
           
 
           <div class="body" role="main">
-             <section id="scipy-2020-packaging-bof">
-<h1>Scipy 2020 Packaging BOF<a class="headerlink" href="#scipy-2020-packaging-bof" title="Permalink to this headline">¶</a></h1>
-<section id="abstract">
-<h2>Abstract:<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
-<p>Have some thoughts about conda-forge and how it can be expanded in a way that is sustainable? Join us in this virtual Birds of a Feather discussion where we’ll discuss maintenance, pain points, opportunities within conda-forge. Any and all are welcome, and we especially are seeking new viewpoints and opinions!</p>
+             <section id="travis-ci-security-incident">
+<h1>Travis CI Security Incident<a class="headerlink" href="#travis-ci-security-incident" title="Permalink to this headline">¶</a></h1>
+<p>On September 9, 2021 one of our core devs discovered that artifacts building on
+Travis CI were being uploaded to our conda channel from PRs running on forked
+repositories. A quick investigation revealed that Travis CI was passing encrypted
+secrets to PR builds on forks. Further examination of our logs and artifacts indicated
+that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this <a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2021-41077">CVE</a>
+for more details on this incident. <strong>As far as we know, there were no actual exploits against
+conda-forge which used this vulnerability.</strong></p>
+<section id="our-response">
+<h2>Our Response<a class="headerlink" href="#our-response" title="Permalink to this headline">¶</a></h2>
+<p>We took the following steps to respond to this incident.</p>
+<ol class="arabic simple">
+<li><p>We immediately turned off all builds on Travis CI by suspending the Travis CI GitHub App.</p></li>
+<li><p>We immediately disclosed the bug to Travis CI through our contacts there.</p></li>
+<li><p>Once Travis CI indicated to us that they were ready, we rotated
+all feedstock tokens and later our anaconda.org token for our staging channel. The anaconda.org token
+for the main <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel was never disclosed in this incident. Further, only ~70 feedstocks
+had their tokens exposed in this incident.</p></li>
+<li><p>We examined our artifacts and marked as broken any artifacts that were uploaded from PRs. We think we found
+everything, but we are not completely sure. Our criterion for marking things broken was more generous than it needed to be.</p></li>
+<li><p>We issued PRs to rebuild any broken artifacts via our bots.</p></li>
+<li><p>We put in changes to <code class="docutils literal notranslate"><span class="pre">conda-smithy</span></code> to help prevent inadvertent uploads of artifacts from PRs in the future.</p></li>
+</ol>
 </section>
-<section id="bof-questions">
-<h2>BOF questions:<a class="headerlink" href="#bof-questions" title="Permalink to this headline">¶</a></h2>
-<section id="state-of-packaging">
-<h3>State of Packaging<a class="headerlink" href="#state-of-packaging" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>What is the state of conda-forge today?</p></li>
-<li><p>What improvements are in the works?</p></li>
-</ul>
-</section>
-<section id="new-features-ideas">
-<h3>New features/ideas<a class="headerlink" href="#new-features-ideas" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>What is something that’s not in the works that you’d like to see updated/improved?</p></li>
-<li><p>What are ways that folks who are interested but new to the community can get involved?</p></li>
-</ul>
-</section>
-<section id="maintenance">
-<h3>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>What is the maintenance burden and what pain points does it create?</p></li>
-<li><p>What are strategies to mitigate this burden?</p></li>
-</ul>
-</section>
-<section id="questions-to-the-audience">
-<h3>Questions to the audience<a class="headerlink" href="#questions-to-the-audience" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>What are your pain points when engaging with conda forge?</p></li>
-<li><p>What is something new you’d like to see happen?</p></li>
-<li><p>What feedback do audience members have?</p></li>
-</ul>
-</section>
+<section id="closing-thoughts-what-can-you-do">
+<h2>Closing Thoughts &amp; What can you do?<a class="headerlink" href="#closing-thoughts-what-can-you-do" title="Permalink to this headline">¶</a></h2>
+<p>I (MRB) want to recognize the quick work of our core dev team in handling this incident. It goes without saying
+that the public nature of <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>’s infrastructure carries risks. On the other hand, by being public,
+anyone can look and verify our artifact builds. Security for <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is about reducing risk and we will
+continue to do our best.</p>
+<p>Our best defense against security incidents in <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is <em>you</em>! Our feedstock maintainers
+are in the best position to notice incidents and issues. Please responsibly report anything you find to us
+at <code class="docutils literal notranslate"><span class="pre">condaforge&#64;gmail.com</span></code>.</p>
 </section>
 </section>
 
@@ -109,20 +106,13 @@
 <div class="section">
   <span style="float: left">
      
-    <a href="../2020-07-02-op-risk/">
-      <i class="fa fa-arrow-circle-left"></i> Conda-Forge Operational Risk
+    <a href="../2021-06-16-graykull-step-by-step/">
+      <i class="fa fa-arrow-circle-left"></i> Contributing Packages To conda-forge Using Grayskull
     </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     
-    <a href="../2020-07-11-R-4/">
-      R 4.0 Migration Retrospective <i
-        class="fa fa-arrow-circle-right"
-      ></i
-      >
-    </a>
     
   </span>
 </div>
@@ -142,7 +132,7 @@ the conda-forge blog
 </p>  
 <h2>
    <i class="fa fa-calendar"></i>
-  2020-07-02 
+  2021-09-24 
 </h2>
 
 <ul>
@@ -152,7 +142,7 @@ the conda-forge blog
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="../../blog/author/cj-wright/">C.J. Wright</a>  
+  <a href="../../blog/author/matthew-r-becker/">Matthew R. Becker</a>  
 </li>
     
 <li id="tags">
@@ -163,7 +153,7 @@ the conda-forge blog
     ></span
   >
    
-  <a href="../../blog/tag/scipy/">scipy</a>  
+  <a href="../../blog/tag/security/">security</a>  
 </li>
  
 </ul>
@@ -173,12 +163,6 @@ the conda-forge blog
 </h3>
 <ul>
    
-  <li>
-    <a href="../2021-09-24-travis-security/"
-      >2021-09-24 - Travis CI Security Incident</a
-    >
-  </li>
-  
   <li>
     <a href="../2021-06-16-graykull-step-by-step/"
       >2021-06-16 - Contributing Packages To conda-forge Using Grayskull</a
@@ -200,6 +184,12 @@ the conda-forge blog
   <li>
     <a href="../2020-11-20-anaconda-tos/"
       >2020-11-20 - Package Distribution and the anaconda.com Terms of Service</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-10-29-macos-arm64/"
+      >2020-10-29 - macOS ARM builds on conda-forge</a
     >
   </li>
   
@@ -314,7 +304,7 @@ the conda-forge blog
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/posts/2020-07-06-scipy-bof.rst.txt"
+      <a href="../../_sources/posts/2021-09-24-travis-security.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

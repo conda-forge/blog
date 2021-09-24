@@ -74,6 +74,51 @@
 
   <div class="section">
     <h2>
+      <a href="../../../posts/2021-09-24-travis-security/"
+        >Travis CI Security Incident</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 2021-09-24 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="#">Matthew R. Becker</a>  
+</li>
+    
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="../../tag/security/">security</a>  
+</li>
+ 
+    </ul>
+    <p>On September 9, 2021 one of our core devs discovered that artifacts building on
+Travis CI were being uploaded to our conda channel from PRs running on forked
+repositories. A quick investigation revealed that Travis CI was passing encrypted
+secrets to PR builds on forks. Further examination of our logs and artifacts indicated
+that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this <a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2021-41077">CVE</a>
+for more details on this incident. <strong>As far as we know, there were no actual exploits against
+conda-forge which used this vulnerability.</strong></p>
+
+    <p><a href="../../../posts/2021-09-24-travis-security/">Read more ...</a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section">
+    <h2>
       <a href="../../../posts/2020-07-11-R-4/"
         >R 4.0 Migration Retrospective</a
       >
@@ -132,6 +177,12 @@ the conda-forge blog
 <ul>
    
   <li>
+    <a href="../../../posts/2021-09-24-travis-security/"
+      >2021-09-24 - Travis CI Security Incident</a
+    >
+  </li>
+  
+  <li>
     <a href="../../../posts/2021-06-16-graykull-step-by-step/"
       >2021-06-16 - Contributing Packages To conda-forge Using Grayskull</a
     >
@@ -152,12 +203,6 @@ the conda-forge blog
   <li>
     <a href="../../../posts/2020-11-20-anaconda-tos/"
       >2020-11-20 - Package Distribution and the anaconda.com Terms of Service</a
-    >
-  </li>
-  
-  <li>
-    <a href="../../../posts/2020-10-29-macos-arm64/"
-      >2020-10-29 - macOS ARM builds on conda-forge</a
     >
   </li>
   
@@ -224,6 +269,10 @@ the conda-forge blog
   <li class="ablog-cloud ablog-cloud-2">
     <a href="../../tag/scipy/">scipy</a>
   </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../tag/security/">security</a>
+  </li>
    
 </ul>
 
@@ -233,7 +282,7 @@ the conda-forge blog
 <ul>
    
   <li>
-    <a href="../../2021/">2021 (2)</a>
+    <a href="../../2021/">2021 (3)</a>
   </li>
     
   <li>
