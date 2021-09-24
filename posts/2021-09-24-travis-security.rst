@@ -26,7 +26,8 @@ We took the following steps to respond to this incident.
 2. We immediately disclosed the bug to Travis CI through our contacts there.
 3. Once Travis CI indicated to us that they were ready, we rotated
    all feedstock tokens and later our anaconda.org token for our staging channel. The anaconda.org token
-   for the main ``conda-forge`` channel was never disclosed in this incident.
+   for the main ``conda-forge`` channel was never disclosed in this incident. Further, only ~70 feedstocks
+   had their tokens exposed in this incident.
 4. We examined our artifacts and marked as broken any artifacts that were uploaded from PRs.
 5. We issued PRs to rebuild any broken artifacts via our bots.
 6. We put in changes to ``conda-smithy`` to help prevent inadvertent uploads of artifacts from PRs in the future.
