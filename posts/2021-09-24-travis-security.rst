@@ -29,7 +29,7 @@ We took the following steps to respond to this incident.
    for the main ``conda-forge`` channel was never disclosed in this incident. Further, only ~70 feedstocks
    had their tokens exposed in this incident.
 4. We examined our artifacts and marked as broken any artifacts that were uploaded from PRs. We think we found 
-   everything, but we are not completely sure.
+   everything, but we are not completely sure. Our criterion for marking things broken was more generous than it needed to be.
 5. We issued PRs to rebuild any broken artifacts via our bots.
 6. We put in changes to ``conda-smithy`` to help prevent inadvertent uploads of artifacts from PRs in the future.
 
