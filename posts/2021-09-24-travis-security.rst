@@ -43,4 +43,4 @@ continue to do our best.
 
 Our best defense against security incidents in ``conda-forge`` is *you*! Our feedstock maintainers
 are in the best position to notice incidents and issues. Please responsibly report anything you find to us
-at ``condaforge@gmail.com``.
+at ``condaforge+security@gmail.com``.
