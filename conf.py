@@ -51,6 +51,7 @@ blog_authors = {
     'cj': ('C.J. Wright', 'https://github.com/CJ-Wright'),
     'mrb': ('Matthew R. Becker', 'https://beckermr.github.io'),
     'conda-forge/core': ('conda-forge/core', 'https://conda-forge.org/'),
+    'wolfv': ('Wolf Vollprecht', 'https://github.com/wolfv'),
 }
 
 
