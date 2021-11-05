@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Posts by Isuru Fernando &#8212; the conda-forge blog</title>
+    <title>Posts by Wolf Vollprecht &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -24,7 +24,7 @@
   rel="alternate"
   type="application/atom+xml"
   href="../../../blog/atom.xml"
-  title="Posts by Isuru Fernando"
+  title="Posts by Wolf Vollprecht"
 />
  
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
@@ -67,21 +67,21 @@
 <div class="section">
   <h1>
      Posts by 
-    <a href="https://github.com/isuruf">Isuru Fernando</a>
+    <a href="https://github.com/wolfv">Wolf Vollprecht</a>
     
   </h1>
    
 
   <div class="section">
     <h2>
-      <a href="../../../posts/2020-10-29-macos-arm64/"
-        >macOS ARM builds on conda-forge</a
+      <a href="../../../posts/2021-11-03-tensorflow-gpu/"
+        >GPU enabled TensorFlow builds on conda-forge</a
       >
     </h2>
 
     <ul class="ablog-archive">
       <li>
-         <i class="fa fa-calendar"></i> 2020-10-29 
+         <i class="fa fa-calendar"></i> 2021-11-03 
       </li>
        
 <li id="author">
@@ -89,7 +89,7 @@
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="#">Isuru Fernando</a>  
+  <a href="#">Wolf Vollprecht</a>  
 </li>
     
 <li id="tags">
@@ -104,51 +104,9 @@
 </li>
  
     </ul>
-    <p>A new platform <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> has been added to the build matrix of conda-forge.
-<code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> packages are built to run on upcoming macOS arm64 processors marketed
-as <code class="docutils literal notranslate"><span class="pre">Apple</span> <span class="pre">Silicon</span></code>. An installer for this platform can be found
-<a class="reference external" href="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh">here</a>.</p>
+    <p>Recently we’ve been able to add GPU-enabled TensorFlow builds to conda-forge! This was quite a journey, with multiple contributors trying different ways to convince the Bazel-based build system of TensorFlow to build CUDA-enabled packages. But we managed, <a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock/pull/157">and the pull request got merged</a>.</p>
 
-    <p><a href="../../../posts/2020-10-29-macos-arm64/">Read more ...</a></p>
-    <hr />
-  </div>
-  
-
-  <div class="section">
-    <h2>
-      <a href="../../../posts/2020-03-10-pypy/"
-        >PyPy builds on conda-forge</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> 2020-03-10 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="#">Isuru Fernando</a>  
-</li>
-    
-<li id="tags">
-  <span
-    ><i
-      class="fa-fw fa fa-tag"
-    ></i
-    ></span
-  >
-   
-  <a href="../../tag/infrastructure/">infrastructure</a>  
-</li>
- 
-    </ul>
-    <p>conda-forge now supports PyPy3.6 as the python interpreter in a conda environment</p>
-
-    <p><a href="../../../posts/2020-03-10-pypy/">Read more ...</a></p>
+    <p><a href="../../../posts/2021-11-03-tensorflow-gpu/">Read more ...</a></p>
     <hr />
   </div>
    

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Travis CI Security Incident &#8212; the conda-forge blog</title>
+    <title>GPU enabled TensorFlow builds on conda-forge &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -64,40 +64,37 @@
           
 
           <div class="body" role="main">
-             <section id="travis-ci-security-incident">
-<h1>Travis CI Security Incident<a class="headerlink" href="#travis-ci-security-incident" title="Permalink to this headline">¶</a></h1>
-<p>On September 9, 2021 one of our core devs discovered that artifacts building on
-Travis CI were being uploaded to our conda channel from PRs running on forked
-repositories. A quick investigation revealed that Travis CI was passing encrypted
-secrets to PR builds on forks. Further examination of our logs and artifacts indicated
-that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this <a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2021-41077">CVE</a>
-for more details on this incident. <strong>As far as we know, there were no actual exploits against
-conda-forge which used this vulnerability.</strong></p>
-<section id="our-response">
-<h2>Our Response<a class="headerlink" href="#our-response" title="Permalink to this headline">¶</a></h2>
-<p>We took the following steps to respond to this incident.</p>
-<ol class="arabic simple">
-<li><p>We immediately turned off all builds on Travis CI by suspending the Travis CI GitHub App.</p></li>
-<li><p>We immediately disclosed the bug to Travis CI through our contacts there.</p></li>
-<li><p>Once Travis CI indicated to us that they were ready, we rotated
-all feedstock tokens and later our anaconda.org token for our staging channel. The anaconda.org token
-for the main <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel was never disclosed in this incident. Further, only ~70 feedstocks
-had their tokens exposed in this incident.</p></li>
-<li><p>We examined our artifacts and marked as broken any artifacts that were uploaded from PRs. We think we found
-everything, but we are not completely sure. Our criterion for marking things broken was more generous than it needed to be.</p></li>
-<li><p>We issued PRs to rebuild any broken artifacts via our bots.</p></li>
-<li><p>We put in changes to <code class="docutils literal notranslate"><span class="pre">conda-smithy</span></code> to help prevent inadvertent uploads of artifacts from PRs in the future.</p></li>
-</ol>
+             <section id="gpu-enabled-tensorflow-builds-on-conda-forge">
+<h1>GPU enabled TensorFlow builds on conda-forge<a class="headerlink" href="#gpu-enabled-tensorflow-builds-on-conda-forge" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="https://i.imgur.com/pRdJaYw.png"><img alt="Tensorflow on Anvil" src="https://i.imgur.com/pRdJaYw.png" style="width: 400px;" /></a>
+<p>Recently we’ve been able to add GPU-enabled TensorFlow builds to conda-forge! This was quite a journey, with multiple contributors trying different ways to convince the Bazel-based build system of TensorFlow to build CUDA-enabled packages. But we managed, <a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock/pull/157">and the pull request got merged</a>.</p>
+<p>We now have a configuration in place that creates CUDA-enabled TensorFlow builds for all conda-forge supported configurations (CUDA 10.2, 11.0, 11.1, and 11.2+). Building out the CUDA packages requires beefy machines – on a 32 core machine it still takes around 3 hours to build a single package. Our build matrix now includes 12 CUDA-enabled packages &amp; 3 CPU packages (because we need separate packages per Python version). As one can imagine, this isn’t easily possible on an average “home computer”.</p>
+<p>For this purpose, we have written an Ansible playbook that lets us boot up cloud machines which then build the feedstock (using the <cite>build-locally.py</cite> script). Thanks to the generous support of OVH we were able to boot multiple 32-core virtual machines simultaneously to build the different TensorFlow variants.</p>
+<p>We have open-sourced the <a class="reference external" href="https://github.com/mamba-org/build-locally-ansible">Ansible playbook in GitHub</a> and we’re working towards making it (more) generally useful for other long-running builds!</p>
+<a class="reference internal image-reference" href="https://i.imgur.com/nvV6izV.jpg"><img alt="Running 3 builds in parallel on 32 cores ... still takes around 3 hours to finish" src="https://i.imgur.com/nvV6izV.jpg" style="width: 600px;" /></a>
+<p>With the TensorFlow builds in place, conda-forge now has CUDA-enabled builds for PyTorch and Tensorflow, the two most popular deep learning libraries.</p>
+<p>We are still missing Windows builds for TensorFlow (CPU &amp; CUDA, unfortunately) and would love the community to help us out with that. There is an open PR, but it probably needs some poking in Bazel to get it to pass: <a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock/pull/111">https://github.com/conda-forge/tensorflow-feedstock/pull/111</a>.</p>
+<p>We hope that these new GPU builds will enable many more packages to be added to the conda-forge channel! We are already looking forward to the 2.6.2 and 2.7 releases of TensorFlow and to adding Windows support in the future. We hope you enjoy this work.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can now select between GPU enabled (default) and CPU packages using the <cite>tensorflow-gpu</cite> and <cite>tensorflow-cpu</cite> packages. Just run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba install tensorflow-gpu -c conda-forge
+<span class="c1"># OR</span>
+conda install tensorflow-gpu -c conda-forge
+</pre></div>
+</div>
+<p>When installing the <cite>tensorflow</cite> package, the package resolution will now default to the <cite>tensorflow-gpu</cite> package (that will also work on CPU). If you want the slimmer “cpu-only” package, then you can install <cite>tensorflow-cpu</cite> directly.</p>
 </section>
-<section id="closing-thoughts-what-can-you-do">
-<h2>Closing Thoughts &amp; What can you do?<a class="headerlink" href="#closing-thoughts-what-can-you-do" title="Permalink to this headline">¶</a></h2>
-<p>I (MRB) want to recognize the quick work of our core dev team in handling this incident. It goes without saying
-that the public nature of <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>’s infrastructure carries risks. On the other hand, by being public,
-anyone can look and verify our artifact builds. Security for <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is about reducing risk and we will
-continue to do our best.</p>
-<p>Our best defense against security incidents in <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is <em>you</em>! Our feedstock maintainers
-are in the best position to notice incidents and issues. Please responsibly report anything you find to us
-at <code class="docutils literal notranslate"><span class="pre">condaforge+security&#64;gmail.com</span></code>.</p>
+<section id="thanks-to">
+<h2>Thanks to<a class="headerlink" href="#thanks-to" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Mark Harfouche (&#64;hmaarrfk) &amp; Ista Zahn (&#64;izahn) for their initial work on the TensorFlow GPU builds, and all other TensorFlow maintainers. Uwe Korn (&#64;xhochy) for his work on the Bazel scripts &amp; TensorFlow – and all the other maintainers of the <a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock">TensorFlow feedstock</a>!</p></li>
+<li><p>NVIDIA for pushing cudatoolkit and cudnn on conda-forge that makes this possible</p></li>
+<li><p>OVH for their generous sponsoring of large build machines that we could use to build the recipes</p></li>
+<li><p>Bloomberg for their sponsorship of QuantStack’s involvement with conda-forge</p></li>
+<li><p>Andreas Trawoger (&#64;atrawog) for the Ansible scripts that this is based on</p></li>
+<li><p>Thorsten Beier (&#64;derthorsten) and Adrien Delsalle (&#64;adriendelsalle) for their contributions to the recipe</p></li>
+</ul>
 </section>
 </section>
 
@@ -106,20 +103,13 @@ at <code class="docutils literal notranslate"><span class="pre">condaforge+secur
 <div class="section">
   <span style="float: left">
      
-    <a href="../2021-06-16-graykull-step-by-step/">
-      <i class="fa fa-arrow-circle-left"></i> Contributing Packages To conda-forge Using Grayskull
+    <a href="../2021-09-24-travis-security/">
+      <i class="fa fa-arrow-circle-left"></i> Travis CI Security Incident
     </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     
-    <a href="../2021-11-03-tensorflow-gpu/">
-      GPU enabled TensorFlow builds on conda-forge <i
-        class="fa fa-arrow-circle-right"
-      ></i
-      >
-    </a>
     
   </span>
 </div>
@@ -139,7 +129,7 @@ the conda-forge blog
 </p>  
 <h2>
    <i class="fa fa-calendar"></i>
-  2021-09-24 
+  2021-11-03 
 </h2>
 
 <ul>
@@ -149,7 +139,7 @@ the conda-forge blog
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="../../blog/author/matthew-r-becker/">Matthew R. Becker</a>  
+  <a href="../../blog/author/wolf-vollprecht/">Wolf Vollprecht</a>  
 </li>
     
 <li id="tags">
@@ -160,7 +150,7 @@ the conda-forge blog
     ></span
   >
    
-  <a href="../../blog/tag/security/">security</a>  
+  <a href="../../blog/tag/conda-forge/">conda-forge</a>  
 </li>
  
 </ul>
@@ -171,8 +161,8 @@ the conda-forge blog
 <ul>
    
   <li>
-    <a href="../2021-11-03-tensorflow-gpu/"
-      >2021-11-03 - GPU enabled TensorFlow builds on conda-forge</a
+    <a href="../2021-09-24-travis-security/"
+      >2021-09-24 - Travis CI Security Incident</a
     >
   </li>
   
@@ -311,7 +301,7 @@ the conda-forge blog
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/posts/2021-09-24-travis-security.rst.txt"
+      <a href="../../_sources/posts/2021-11-03-tensorflow-gpu.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

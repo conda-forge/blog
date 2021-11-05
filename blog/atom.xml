@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2021-09-24T22:51:21.181869+00:00</updated>
+  <updated>2021-11-05T21:07:48.818603+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.20">ABlog</generator>
   <entry>
     <id>www.conda-forge.org/blog/posts/2019-12-06-cfep09/</id>
     <title>Automatically Deployed ABI Migrations</title>
@@ -273,5 +273,19 @@ for more details on this incident. As far as we know, there were no actual explo
 conda-forge which used this vulnerability.</summary>
     <category term="security" label="security"/>
     <published>2021-09-24T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>www.conda-forge.org/blog/posts/2021-11-03-tensorflow-gpu/</id>
+    <title>GPU enabled TensorFlow builds on conda-forge</title>
+    <updated>2021-11-03T00:00:00+00:00</updated>
+    <author>
+      <name>Wolf Vollprecht</name>
+    </author>
+    <content type="html">&lt;p&gt;Recently we’ve been able to add GPU-enabled TensorFlow builds to conda-forge! This was quite a journey, with multiple contributors trying different ways to convince the Bazel-based build system of TensorFlow to build CUDA-enabled packages. But we managed, &lt;a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock/pull/157"&gt;and the pull request got merged&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <link href="www.conda-forge.org/blog/posts/2021-11-03-tensorflow-gpu/" rel="alternate"/>
+    <summary>Recently we’ve been able to add GPU-enabled TensorFlow builds to conda-forge! This was quite a journey, with multiple contributors trying different ways to convince the Bazel-based build system of TensorFlow to build CUDA-enabled packages. But we managed, and the pull request got merged.</summary>
+    <category term="conda-forge" label="conda-forge"/>
+    <published>2021-11-03T00:00:00+00:00</published>
   </entry>
 </feed>
