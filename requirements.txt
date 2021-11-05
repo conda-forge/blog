@@ -1,5 +1,7 @@
 conda-smithy
 sphinx<3
+# Required for older sphinx releases
+docutils<0.18
 make
 xonsh
 ablog
