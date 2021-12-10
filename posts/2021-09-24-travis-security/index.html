@@ -3,8 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
     <title>Travis CI Security Incident &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -65,7 +64,7 @@
           
 
           <div class="body" role="main">
-             <section id="travis-ci-security-incident">
+             <div class="section" id="travis-ci-security-incident">
 <h1>Travis CI Security Incident<a class="headerlink" href="#travis-ci-security-incident" title="Permalink to this headline">¶</a></h1>
 <p>On September 9, 2021 one of our core devs discovered that artifacts building on
 Travis CI were being uploaded to our conda channel from PRs running on forked
@@ -74,7 +73,7 @@ secrets to PR builds on forks. Further examination of our logs and artifacts ind
 that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this <a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2021-41077">CVE</a>
 for more details on this incident. <strong>As far as we know, there were no actual exploits against
 conda-forge which used this vulnerability.</strong></p>
-<section id="our-response">
+<div class="section" id="our-response">
 <h2>Our Response<a class="headerlink" href="#our-response" title="Permalink to this headline">¶</a></h2>
 <p>We took the following steps to respond to this incident.</p>
 <ol class="arabic simple">
@@ -89,8 +88,8 @@ everything, but we are not completely sure. Our criterion for marking things bro
 <li><p>We issued PRs to rebuild any broken artifacts via our bots.</p></li>
 <li><p>We put in changes to <code class="docutils literal notranslate"><span class="pre">conda-smithy</span></code> to help prevent inadvertent uploads of artifacts from PRs in the future.</p></li>
 </ol>
-</section>
-<section id="closing-thoughts-what-can-you-do">
+</div>
+<div class="section" id="closing-thoughts-what-can-you-do">
 <h2>Closing Thoughts &amp; What can you do?<a class="headerlink" href="#closing-thoughts-what-can-you-do" title="Permalink to this headline">¶</a></h2>
 <p>I (MRB) want to recognize the quick work of our core dev team in handling this incident. It goes without saying
 that the public nature of <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>’s infrastructure carries risks. On the other hand, by being public,
@@ -99,8 +98,8 @@ continue to do our best.</p>
 <p>Our best defense against security incidents in <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is <em>you</em>! Our feedstock maintainers
 are in the best position to notice incidents and issues. Please responsibly report anything you find to us
 at <code class="docutils literal notranslate"><span class="pre">condaforge+security&#64;gmail.com</span></code>.</p>
-</section>
-</section>
+</div>
+</div>
 
 <div class="section">
      

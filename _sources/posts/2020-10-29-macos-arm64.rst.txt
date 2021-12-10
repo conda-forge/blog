@@ -155,6 +155,19 @@ For cmake packages, add the following to ``recipe/build.sh``,
 .. code-block:: bash
 
    cmake ${CMAKE_ARGS} ..
+   
+For ``meson`` packages, add the following to ``recipe/build.sh``,
+
+.. code-block:: bash
+
+   meson ${MESON_ARGS} builddir/
+
+.. note::
+
+   Conda automatically creates a `cross build definition file <https://mesonbuild.com/Cross-compilation.html>`__ 
+   when cross-compiling, and adds
+   the necessary argument to ``${MESON_ARGS}`` to point ``meson`` to that file.
+   ``${MESON_ARGS}`` is only defined when cross-compiling, not for normal builds.
 
 For rust packages, add the following to ``recipe/meta.yaml``,
 

@@ -3,8 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
     <title>The API Territory and Version Number Map &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -65,14 +64,14 @@
           
 
           <div class="body" role="main">
-             <section id="the-api-territory-and-version-number-map">
+             <div class="section" id="the-api-territory-and-version-number-map">
 <h1>The API Territory and Version Number Map<a class="headerlink" href="#the-api-territory-and-version-number-map" title="Permalink to this headline">¶</a></h1>
 <p>tl;dr Depending on specific version numbers of underlying libraries may be too inaccurate and cause
 headaches as upstream libraries evolve and change.
 A more detailed approach is needed.
 In this post I outline current and potential work on a path towards a more complete inspection of
 requirements based on APIs and dynamic pinning of libraries.</p>
-<section id="what-constitutes-a-good-version-number">
+<div class="section" id="what-constitutes-a-good-version-number">
 <h2>What Constitutes a Good Version Number<a class="headerlink" href="#what-constitutes-a-good-version-number" title="Permalink to this headline">¶</a></h2>
 <p>Version numbers should constitute a set that has the following properties</p>
 <ol class="arabic simple">
@@ -88,8 +87,8 @@ In many cases, the structure of the version number provides additional informati
 For some projects the version number includes the date of the release, often using <a class="reference external" href="https://calver.org/">cal ver</a>.
 Many projects use <a class="reference external" href="https://semver.org/">semantic versioning</a>, which attempts to encode information about the underlying
 source code’s API in the version number.</p>
-</section>
-<section id="version-numbers-and-api-pinning">
+</div>
+<div class="section" id="version-numbers-and-api-pinning">
 <h2>Version Numbers and API Pinning<a class="headerlink" href="#version-numbers-and-api-pinning" title="Permalink to this headline">¶</a></h2>
 <p>One of the most important places where version numbers are specified is during the pinning of APIs.
 Source code often requires specific APIs from the libraries it uses.
@@ -110,8 +109,8 @@ Conda-Forge is able to avoid some of these issues via
 a package’s stated requirements.
 Overall this process is fraught, as each package depends on different portions of a library’s API,
 a version bump that breaks one package may leave others unscathed.</p>
-</section>
-<section id="a-potential-path-forward">
+</div>
+<div class="section" id="a-potential-path-forward">
 <h2>A Potential Path Forward<a class="headerlink" href="#a-potential-path-forward" title="Permalink to this headline">¶</a></h2>
 <p>All of the above issues are caused by the confusion of
 <a class="reference external" href="https://en.wikipedia.org/wiki/Map%E2%80%93territory_relation">the map for the territory</a>.
@@ -160,8 +159,8 @@ For instance, the symbol tables could allow source code authors to have a line b
 revealing which lines force the use of older or newer versions of dependencies.
 This could enable large scale migrations of source code with surgical precision, enabling developers to extract
 and re-write the few lines of code preventing the use of a new version of a library.</p>
-</section>
-<section id="caveats">
+</div>
+<div class="section" id="caveats">
 <h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h2>
 <p>There are some important caveats to this approach that need to be kept in mind.</p>
 <ol class="arabic simple">
@@ -184,16 +183,16 @@ guess of what is going on, and provides sufficient metadata to users so that the
 decreased accuracy of the results. Fundamentally the tooling can only provide very educated guesses
 and context to users, who then need to go figure out what is actually going on inside the code.</p></li>
 </ol>
-</section>
-<section id="conclusion">
+</div>
+<div class="section" id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <p>Version number based pins are imprecise representations of API compatibility.
 More accurate representations based on source code inspection would make the Conda-Forge
 ecosystem more robust and flexible while reducing maintenance burden.
 Some of the path to achieving this is built, and near future steps can be achieved with
 current tooling and databases.</p>
-</section>
-</section>
+</div>
+</div>
 
 <div class="section">
      

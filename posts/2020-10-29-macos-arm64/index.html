@@ -3,8 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
     <title>macOS ARM builds on conda-forge &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -65,7 +64,7 @@
           
 
           <div class="body" role="main">
-             <section id="macos-arm-builds-on-conda-forge">
+             <div class="section" id="macos-arm-builds-on-conda-forge">
 <h1>macOS ARM builds on conda-forge<a class="headerlink" href="#macos-arm-builds-on-conda-forge" title="Permalink to this headline">¶</a></h1>
 <p>A new platform <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> has been added to the build matrix of conda-forge.
 <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> packages are built to run on upcoming macOS arm64 processors marketed
@@ -86,7 +85,7 @@ a new platform, conda-build was built with an existing python and pip environmen
 on the new platform. With cross-compiling, when the compilers and a sysroot is set up
 on a different platform, an existing conda-build installation (on <code class="docutils literal notranslate"><span class="pre">osx-64</span></code>
 and <code class="docutils literal notranslate"><span class="pre">linux-64</span></code> in this case) will be able to start building packages right away.</p>
-<section id="cross-compiling-builds-for-osx-arm64">
+<div class="section" id="cross-compiling-builds-for-osx-arm64">
 <h2>Cross-compiling builds for <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code><a class="headerlink" href="#cross-compiling-builds-for-osx-arm64" title="Permalink to this headline">¶</a></h2>
 <p>In order to cross compile packages for <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> we need compilers. So, we first
 built <code class="docutils literal notranslate"><span class="pre">clang=11.0.0.rc1</span></code> which has support for targetting <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code>. We also
@@ -139,8 +138,8 @@ to bootstrap the conda environment. For other platforms we relied on
 <code class="docutils literal notranslate"><span class="pre">pyinstaller</span></code>. Since <code class="docutils literal notranslate"><span class="pre">pyinstaller</span></code> does not support cross-compile, we
 decided to use <code class="docutils literal notranslate"><span class="pre">micromamba</span></code> as the bootstrapper and added features to
 <code class="docutils literal notranslate"><span class="pre">micromamba</span></code> so that it can function as the bootstrapper.</p>
-</section>
-<section id="how-to-add-a-osx-arm64-build-to-a-feedstock">
+</div>
+<div class="section" id="how-to-add-a-osx-arm64-build-to-a-feedstock">
 <h2>How to add a <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code> build to a feedstock<a class="headerlink" href="#how-to-add-a-osx-arm64-build-to-a-feedstock" title="Permalink to this headline">¶</a></h2>
 <p>All the below changes will be done by a bot and the packages the bot
 will send PRs to is determined by the list of packages at
@@ -185,6 +184,17 @@ cp <span class="nv">$BUILD_PREFIX</span>/share/gnuconfig/config.* .
 <p>For cmake packages, add the following to <code class="docutils literal notranslate"><span class="pre">recipe/build.sh</span></code>,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake <span class="si">${</span><span class="nv">CMAKE_ARGS</span><span class="si">}</span> ..
 </pre></div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">meson</span></code> packages, add the following to <code class="docutils literal notranslate"><span class="pre">recipe/build.sh</span></code>,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>meson <span class="si">${</span><span class="nv">MESON_ARGS</span><span class="si">}</span> builddir/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Conda automatically creates a <a class="reference external" href="https://mesonbuild.com/Cross-compilation.html">cross build definition file</a>
+when cross-compiling, and adds
+the necessary argument to <code class="docutils literal notranslate"><span class="pre">${MESON_ARGS}</span></code> to point <code class="docutils literal notranslate"><span class="pre">meson</span></code> to that file.
+<code class="docutils literal notranslate"><span class="pre">${MESON_ARGS}</span></code> is only defined when cross-compiling, not for normal builds.</p>
 </div>
 <p>For rust packages, add the following to <code class="docutils literal notranslate"><span class="pre">recipe/meta.yaml</span></code>,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>requirements:
@@ -234,8 +244,8 @@ then <code class="docutils literal notranslate"><span class="pre">test_on_native
 </ol>
 </dd>
 </dl>
-</section>
-<section id="building-locally">
+</div>
+<div class="section" id="building-locally">
 <h2>Building locally<a class="headerlink" href="#building-locally" title="Permalink to this headline">¶</a></h2>
 <p>For building locally add the following in <code class="docutils literal notranslate"><span class="pre">$HOME/conda_build_config.yaml</span></code>.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">SDKROOT</span><span class="p">:</span>
@@ -249,8 +259,8 @@ For eg: <code class="docutils literal notranslate"><span class="pre">.ci_support
 </pre></div>
 </div>
 <p>This should start a new build for <code class="docutils literal notranslate"><span class="pre">osx-arm64</span></code>.</p>
-</section>
-<section id="testing-packages">
+</div>
+<div class="section" id="testing-packages">
 <h2>Testing packages<a class="headerlink" href="#testing-packages" title="Permalink to this headline">¶</a></h2>
 <p>In order to test packages intended to run on future Apple Silicon hardware,
 Apple provides a machine called Developer Transition Kit (DTK). Jonathan Helmus
@@ -270,8 +280,8 @@ ldid, llvm, clang, compiler-rt, openmp, libcxx, crossenv, rust, gcc-darwin-arm64
 sent PRs to fix recipes, <code class="docutils literal notranslate"><span class="pre">conda-forge/bot</span></code> team and also all the conda-forge maintainers
 of the 100 feedstocks who reviewed and fixed PRs.</p>
 <p>Isuru Fernando</p>
-</section>
-</section>
+</div>
+</div>
 
 <div class="section">
      

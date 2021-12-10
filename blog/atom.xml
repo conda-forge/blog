@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2021-11-11T19:34:37.183943+00:00</updated>
+  <updated>2021-12-10T05:00:18.732191+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.20">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.21">ABlog</generator>
   <entry>
     <id>www.conda-forge.org/blog/posts/2019-12-06-cfep09/</id>
     <title>Automatically Deployed ABI Migrations</title>

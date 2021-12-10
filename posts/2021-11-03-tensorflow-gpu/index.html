@@ -3,8 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
     <title>GPU enabled TensorFlow builds on conda-forge &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -65,7 +64,7 @@
           
 
           <div class="body" role="main">
-             <section id="gpu-enabled-tensorflow-builds-on-conda-forge">
+             <div class="section" id="gpu-enabled-tensorflow-builds-on-conda-forge">
 <h1>GPU enabled TensorFlow builds on conda-forge<a class="headerlink" href="#gpu-enabled-tensorflow-builds-on-conda-forge" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="https://i.imgur.com/pRdJaYw.png"><img alt="Tensorflow on Anvil" src="https://i.imgur.com/pRdJaYw.png" style="width: 400px;" /></a>
 <p>Recently we’ve been able to add GPU-enabled TensorFlow builds to conda-forge! This was quite a journey, with multiple contributors trying different ways to convince the Bazel-based build system of TensorFlow to build CUDA-enabled packages. But we managed, <a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock/pull/157">and the pull request got merged</a>.</p>
@@ -76,7 +75,7 @@
 <p>With the TensorFlow builds in place, conda-forge now has CUDA-enabled builds for PyTorch and Tensorflow, the two most popular deep learning libraries.</p>
 <p>We are still missing Windows builds for TensorFlow (CPU &amp; CUDA, unfortunately) and would love the community to help us out with that. There is an open PR, but it probably needs some poking in Bazel to get it to pass: <a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock/pull/111">https://github.com/conda-forge/tensorflow-feedstock/pull/111</a>.</p>
 <p>We hope that these new GPU builds will enable many more packages to be added to the conda-forge channel! We are already looking forward to the 2.6.2 and 2.7 releases of TensorFlow and to adding Windows support in the future. We hope you enjoy this work.</p>
-<section id="installation">
+<div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>You can now select between GPU enabled (default) and CPU packages using the <cite>tensorflow-gpu</cite> and <cite>tensorflow-cpu</cite> packages. Just run</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba install tensorflow-gpu -c conda-forge
@@ -85,8 +84,8 @@ conda install tensorflow-gpu -c conda-forge
 </pre></div>
 </div>
 <p>When installing the <cite>tensorflow</cite> package, the package resolution will now default to the <cite>tensorflow-gpu</cite> package (that will also work on CPU). If you want the slimmer “cpu-only” package, then you can install <cite>tensorflow-cpu</cite> directly.</p>
-</section>
-<section id="thanks-to">
+</div>
+<div class="section" id="thanks-to">
 <h2>Thanks to<a class="headerlink" href="#thanks-to" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Mark Harfouche (&#64;hmaarrfk) &amp; Ista Zahn (&#64;izahn) for their initial work on the TensorFlow GPU builds, and all other TensorFlow maintainers. Uwe Korn (&#64;xhochy) for his work on the Bazel scripts &amp; TensorFlow – and all the other maintainers of the <a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock">TensorFlow feedstock</a>!</p></li>
@@ -96,8 +95,8 @@ conda install tensorflow-gpu -c conda-forge
 <li><p>Andreas Trawoger (&#64;atrawog) for the Ansible scripts that this is based on</p></li>
 <li><p>Thorsten Beier (&#64;derthorsten) and Adrien Delsalle (&#64;adriendelsalle) for their contributions to the recipe</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 <div class="section">
      
