@@ -160,7 +160,7 @@ to fix it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda smithy rerender
 </pre></div>
 </div>
-<p>For python packages, add the following to <code class="docutils literal notranslate"><span class="pre">recipe/meta.yaml</span></code>,</p>
+<p>For python packages, add one or more of the following to <code class="docutils literal notranslate"><span class="pre">recipe/meta.yaml</span></code> as needed, noting that you <em>must</em> only add <cite>numpy</cite>, <cite>cython</cite>, and/or <cite>pybind11</cite> if  they are used in <cite>host:</cite> as well,</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
   <span class="nt">build</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>                                 <span class="c1"># [build_platform != target_platform]</span>
