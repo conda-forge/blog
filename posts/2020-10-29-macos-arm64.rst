@@ -123,7 +123,7 @@ You can rerender using,
 
    conda smithy rerender
 
-For python packages, add the following to ``recipe/meta.yaml``,
+For python packages, add one or more of the following to ``recipe/meta.yaml`` as needed, noting that you *must* only add `numpy`, `cython`, and/or `pybind11` if  they are used in `host:` as well,
 
 .. code-block:: yaml
 
