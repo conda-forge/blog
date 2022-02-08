@@ -41,7 +41,7 @@ You can now select between GPU enabled (default) and CPU packages using the `ten
     # OR
     conda install tensorflow-gpu -c conda-forge
 
-When installing the `tensorflow` package, the package resolution will now default to the `tensorflow-gpu` package if the local machine has a GPU. Note that GPU-enabled packages can also work on CPUs, but one would need to override the enviornment variable `CONDA_CUDA_OVERRIDE` like below. This could be handy if you are in situation where your current node (e.g. login node) on an HPC does not have GPUs, but the compute nodes with GPUs do not have interenet access.
+When installing the `tensorflow` package, the package resolution will now default to the `tensorflow-gpu` package if the local machine has a GPU. Note that GPU-enabled packages can also work on CPUs, but one would need to override the enviornment variable `CONDA_CUDA_OVERRIDE` like below. This could be handy if you are in a situation where your current node (e.g. login node) on an HPC does not have GPUs, but the compute nodes with GPUs do not have interenet access.
 
 .. code-block:: bash
 
