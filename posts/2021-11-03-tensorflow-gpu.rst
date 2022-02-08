@@ -45,11 +45,11 @@ When installing the `tensorflow` package, the package resolution will now defaul
 
 .. code-block:: bash
 
-    CONDA_CUDA_OVERRIDE="" mamba install tensorflow -c conda-forge
+    CONDA_CUDA_OVERRIDE="11.2" conda install tensorflow -c conda-forge
     # OR
     CONDA_CUDA_OVERRIDE="11.2" mamba install tensorflow -c conda-forge
 
-If you want the slimmer "cpu-only" package, then you can install `tensorflow-cpu` directly. At the time of writing (February 2022), on a machine without a GPU, one would always get the `-cpu` variant unless overriden like above. This decision has been made to allow greater accessibility for users with limited bandwidth and resources.
+Note that you should select the cudatoolkit version most appropraite for your GPU; currently, we have "10.2", "11.0", "11.1", and "11.2" available. If you want the slimmer "cpu-only" package, then you can install `tensorflow-cpu` directly. At the time of writing (February 2022), on a machine without a GPU, one would always get the `-cpu` variant unless overriden like above. This decision has been made to allow greater accessibility for users with limited bandwidth and resources.
 
 Thanks to
 ---------
