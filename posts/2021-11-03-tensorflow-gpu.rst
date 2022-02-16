@@ -45,11 +45,11 @@ When installing the ``tensorflow`` package, the package resolution will now defa
 
 .. code-block:: bash
 
-    CONDA_CUDA_OVERRIDE="11.2" conda install tensorflow -c conda-forge
+    CONDA_CUDA_OVERRIDE="11.2" conda install tensorflow cudatoolkit>=11.2 -c conda-forge
     # OR
-    CONDA_CUDA_OVERRIDE="11.2" mamba install tensorflow -c conda-forge
+    CONDA_CUDA_OVERRIDE="11.2" mamba install tensorflow cudatoolkit>=11.2 -c conda-forge
 
-Note that you should select the cudatoolkit version most appropraite for your GPU; currently, we have "10.2", "11.0", "11.1", and "11.2" builds available where the the "11.2" builds are compatible with all cudatoolkits>=11.2. If you want the slimmer "cpu-only" package, then you can install ``tensorflow-cpu`` directly. At the time of writing (February 2022), on a machine without a GPU, one would always get the `-cpu` variant unless overriden like above. This decision has been made to allow greater accessibility for users with limited bandwidth and resources.
+Note that you should select the cudatoolkit version most appropraite for your GPU; currently, we have "10.2", "11.0", "11.1", and "11.2" builds available where the the "11.2" builds are compatible with all cudatoolkits>=11.2. You could also force a specific version of ``cudatoolkit`` by specifying it like above. Moreover, you could ensure you get a sepcific build of tensorflow by appending the package name like ``tensorflow==2.7.0=cuda*`` or ``tensorflow==2.7.0=cuda112*``. If you want the slimmer "cpu-only" package, then you can install ``tensorflow-cpu`` directly or equivalently ``tensorflow==2.7.0=cpu*``. At the time of writing (February 2022), on a machine without a GPU, one would always get the `-cpu` variant unless overriden like above. This decision has been made to allow greater accessibility for users with limited bandwidth and resources.
 
 Thanks to
 ---------
