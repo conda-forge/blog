@@ -151,9 +151,9 @@ and if a particular PR is stalled you can send a PR to the feedstock
 to fix it.</p>
 <p>Following instructions are for when you want to add support manually.</p>
 <p>Add the following to <code class="docutils literal notranslate"><span class="pre">conda-forge.yml</span></code> (on Linux or OSX),</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">build_platform</span><span class="p">:</span>
-  <span class="nt">osx_arm64</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">osx_64</span>
-<span class="nt">test_on_native_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">build_platform</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">osx_arm64</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">osx_64</span><span class="w"></span>
+<span class="nt">test_on_native_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can rerender using,</p>
@@ -161,19 +161,19 @@ to fix it.</p>
 </pre></div>
 </div>
 <p>For python packages, add one or more of the following to <code class="docutils literal notranslate"><span class="pre">recipe/meta.yaml</span></code> as needed, noting that you <em>must</em> only add <cite>numpy</cite>, <cite>cython</cite>, and/or <cite>pybind11</cite> if  they are used in <cite>host:</cite> as well,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">build</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>                                 <span class="c1"># [build_platform != target_platform]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cross-python_{{ target_platform }}</span>     <span class="c1"># [build_platform != target_platform]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cython</span>                                 <span class="c1"># [build_platform != target_platform]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">numpy</span>                                  <span class="c1"># [build_platform != target_platform]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pybind11</span>                               <span class="c1"># [build_platform != target_platform]</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w">                                 </span><span class="c1"># [build_platform != target_platform]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cross-python_{{ target_platform }}</span><span class="w">     </span><span class="c1"># [build_platform != target_platform]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cython</span><span class="w">                                 </span><span class="c1"># [build_platform != target_platform]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numpy</span><span class="w">                                  </span><span class="c1"># [build_platform != target_platform]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pybind11</span><span class="w">                               </span><span class="c1"># [build_platform != target_platform]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>For autotools package, add the following to <code class="docutils literal notranslate"><span class="pre">recipe/meta.yaml</span></code>,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">build</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gnuconfig</span>   <span class="c1"># [unix]</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gnuconfig</span><span class="w">   </span><span class="c1"># [unix]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>and to <code class="docutils literal notranslate"><span class="pre">recipe/build.sh</span></code>,</p>
@@ -229,10 +229,10 @@ run when cross-compiling, do the following,</p>
 </dd>
 <dt>Some useful configure options in <code class="docutils literal notranslate"><span class="pre">conda-forge.yml</span></code></dt><dd><ol class="arabic">
 <li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">build_platform</span></code> - a dictionary mapping <code class="docutils literal notranslate"><span class="pre">build</span></code> subdir to <code class="docutils literal notranslate"><span class="pre">host</span></code> subdir. eg:</dt><dd><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">build_platform</span><span class="p">:</span>
-  <span class="nt">osx_arm64</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">osx_64</span>
-  <span class="nt">linux_ppc64le</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">linux_64</span>
-  <span class="nt">linux_aarch64</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">linux_64</span>
+<dt><code class="docutils literal notranslate"><span class="pre">build_platform</span></code> - a dictionary mapping <code class="docutils literal notranslate"><span class="pre">build</span></code> subdir to <code class="docutils literal notranslate"><span class="pre">host</span></code> subdir. eg:</dt><dd><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">build_platform</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">osx_arm64</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">osx_64</span><span class="w"></span>
+<span class="w">  </span><span class="nt">linux_ppc64le</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linux_64</span><span class="w"></span>
+<span class="w">  </span><span class="nt">linux_aarch64</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linux_64</span><span class="w"></span>
 </pre></div>
 </div>
 </dd>
@@ -248,8 +248,8 @@ then <code class="docutils literal notranslate"><span class="pre">test_on_native
 <div class="section" id="building-locally">
 <h2>Building locally<a class="headerlink" href="#building-locally" title="Permalink to this headline">¶</a></h2>
 <p>For building locally add the following in <code class="docutils literal notranslate"><span class="pre">$HOME/conda_build_config.yaml</span></code>.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">SDKROOT</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/MacOSX11.0.sdk</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">SDKROOT</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/MacOSX11.0.sdk</span><span class="w"></span>
 </pre></div>
 </div>
 <p>After that, look for the config you want to run  in <code class="docutils literal notranslate"><span class="pre">.ci_support</span></code> folder
@@ -284,7 +284,8 @@ of the 100 feedstocks who reviewed and fixed PRs.</p>
 </div>
 
 <div class="section">
-     
+    
+
 <div class="section">
   <span style="float: left">
      
@@ -486,7 +487,7 @@ the conda-forge blog
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2021, conda-forge.
+      &copy;2016-2022, conda-forge.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>

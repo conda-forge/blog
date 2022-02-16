@@ -73,8 +73,8 @@
   </h1>
    
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="../../../posts/2021-09-24-travis-security/"
         >Travis CI Security Incident</a
       >
@@ -105,21 +105,23 @@
 </li>
  
     </ul>
-    <p>On September 9, 2021 one of our core devs discovered that artifacts building on
+    <div class="ablog-post-excerpt docutils container">
+<p>On September 9, 2021 one of our core devs discovered that artifacts building on
 Travis CI were being uploaded to our conda channel from PRs running on forked
 repositories. A quick investigation revealed that Travis CI was passing encrypted
 secrets to PR builds on forks. Further examination of our logs and artifacts indicated
 that this had been happening since about September 3, 2021. This security bug was subsequently confirmed by Travis CI. See this <a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2021-41077">CVE</a>
 for more details on this incident. <strong>As far as we know, there were no actual exploits against
 conda-forge which used this vulnerability.</strong></p>
+</div>
 
-    <p><a href="../../../posts/2021-09-24-travis-security/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="../../../posts/2021-09-24-travis-security/"><em>Read more ...</em></a></p>
     <hr />
   </div>
   
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="../../../posts/2020-07-11-R-4/"
         >R 4.0 Migration Retrospective</a
       >
@@ -151,11 +153,13 @@ conda-forge which used this vulnerability.</strong></p>
 </li>
  
     </ul>
-    <p>While the R 4.0 migration has been functionally complete for quite a while, the recent migration of <code class="docutils literal notranslate"><span class="pre">r-java</span></code> and
+    <div class="ablog-post-excerpt docutils container">
+<p>While the R 4.0 migration has been functionally complete for quite a while, the recent migration of <code class="docutils literal notranslate"><span class="pre">r-java</span></code> and
 its dependents gives a good opportunity to write a retrospective on the technical issues with large-scale migrations
 in <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> and how we solved them.</p>
+</div>
 
-    <p><a href="../../../posts/2020-07-11-R-4/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="../../../posts/2020-07-11-R-4/"><em>Read more ...</em></a></p>
     <hr />
   </div>
    
@@ -311,7 +315,7 @@ the conda-forge blog
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2021, conda-forge.
+      &copy;2016-2022, conda-forge.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>

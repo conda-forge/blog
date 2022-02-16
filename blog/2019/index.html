@@ -71,8 +71,8 @@
   </h1>
    
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="../../posts/2019-12-06-cfep09/"
         >Automatically Deployed ABI Migrations</a
       >
@@ -103,13 +103,15 @@
 </li>
  
     </ul>
-    <p>Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
+    <div class="ablog-post-excerpt docutils container">
+<p>Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
 Maintaining ABI consistency helps enable the “just use conda-forge” experience for many of our users,
 making certain that numpy’s blas is the same as scipy’s.
 As libraries update their code, the new versions may be ABI incompatible, as function signatures and other symbols
 may have changed, leading to the dreaded <code class="docutils literal notranslate"><span class="pre">SegmentationFault</span></code> and other errors.</p>
+</div>
 
-    <p><a href="../../posts/2019-12-06-cfep09/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="../../posts/2019-12-06-cfep09/"><em>Read more ...</em></a></p>
     <hr />
   </div>
    
@@ -265,7 +267,7 @@ the conda-forge blog
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2021, conda-forge.
+      &copy;2016-2022, conda-forge.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>

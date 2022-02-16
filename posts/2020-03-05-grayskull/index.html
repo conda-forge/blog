@@ -119,194 +119,194 @@ Taking as example the <code class="docutils literal notranslate"><span class="pr
 Python version constrains, and has several package constrains as well.</p>
 <div class="section" id="grayskull-0-2-1-took-4-seconds-to-generate-the-recipe">
 <h3>Grayskull (0.2.1) - took 4 seconds to generate the recipe<a class="headerlink" href="#grayskull-0-2-1-took-4-seconds-to-generate-the-recipe" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;pytest&quot;</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;pytest&quot;</span> <span class="cp">%}</span><span class="w"></span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span><span class="w"></span>
 
-<span class="nt">package</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="cp">{{</span> <span class="nv">name</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span>
-  <span class="nt">version</span><span class="p">:</span> <span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span>
+<span class="nt">package</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="cp">{{</span> <span class="nv">name</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="w"></span>
 
-<span class="nt">source</span><span class="p">:</span>
-  <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://pypi.io/packages/source/</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">.tar.gz</span>
-  <span class="nt">sha256</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span>
+<span class="nt">source</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://pypi.io/packages/source/</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">.tar.gz</span><span class="w"></span>
+<span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span><span class="w"></span>
 
-<span class="nt">build</span><span class="p">:</span>
-  <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-  <span class="nt">skip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>   <span class="c1"># [py2k]</span>
-  <span class="nt">entry_points</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest=pytest:main</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test=pytest:main</span>
-  <span class="nt">script</span><span class="p">:</span> <span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span> <span class="l l-Scalar l-Scalar-Plain">-m pip install . -vv</span>
+<span class="nt">build</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="w">  </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># [py2k]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">entry_points</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest=pytest:main</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py.test=pytest:main</span><span class="w"></span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-m pip install . -vv</span><span class="w"></span>
 
-<span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools_scm</span>
-  <span class="nt">run</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span>      <span class="c1"># [win]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">colorama</span>      <span class="c1"># [win]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span>        <span class="c1"># [py&lt;38]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span>        <span class="c1"># [py&lt;36]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy &lt;1.0,&gt;=0.12</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wcwidth</span>
+<span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setuptools_scm</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span><span class="w">      </span><span class="c1"># [win]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">colorama</span><span class="w">      </span><span class="c1"># [win]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span><span class="w">        </span><span class="c1"># [py&lt;38]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packaging</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span><span class="w">        </span><span class="c1"># [py&lt;36]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pluggy &lt;1.0,&gt;=0.12</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wcwidth</span><span class="w"></span>
 
-<span class="nt">test</span><span class="p">:</span>
-  <span class="nt">imports</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest</span>
-  <span class="nt">commands</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip check</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest --help</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test --help</span>
-  <span class="nt">requires</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span><span class="w"></span>
+<span class="w">  </span><span class="nt">commands</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip check</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest --help</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py.test --help</span><span class="w"></span>
+<span class="w">  </span><span class="nt">requires</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip</span><span class="w"></span>
 
-<span class="nt">about</span><span class="p">:</span>
-  <span class="nt">home</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://pypi.org/project/pytest/</span>
-  <span class="nt">summary</span><span class="p">:</span> <span class="s">&#39;pytest:</span><span class="nv"> </span><span class="s">simple</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python&#39;</span>
-  <span class="nt">dev_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pytest-dev/pytest</span>
-  <span class="nt">license</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
-  <span class="nt">license_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LICENSE</span>
+<span class="nt">about</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://pypi.org/project/pytest/</span><span class="w"></span>
+<span class="w">  </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;pytest:</span><span class="nv"> </span><span class="s">simple</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dev_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pytest-dev/pytest</span><span class="w"></span>
+<span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MIT</span><span class="w"></span>
+<span class="w">  </span><span class="nt">license_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LICENSE</span><span class="w"></span>
 
-<span class="nt">extra</span><span class="p">:</span>
-  <span class="nt">recipe-maintainers</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">marcelotrevisani</span>
+<span class="nt">extra</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">recipe-maintainers</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">marcelotrevisani</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="skeleton-3-18-11-took-31-seconds-to-generate-the-recipe">
 <h3>Skeleton (3.18.11) - took  31 seconds to generate the recipe<a class="headerlink" href="#skeleton-3-18-11-took-31-seconds-to-generate-the-recipe" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;pytest&quot;</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;pytest&quot;</span> <span class="cp">%}</span><span class="w"></span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span><span class="w"></span>
 
-<span class="nt">package</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="s">&quot;</span>
-  <span class="nt">version</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="s">&quot;</span>
+<span class="nt">package</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="w"></span>
 
-<span class="nt">source</span><span class="p">:</span>
-  <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;https://pypi.io/packages/source/</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="cp">}}</span><span class="s">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="s">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="s">-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="s">.tar.gz&quot;</span>
-  <span class="nt">sha256</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span>
+<span class="nt">source</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://pypi.io/packages/source/</span><span class="cp">{{</span> <span class="nv">name</span><span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="cp">}}</span><span class="s">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="s">/</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="s">-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="s">.tar.gz&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span><span class="w"></span>
 
-<span class="nt">build</span><span class="p">:</span>
-  <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-  <span class="nt">script</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span><span class="nv"> </span><span class="s">-m</span><span class="nv"> </span><span class="s">pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">-vv&quot;</span>
+<span class="nt">build</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span><span class="nv"> </span><span class="s">-m</span><span class="nv"> </span><span class="s">pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">-vv&quot;</span><span class="w"></span>
 
-<span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">colorama;sys_platform ==&quot;win32&quot;</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wcwidth</span>
-  <span class="nt">run</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">colorama;sys_platform ==&quot;win32&quot;</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wcwidth</span>
+<span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">colorama;sys_platform ==&quot;win32&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packaging</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wcwidth</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">colorama;sys_platform ==&quot;win32&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">importlib-metadata &gt;=0.12</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packaging</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wcwidth</span><span class="w"></span>
 
-<span class="nt">about</span><span class="p">:</span>
-  <span class="nt">home</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The package home page</span>
-  <span class="nt">license</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
-  <span class="nt">license_family</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
-  <span class="nt">license_file</span><span class="p">:</span>
-  <span class="nt">summary</span><span class="p">:</span> <span class="s">&quot;pytest:</span><span class="nv"> </span><span class="s">simple</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python&quot;</span>
-  <span class="nt">doc_url</span><span class="p">:</span>
-  <span class="nt">dev_url</span><span class="p">:</span>
+<span class="nt">about</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The package home page</span><span class="w"></span>
+<span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MIT</span><span class="w"></span>
+<span class="w">  </span><span class="nt">license_family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MIT</span><span class="w"></span>
+<span class="w">  </span><span class="nt">license_file</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pytest:</span><span class="nv"> </span><span class="s">simple</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">doc_url</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dev_url</span><span class="p">:</span><span class="w"></span>
 
-<span class="nt">extra</span><span class="p">:</span>
-  <span class="nt">recipe-maintainers</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">your-github-id-here</span>
+<span class="nt">extra</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">recipe-maintainers</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your-github-id-here</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="original-recipe-on-conda-forge-for-pytest-5-3-5">
 <h3>Original recipe on <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> for <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">5.3.5</span></code><a class="headerlink" href="#original-recipe-on-conda-forge-for-pytest-5-3-5" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;5.3.5&quot;</span> <span class="cp">%}</span><span class="w"></span>
 
-<span class="nt">package</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pytest</span>
-  <span class="nt">version</span><span class="p">:</span> <span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span>
+<span class="nt">package</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span><span class="w"></span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="w"></span>
 
-<span class="nt">source</span><span class="p">:</span>
-  <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://pypi.io/packages/source/p/pytest/pytest-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">.tar.gz</span>
-  <span class="nt">sha256</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span>
+<span class="nt">source</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://pypi.io/packages/source/p/pytest/pytest-</span><span class="cp">{{</span> <span class="nv">version</span> <span class="cp">}}</span><span class="l l-Scalar l-Scalar-Plain">.tar.gz</span><span class="w"></span>
+<span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0d5fe9189a148acc3c3eb2ac8e1ac0742cb7618c084f3d228baaec0c254b318d</span><span class="w"></span>
 
-<span class="nt">build</span><span class="p">:</span>
-  <span class="nt">skip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>  <span class="c1"># [py27]</span>
-  <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-  <span class="nt">script</span><span class="p">:</span> <span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span><span class="nv"> </span><span class="s">setup.py</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">--single-version-externally-managed</span><span class="nv"> </span><span class="s">--record</span><span class="nv"> </span><span class="s">record.txt&quot;</span>
-  <span class="nt">entry_points</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test = py.test:main</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest = py.test:main</span>
+<span class="nt">build</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">skip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w">  </span><span class="c1"># [py27]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">PYTHON</span> <span class="cp">}}</span><span class="nv"> </span><span class="s">setup.py</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">--single-version-externally-managed</span><span class="nv"> </span><span class="s">--record</span><span class="nv"> </span><span class="s">record.txt&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">entry_points</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py.test = py.test:main</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest = py.test:main</span><span class="w"></span>
 
-<span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools_scm</span>
-  <span class="nt">run</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span>  <span class="c1"># [win]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">colorama</span>  <span class="c1"># [win]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">importlib_metadata &gt;=0.12</span>  <span class="c1"># [py&lt;38]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">packaging</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span>  <span class="c1"># [py&lt;36]</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wcwidth</span>
-  <span class="nt">run_constrained</span><span class="p">:</span>
-    <span class="c1"># pytest-faulthandler 2 is a dummy package.</span>
-    <span class="c1"># if an older version of fault-handler is installed, it will conflict with pytest &gt;=5.</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest-faulthandler &gt;=2</span>
+<span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setuptools_scm</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">atomicwrites &gt;=1.0</span><span class="w">  </span><span class="c1"># [win]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attrs &gt;=17.4.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">colorama</span><span class="w">  </span><span class="c1"># [win]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">importlib_metadata &gt;=0.12</span><span class="w">  </span><span class="c1"># [py&lt;38]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">more-itertools &gt;=4.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packaging</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pathlib2 &gt;=2.2.0</span><span class="w">  </span><span class="c1"># [py&lt;36]</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pluggy &gt;=0.12,&lt;1.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py &gt;=1.5.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setuptools &gt;=40.0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wcwidth</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run_constrained</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># pytest-faulthandler 2 is a dummy package.</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># if an older version of fault-handler is installed, it will conflict with pytest &gt;=5.</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest-faulthandler &gt;=2</span><span class="w"></span>
 
-<span class="nt">test</span><span class="p">:</span>
-  <span class="nt">commands</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest -h</span>
-  <span class="nt">imports</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pytest</span>
+<span class="nt">test</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">commands</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest -h</span><span class="w"></span>
+<span class="w">  </span><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span><span class="w"></span>
 
-<span class="nt">about</span><span class="p">:</span>
-  <span class="nt">home</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.pytest.org/en/latest/</span>
-  <span class="nt">license</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
-  <span class="nt">license_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LICENSE</span>
-  <span class="nt">summary</span><span class="p">:</span> <span class="s">&#39;Simple</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python.&#39;</span>
-  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">The pytest framework makes it easy to write small tests, yet scales to</span>
-    <span class="no">support complex functional testing for applications and libraries.</span>
-    <span class="no">doc_url: https://docs.pytest.org/en/latest/</span>
-    <span class="no">dev_url: https://github.com/pytest-dev/pytest/</span>
+<span class="nt">about</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://docs.pytest.org/en/latest/</span><span class="w"></span>
+<span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MIT</span><span class="w"></span>
+<span class="w">  </span><span class="nt">license_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LICENSE</span><span class="w"></span>
+<span class="w">  </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Simple</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">powerful</span><span class="nv"> </span><span class="s">testing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Python.&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">    </span><span class="no">The pytest framework makes it easy to write small tests, yet scales to</span><span class="w"></span>
+<span class="w">    </span><span class="no">support complex functional testing for applications and libraries.</span><span class="w"></span>
+<span class="w">    </span><span class="no">doc_url: https://docs.pytest.org/en/latest/</span><span class="w"></span>
+<span class="w">    </span><span class="no">dev_url: https://github.com/pytest-dev/pytest/</span><span class="w"></span>
 
-<span class="nt">extra</span><span class="p">:</span>
-  <span class="nt">recipe-maintainers</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">flub</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">goanpeca</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nicoddemus</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ocefpaf</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mingwandroid</span>
+<span class="nt">extra</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">recipe-maintainers</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flub</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">goanpeca</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nicoddemus</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ocefpaf</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mingwandroid</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -442,7 +442,8 @@ repository: <a class="reference external" href="https://github.com/marcelotrevis
 </div>
 
 <div class="section">
-     
+    
+
 <div class="section">
   <span style="float: left">
      
@@ -644,7 +645,7 @@ the conda-forge blog
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2021, conda-forge.
+      &copy;2016-2022, conda-forge.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>

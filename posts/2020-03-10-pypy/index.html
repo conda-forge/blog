@@ -118,37 +118,37 @@ volume conda channel or to rebuild those packages with the new python
 packages and mark the older ones as broken.</p>
 <p>Using the newer packages will rerender the following requirement
 to add a dependency on python_abi. For eg,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python 3.6</span>
-  <span class="nt">run</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
 </pre></div>
 </div>
 <p>is rendered as,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python 3.6.10 h9d8adfe_1009_cpython</span>
-  <span class="nt">run</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python &gt;=3.6,&lt;3.7.0a0</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python_abi 3.6 *_cp36m</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6.10 h9d8adfe_1009_cpython</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python &gt;=3.6,&lt;3.7.0a0</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_abi 3.6 *_cp36m</span><span class="w"></span>
 </pre></div>
 </div>
 <p>whereas,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python 3.6 *_73_pypy</span>
-  <span class="nt">run</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6 *_73_pypy</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
 </pre></div>
 </div>
 <p>is rendered as,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python 3.6.9 0_73_pypy</span>
-  <span class="nt">run</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python &gt;=3.6,&lt;3.7.0a0</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">python_abi 3.6 *_pypy36_pp73</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6.9 0_73_pypy</span><span class="w"></span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python &gt;=3.6,&lt;3.7.0a0</span><span class="w"></span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_abi 3.6 *_pypy36_pp73</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Note that the PyPy ABI tag has <cite>pp73</cite> at the end which indicates that the
@@ -160,7 +160,8 @@ extension packages using the Python Debug ABI.</p>
 </div>
 
 <div class="section">
-     
+    
+
 <div class="section">
   <span style="float: left">
      
@@ -362,7 +363,7 @@ the conda-forge blog
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2021, conda-forge.
+      &copy;2016-2022, conda-forge.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
