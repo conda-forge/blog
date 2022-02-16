@@ -33,7 +33,7 @@ We hope that these new GPU builds will enable many more packages to be added to 
 Installation
 ------------
 
-You can now select between GPU enabled (default) and CPU packages using the `tensorflow-gpu` and `tensorflow-cpu` packages. Just run
+You can now select between GPU enabled (default) and CPU packages using the ``tensorflow-gpu`` and ``tensorflow-cpu`` packages. Just run
 
 .. code-block:: bash
 
@@ -41,8 +41,15 @@ You can now select between GPU enabled (default) and CPU packages using the `ten
     # OR
     conda install tensorflow-gpu -c conda-forge
 
-When installing the `tensorflow` package, the package resolution will now default to the `tensorflow-gpu` package (that will also work on CPU). If you want the slimmer "cpu-only" package, then you can install `tensorflow-cpu` directly.
+When installing the ``tensorflow`` package, the package resolution will now default to the GPU-enabled builds of tensorflow if the local machine has a GPU (these builds can be identified by "cuda" at the beginning of the version number). Note that GPU-enabled packages can also work on CPU-only machines, but one would need to override the enviornment variable ``CONDA_CUDA_OVERRIDE`` like below. This could be handy if you are in a situation where your current node (e.g. login node) on an HPC does not have GPUs, but the compute nodes with GPUs do not have internet access.
 
+.. code-block:: bash
+
+    CONDA_CUDA_OVERRIDE="11.2" conda install tensorflow cudatoolkit>=11.2 -c conda-forge
+    # OR
+    CONDA_CUDA_OVERRIDE="11.2" mamba install tensorflow cudatoolkit>=11.2 -c conda-forge
+
+Note that you should select the cudatoolkit version most appropraite for your GPU; currently, we have "10.2", "11.0", "11.1", and "11.2" builds available where the the "11.2" builds are compatible with all cudatoolkits>=11.2. You could also force a specific version of ``cudatoolkit`` by specifying it like above. Moreover, you could ensure you get a sepcific build of tensorflow by appending the package name like ``tensorflow==2.7.0=cuda*`` or ``tensorflow==2.7.0=cuda112*``. If you want the slimmer "cpu-only" package, then you can install ``tensorflow-cpu`` directly or equivalently ``tensorflow==2.7.0=cpu*``. At the time of writing (February 2022), on a machine without a GPU, one would always get the `-cpu` variant unless overriden like above. This decision has been made to allow greater accessibility for users with limited bandwidth and resources.
 
 Thanks to
 ---------
