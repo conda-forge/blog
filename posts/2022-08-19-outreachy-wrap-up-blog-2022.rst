@@ -59,7 +59,7 @@ Many open issues needed to be taken care of to make the Maintainers’ documenta
         Currently, the documentation regarding the security considerations of conda-forge builds is scattered throughout the documentation, and therefore it is hard to find and read it. With this issue, we will put all the information together in one place, which will help maintainers and users to know more about how conda-forge secures its packages.
 
 I met some wonderful people during the internship who helped me with all my questions and doubts that I had. The experience during the internship also helped me get better opportunities after completing the Outreachy internship.
-I have learned so many things during the internship that it would make a long list if I were to write all of those. But to list down the most important things I learned are:
+I have learned so many things during the internship that it would make a long list if I were to write all of those. But the most important things I learned are:
 
 -  The importance of documentation and how to write good documentation.
 -  The best practices to follow while writing documentation.
