@@ -1,13 +1,13 @@
-.. post:: 2022-08-19
+.. post:: 2022-08-26
   :tags: Outreachy
   :author: Surbhi Sharma
-  :redirect: 2022/08/19/outreachy-wrap-up-blog-2022
+  :redirect: 2022/08/26/outreachy-wrap-up-blog-2022
 
 Outreachy 2022 Wrap-up Blog
 ============================
 
 This blog is about my work during my Outreachy internship with `conda-forge <https://conda-forge.github.io>`__. Before that a little about me - 
-I am `Surbhi <https://github.com/ssurbhi560>`__, an outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.
+I am `Surbhi <https://github.com/ssurbhi560>`__, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.
 
 The first issue I started working on when the internship began was `Better anchoring of announcements(#1611) <https://github.com/conda-forge/conda-forge.github.io/issues/1611>`__.
 The goal of this issue was to fix the anchor for each year and also specific announcements in the Announcements section so as to provide better navigation of the `Announcements page <https://conda-forge.org/docs/user/announcements.html>`__.
@@ -56,7 +56,7 @@ Many open issues needed to be taken care of to make the Maintainers’ documenta
 
 10. `Add a section in docs on security aspects of conda-forge (#1808) <https://github.com/conda-forge/conda-forge.github.io/issues/1808>`__. Working on this `#1812 <https://github.com/conda-forge/conda-forge.github.io/pull/1812>`__.
 
-        Currently, the documentation regarding the security considerations of conda-forge builds is scattered throughout the documentation, and therefore it is hard to find and read it. With this issue, we will put all the information together in one place, which will help maintainers and users to know more about how conda-forge secures its packages.
+        Currently, information regarding the security considerations of conda-forge builds is scattered throughout the documentation, and therefore it is hard to find and read. With this issue, we will put all the information together in one place, which will help maintainers and users to know more about how conda-forge secures its packages and infrastructure.
 
 I met some wonderful people during the internship who helped me with all my questions and doubts that I had. The experience during the internship also helped me get better opportunities after completing the Outreachy internship.
 I have learned so many things during the internship that it would make a long list if I were to write all of those. But the most important things I learned are:
