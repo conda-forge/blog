@@ -42,7 +42,7 @@ Many open issues needed to be taken care of to make the Maintainers’ documenta
 
         With this issue we added ​​packaging instructions for Perl packages with different build systems in the documentation.
 
-7.  `DOC: Update documentation about tokens (#1532) <https://github.com/conda-forge/conda-forge.github.io/issues/1532>`__. Working on this `#1793 <https://github.com/conda-forge/conda-forge.github.io/pull/1793>`__.
+7.  `DOC: Update documentation about tokens (#1532) <https://github.com/conda-forge/conda-forge.github.io/issues/1532>`__. Closed with `#1793 <https://github.com/conda-forge/conda-forge.github.io/pull/1793>`__.
 
         Feedstocks have stopped storing encrypted tokens to upload packages, but outdated information on tokens was still present in the documentation. With this issue we removed the outdated information and also added a new section “How to update your feedstock token?” for maintainers.
 
@@ -54,7 +54,7 @@ Many open issues needed to be taken care of to make the Maintainers’ documenta
 
         With these, we added more documentation on migrations and migrators, which would help maintainers find answers to questions like - What is a migrator/migration, and what does it do? When can (and why would) they should reject a migration PR? And so on.
 
-10. `Add a section in docs on security aspects of conda-forge (#1808) <https://github.com/conda-forge/conda-forge.github.io/issues/1808>`__. Working on this `#1812 <https://github.com/conda-forge/conda-forge.github.io/pull/1812>`__.
+10. `Add a section in docs on security aspects of conda-forge (#1808) <https://github.com/conda-forge/conda-forge.github.io/issues/1808>`__. Closed with `#1812 <https://github.com/conda-forge/conda-forge.github.io/pull/1812>`__.
 
         Currently, information regarding the security considerations of conda-forge builds is scattered throughout the documentation, and therefore it is hard to find and read. With this issue, we will put all the information together in one place, which will help maintainers and users to know more about how conda-forge secures its packages and infrastructure.
 
