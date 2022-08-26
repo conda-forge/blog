@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2022-02-16T14:19:36.505998+00:00</updated>
+  <updated>2022-08-26T16:57:34.764165+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.23">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.25">ABlog</generator>
   <entry>
     <id>www.conda-forge.org/blog/posts/2019-12-06-cfep09/</id>
     <title>Automatically Deployed ABI Migrations</title>
@@ -317,5 +317,23 @@ conda-forge which used this vulnerability.</summary>
     <summary>Recently we’ve been able to add GPU-enabled TensorFlow builds to conda-forge! This was quite a journey, with multiple contributors trying different ways to convince the Bazel-based build system of TensorFlow to build CUDA-enabled packages. But we managed, and the pull request got merged.</summary>
     <category term="conda-forge" label="conda-forge"/>
     <published>2021-11-03T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>www.conda-forge.org/blog/posts/2022-08-19-outreachy-wrap-up-blog-2022/</id>
+    <title>Outreachy 2022 Wrap-up Blog</title>
+    <updated>2022-08-26T00:00:00+00:00</updated>
+    <author>
+      <name>Surbhi Sharma</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;This blog is about my work during my Outreachy internship with &lt;a class="reference external" href="https://conda-forge.github.io"&gt;conda-forge&lt;/a&gt;. Before that a little about me -
+I am &lt;a class="reference external" href="https://github.com/ssurbhi560"&gt;Surbhi&lt;/a&gt;, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="www.conda-forge.org/blog/posts/2022-08-19-outreachy-wrap-up-blog-2022/" rel="alternate"/>
+    <summary>This blog is about my work during my Outreachy internship with conda-forge. Before that a little about me -
+I am Surbhi, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.</summary>
+    <category term="Outreachy" label="Outreachy"/>
+    <published>2022-08-26T00:00:00+00:00</published>
   </entry>
 </feed>

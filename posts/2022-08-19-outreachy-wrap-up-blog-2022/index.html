@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Outreachy 2022 Wrap-up Blog &#8212; the conda-forge blog</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="conda-forge Blog"
+/>
+ 
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="outreachy-2022-wrap-up-blog">
+<h1>Outreachy 2022 Wrap-up Blog<a class="headerlink" href="#outreachy-2022-wrap-up-blog" title="Permalink to this headline">¶</a></h1>
+<p>This blog is about my work during my Outreachy internship with <a class="reference external" href="https://conda-forge.github.io">conda-forge</a>. Before that a little about me -
+I am <a class="reference external" href="https://github.com/ssurbhi560">Surbhi</a>, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.</p>
+<p>The first issue I started working on when the internship began was <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1611">Better anchoring of announcements(#1611)</a>.
+The goal of this issue was to fix the anchor for each year and also specific announcements in the Announcements section so as to provide better navigation of the <a class="reference external" href="https://conda-forge.org/docs/user/announcements.html">Announcements page</a>.
+This was also the time when I was feeling quite overwhelmed and anxious since I was just starting and was unsure if I would be able to give my best. But thanks to my awesome mentors <a class="reference external" href="https://github.com/kathatherine">&#64;Katherine</a> and <a class="reference external" href="https://github.com/beckermr">&#64;Matt</a>, who have always been so helpful, I was able to have a good start.
+We solved this issue in two parts. The first part was to add anchors to each year which is solved with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1766">Improve anchors for each year in the Announcements section. (#1766)</a>, and the second part was adding anchors to each announcement and fixing the RSS feed.</p>
+<p>The part of the documentation I focused on after completing the first issue was <a class="reference external" href="https://conda-forge.org/docs/maintainer/00_intro.html">Maintainers’ Documentation</a>.
+Many open issues needed to be taken care of to make the Maintainers’ documentation more useful and accessible for new maintainers. The open tickets that we have worked on are:</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1769">Document extras feedstock-name (#1769)</a> and <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1331">Explain how to become a maintainer (#1331)</a>. Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1772">add extra section-recipe maintainer and feedstock-name (#1772)</a>.</p>
+<blockquote>
+<div><p>As we started with improving the Maintainer documentation, these were the issues we picked first to work on. The first issue was documenting how maintainers can use the “feedstock-name” directive for naming feedstocks differently than their package names in staged recipes. The second issue was documenting how one should become a package maintainer.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1651">Add more steps in Improve the documentation section (#1651).</a>. Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1776">Update “Improve the documentation” section with more steps. (#1776</a>)</p>
+<blockquote>
+<div><p>In this issue we added some additional steps for people who would like to start contributing to conda-forge, especially to documentation.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1655">Add more information about Grayskull in the documentation itself (#1655)</a>. Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1777">#1777</a>.</p>
+<blockquote>
+<div><p>The documentation on Grayskull in docs lacked the answers to questions like what exactly Grayskull is and how one should use Grayskull to generate a recipe. With this issue, we added more documentation on Grayskull for users.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/803">Clarify feedstock LICENSE.txt (#803)</a>. Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1786">Add Feedstock repository structure section (#1786)</a>.</p>
+<blockquote>
+<div><p>The docs for contributing and maintaining conda recipes discuss when and how to distribute the license for a particular package. The auto-generated feedstock repositories also include a license in the root, which is different from the related package license.
+With this issue, we added documentation on the differences between those two licenses and briefly explained the feedstock repository structure.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1117">DOC: New maintainer (#1117)</a>. Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1788">Add “How regro-cf-autotick-bot create version update PR?” section. (#1788)</a>.</p>
+<blockquote>
+<div><p>With this issue we improved docs for the new maintainers and the working of the bot. A “How does <code class="docutils literal notranslate"><span class="pre">regro-cf-autotick-bot</span></code> create automatic version updates?” section was added to the docs, which explains the whole process of creating an automated version update PRs by bot.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1536">Add Perl package hints to documentation (#1536)</a>. Working on this <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1790">#1790</a>.</p>
+<blockquote>
+<div><p>With this issue we added ​​packaging instructions for Perl packages with different build systems in the documentation.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1532">DOC: Update documentation about tokens (#1532)</a>. Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1793">#1793</a>.</p>
+<blockquote>
+<div><p>Feedstocks have stopped storing encrypted tokens to upload packages, but outdated information on tokens was still present in the documentation. With this issue we removed the outdated information and also added a new section “How to update your feedstock token?” for maintainers.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1668">Improve the documentation on arch_rebuild.txt (#1668)</a>. Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1794">#1794</a>.</p>
+<blockquote>
+<div><p>With this issue we improved the documentation on <code class="docutils literal notranslate"><span class="pre">arch_rebuild.txt</span></code> and how maintainers can add a feedstock to <code class="docutils literal notranslate"><span class="pre">arch-rebuild.txt</span></code> if it requires rebuilding with different architectures/platforms (such as ppc64le or aarch64).</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1355">Document migrators (#1355)</a>, <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/862">Update migration docs (#862)</a>, and <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/737">document migrators (#737)</a> . Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1801">Documenting Migrators and Migrations. (#1801)</a>.</p>
+<blockquote>
+<div><p>With these, we added more documentation on migrations and migrators, which would help maintainers find answers to questions like - What is a migrator/migration, and what does it do? When can (and why would) they should reject a migration PR? And so on.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/issues/1808">Add a section in docs on security aspects of conda-forge (#1808)</a>. Closed with <a class="reference external" href="https://github.com/conda-forge/conda-forge.github.io/pull/1812">#1812</a>.</p>
+<blockquote>
+<div><p>Currently, information regarding the security considerations of conda-forge builds is scattered throughout the documentation, and therefore it is hard to find and read. With this issue, we will put all the information together in one place, which will help maintainers and users to know more about how conda-forge secures its packages and infrastructure.</p>
+</div></blockquote>
+</li>
+</ol>
+<p>I met some wonderful people during the internship who helped me with all my questions and doubts that I had. The experience during the internship also helped me get better opportunities after completing the Outreachy internship.
+I have learned so many things during the internship that it would make a long list if I were to write all of those. But the most important things I learned are:</p>
+<ul class="simple">
+<li><p>The importance of documentation and how to write good documentation.</p></li>
+<li><p>The best practices to follow while writing documentation.</p></li>
+<li><p>More about conda-forge and packaging tools.</p></li>
+</ul>
+<p>And above all, Outreachy helped me feel more confident about my skills and overcome the imposter syndrome I had before. Thanks again to my awesome mentors and the kind people of the conda-forge community! :)</p>
+</div>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../2021-11-03-tensorflow-gpu/">
+      <i class="fa fa-arrow-circle-left"></i> GPU enabled TensorFlow builds on conda-forge
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../">
+              <img class="logo" src="../../_static/logo_black_on_trans.png" alt="Logo"/>
+            </a></p><p>
+the conda-forge blog
+</p>  
+<h2>
+   <i class="fa fa-calendar"></i>
+  2022-08-26 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../blog/author/surbhi-sharma/">Surbhi Sharma</a>  
+</li>
+    
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="../../blog/tag/outreachy/">Outreachy</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../2021-11-03-tensorflow-gpu/"
+      >2021-11-03 - GPU enabled TensorFlow builds on conda-forge</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2021-09-24-travis-security/"
+      >2021-09-24 - Travis CI Security Incident</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2021-06-16-graykull-step-by-step/"
+      >2021-06-16 - Contributing Packages To conda-forge Using Grayskull</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2021-02-02-Outreachy/"
+      >2021-02-02 - Conda-forge Outreachy</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2020-12-26-year-in-review/"
+      >2020-12-26 - 2020 in Review</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="../../blog/tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/grayskull/">Grayskull</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/outreachy/">Outreachy</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/autotick-bot/">autotick-bot</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/conda/">conda</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../../blog/tag/conda-forge/">conda-forge</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/infrastructure/">infrastructure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/scipy/">scipy</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/security/">security</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../blog/2022/">2022 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2021/">2021 (4)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2020/">2020 (10)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2022, conda-forge.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/posts/2022-08-19-outreachy-wrap-up-blog-2022.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
