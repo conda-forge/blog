@@ -21,7 +21,7 @@ Many open issues needed to be taken care of to make the Maintainers’ documenta
 
         As we started with improving the Maintainer documentation, these were the issues we picked first to work on. The first issue was documenting how maintainers can use the “feedstock-name” directive for naming feedstocks differently than their package names in staged recipes. The second issue was documenting how one should become a package maintainer.
 
-2.  `Add more steps in Improve the documentation section (#1651). <https://github.com/conda-forge/conda-forge.github.io/issues/1651>`__. Closed with `Update “Improve the documentation” section with more steps. (#1776 <https://github.com/conda-forge/conda-forge.github.io/pull/1776>`__)
+2.  `Add more steps in Improve the documentation section (#1651) <https://github.com/conda-forge/conda-forge.github.io/issues/1651>`__. Closed with `Update “Improve the documentation” section with more steps (#1776) <https://github.com/conda-forge/conda-forge.github.io/pull/1776>`__.
 
         In this issue we added some additional steps for people who would like to start contributing to conda-forge, especially to documentation.
 
