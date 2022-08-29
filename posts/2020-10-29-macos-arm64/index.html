@@ -146,14 +146,14 @@ will send PRs to is determined by the list of packages at
 <a class="reference external" href="https://github.com/conda-forge/conda-forge-pinning-feedstock/blob/master/recipe/migrations/osx_arm64.txt">conda-forge-pinning</a>
 and their dependences. If you would like to add support, please send a PR
 adding the feedstock name to the above list. After that PR is merged,
-you can monitor the status at <cite>conda-forge status-page &lt;https://conda-forge.org/status/#armosxaddition&gt;</cite>
+you can monitor the status at <a class="reference external" href="https://conda-forge.org/status/#armosxaddition">conda-forge status-page</a>
 and if a particular PR is stalled you can send a PR to the feedstock
 to fix it.</p>
 <p>Following instructions are for when you want to add support manually.</p>
 <p>Add the following to <code class="docutils literal notranslate"><span class="pre">conda-forge.yml</span></code> (on Linux or OSX),</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">build_platform</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">osx_arm64</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">osx_64</span><span class="w"></span>
-<span class="nt">test_on_native_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">native_and_emulated</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can rerender using,</p>
