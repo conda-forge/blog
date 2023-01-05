@@ -42,5 +42,5 @@ jobs:
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_website
-          user_name: conda-forge-coordinator
-          user_email: conda.forge.coordinator@gmail.com
+          user_name: conda-forge-curator[bot]
+          user_email: 79913779+conda-forge-curator[bot]@users.noreply.github.com
