@@ -79,9 +79,9 @@
 <div class="section" id="how-to-use-pypy">
 <h2>How to use PyPy<a class="headerlink" href="#how-to-use-pypy" title="Permalink to this headline">¶</a></h2>
 <p>To use the PyPy builds you can do the following,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --set channel_priority strict
-conda create -n pypy pypy
-conda activate pypy
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>channel_priority<span class="w"> </span>strict
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>pypy<span class="w"> </span>pypy
+conda<span class="w"> </span>activate<span class="w"> </span>pypy
 </pre></div>
 </div>
 <p>If you don’t have a conda installation already, you can use
@@ -91,8 +91,8 @@ which gives you a conda installation powered by pypy itself.</p>
 can be installed into this environment, but noarch packages
 which do not depend on the python version nor the interpreter can be
 installed. For eg, mpmath is a noarch package without any dependencies.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install mpmath    <span class="c1"># succeeds</span>
-conda install numpy     <span class="c1"># fails as of March 10, 2020</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>mpmath<span class="w">    </span><span class="c1"># succeeds</span>
+conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w">     </span><span class="c1"># fails as of March 10, 2020</span>
 </pre></div>
 </div>
 <p><strong>UPDATE</strong>: numpy and scipy builds are working as of April 10, 2020.</p>
@@ -107,7 +107,7 @@ python package and any non-noarch python packages will have a dependency
 on this package. Older python downstream packages like numpy had their
 metadata patched to add a CPython ABI. You can ask for a specific python
 ABI.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install <span class="s2">&quot;python_abi=*=*_cp27mu&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;python_abi=*=*_cp27mu&quot;</span>
 </pre></div>
 </div>
 <p>If you are using python packages from packages other than defaults,
@@ -118,37 +118,37 @@ volume conda channel or to rebuild those packages with the new python
 packages and mark the older ones as broken.</p>
 <p>Using the newer packages will rerender the following requirement
 to add a dependency on python_abi. For eg,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6</span><span class="w"></span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
 </pre></div>
 </div>
 <p>is rendered as,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6.10 h9d8adfe_1009_cpython</span><span class="w"></span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python &gt;=3.6,&lt;3.7.0a0</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_abi 3.6 *_cp36m</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6.10 h9d8adfe_1009_cpython</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python &gt;=3.6,&lt;3.7.0a0</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_abi 3.6 *_cp36m</span>
 </pre></div>
 </div>
 <p>whereas,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6 *_73_pypy</span><span class="w"></span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6 *_73_pypy</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
 </pre></div>
 </div>
 <p>is rendered as,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6.9 0_73_pypy</span><span class="w"></span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python &gt;=3.6,&lt;3.7.0a0</span><span class="w"></span>
-<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_abi 3.6 *_pypy36_pp73</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python 3.6.9 0_73_pypy</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python &gt;=3.6,&lt;3.7.0a0</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_abi 3.6 *_pypy36_pp73</span>
 </pre></div>
 </div>
 <p>Note that the PyPy ABI tag has <cite>pp73</cite> at the end which indicates that the
@@ -367,7 +367,7 @@ the conda-forge blog
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016-2022, conda-forge.
+      &copy;2016-2023, conda-forge.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
