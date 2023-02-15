@@ -5,7 +5,7 @@ docutils<0.18
 make
 xonsh
 ablog
-werkzeug==0.16.1
+werkzeug==2.2.3
 sphinx
 invoke
 python-dateutil
