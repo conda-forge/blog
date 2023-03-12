@@ -9,8 +9,9 @@
 CircleCI Security Incident
 ==========================
 
-In early January 2023, `CircleCI informed us <https://circleci.com/blog/jan-4-2023-incident-report/>`_` that they had a large
-security breach where a third party had gained access to all the environment secrets stored in the service.
+In early January 2023, CircleCI informed us that they had a large
+`security breach  <https://circleci.com/blog/jan-4-2023-incident-report/>`_ where a third party had
+gained access to all the environment secrets stored in the service.
 For ``conda-forge``, these secrets are the API token used to upload built packages to our staging area on ``anaconda.org`` and
 the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
 that only the maintainers of a given feedstock can upload packages built by that feedstock. Later in January, we were informed
