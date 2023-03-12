@@ -19,12 +19,12 @@ by CircleCI that their security breach started on December 19, 2022, with the bu
 text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
 compromised versions of any package on ``conda-forge`` in a so-called "supply chain" attack.
 
-**We have produced a list of all possibly compromised artifacts
+**We have produced a list of all possibly compromised artifacts**
 `here <https://raw.githubusercontent.com/conda-forge/conda-forge.github.io/main/misc/circle_ci_pkgs_dec2022_breach.json>`_.
-If you use ``conda-forge`` in very sensitive environments (which we do not recommend!), please remove these
+**If you use** ``conda-forge`` **in very sensitive environments (which we do not recommend!), please remove these
 artifacts from your system.**
 
-**To date, we know of no compromised artifacts in** ``conda-forge`` **.**
+**To date, we know of no compromised artifacts in** ``conda-forge``.
 
 **API tokens for the main** ``conda-forge`` **channel were never exposed and remain secure to our knowledge.**
 
