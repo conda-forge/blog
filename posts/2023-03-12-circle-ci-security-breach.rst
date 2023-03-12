@@ -24,9 +24,9 @@ compromised versions of any package on ``conda-forge`` in a so-called "supply ch
 If you use ``conda-forge`` in very sensitive environments (which we do not recommend!), please remove these
 artifacts from your system.**
 
-**To date, we know of no compromised artifacts in **``conda-forge``**.**
+**To date, we know of no compromised artifacts in** ``conda-forge`` **.**
 
-**API tokens for the main **``conda-forge`` **channel were never exposed and remain secure to our knowledge.**
+**API tokens for the main** ``conda-forge`` **channel were never exposed and remain secure to our knowledge.**
 
 
 Our Response
