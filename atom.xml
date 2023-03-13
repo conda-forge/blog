@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2023-03-13T11:48:10.842922+00:00</updated>
+  <updated>2023-03-13T11:51:46.254689+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.25">ABlog</generator>
@@ -319,9 +319,27 @@ conda-forge which used this vulnerability.</summary>
     <published>2021-11-03T00:00:00+00:00</published>
   </entry>
   <entry>
+    <id>www.conda-forge.org/blog/posts/2022-08-19-outreachy-wrap-up-blog-2022/</id>
+    <title>Outreachy 2022 Wrap-up Blog</title>
+    <updated>2022-08-26T00:00:00+00:00</updated>
+    <author>
+      <name>Surbhi Sharma</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;This blog is about my work during my Outreachy internship with &lt;a class="reference external" href="https://conda-forge.github.io"&gt;conda-forge&lt;/a&gt;. Before that a little about me -
+I am &lt;a class="reference external" href="https://github.com/ssurbhi560"&gt;Surbhi&lt;/a&gt;, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="www.conda-forge.org/blog/posts/2022-08-19-outreachy-wrap-up-blog-2022/" rel="alternate"/>
+    <summary>This blog is about my work during my Outreachy internship with conda-forge. Before that a little about me -
+I am Surbhi, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.</summary>
+    <category term="Outreachy" label="Outreachy"/>
+    <published>2022-08-26T00:00:00+00:00</published>
+  </entry>
+  <entry>
     <id>www.conda-forge.org/blog/posts/2023-03-12-circle-ci-security-breach/</id>
     <title>CircleCI Security Incident</title>
-    <updated>2022-03-11T00:00:00+00:00</updated>
+    <updated>2023-03-12T00:00:00+00:00</updated>
     <author>
       <name>conda-forge</name>
     </author>
@@ -348,24 +366,6 @@ by CircleCI that their security breach started on December 19, 2022, with the bu
 text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
 compromised versions of any package on conda-forge in a so-called “supply chain” attack.</summary>
     <category term="security" label="security"/>
-    <published>2022-03-11T00:00:00+00:00</published>
-  </entry>
-  <entry>
-    <id>www.conda-forge.org/blog/posts/2022-08-19-outreachy-wrap-up-blog-2022/</id>
-    <title>Outreachy 2022 Wrap-up Blog</title>
-    <updated>2022-08-26T00:00:00+00:00</updated>
-    <author>
-      <name>Surbhi Sharma</name>
-    </author>
-    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
-&lt;p&gt;This blog is about my work during my Outreachy internship with &lt;a class="reference external" href="https://conda-forge.github.io"&gt;conda-forge&lt;/a&gt;. Before that a little about me -
-I am &lt;a class="reference external" href="https://github.com/ssurbhi560"&gt;Surbhi&lt;/a&gt;, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.&lt;/p&gt;
-&lt;/div&gt;
-</content>
-    <link href="www.conda-forge.org/blog/posts/2022-08-19-outreachy-wrap-up-blog-2022/" rel="alternate"/>
-    <summary>This blog is about my work during my Outreachy internship with conda-forge. Before that a little about me -
-I am Surbhi, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.</summary>
-    <category term="Outreachy" label="Outreachy"/>
-    <published>2022-08-26T00:00:00+00:00</published>
+    <published>2023-03-12T00:00:00+00:00</published>
   </entry>
 </feed>

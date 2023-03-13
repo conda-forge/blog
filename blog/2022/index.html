@@ -111,55 +111,6 @@ I am <a class="reference external" href="https://github.com/ssurbhi560">Surbhi</
     <p class="ablog-post-expand"><a href="../../posts/2022-08-19-outreachy-wrap-up-blog-2022/"><em>Read more ...</em></a></p>
     <hr />
   </div>
-  
-
-  <div class="section ablog-post">
-    <h2 class="ablog-post-title">
-      <a href="../../posts/2023-03-12-circle-ci-security-breach/"
-        >CircleCI Security Incident</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> 2022-03-11 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="../author/conda-forge/">conda-forge</a>  
-</li>
-    
-<li id="tags">
-  <span
-    ><i
-      class="fa-fw fa fa-tag"
-    ></i
-    ></span
-  >
-   
-  <a href="../tag/security/">security</a>  
-</li>
- 
-    </ul>
-    <div class="ablog-post-excerpt docutils container">
-<p>In early January 2023, CircleCI informed us that they had a large
-<a class="reference external" href="https://circleci.com/blog/jan-4-2023-incident-report/">security breach</a> where a third party had
-gained access to all the environment secrets stored in the service.
-For <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, these secrets are the API token used to upload built packages to our staging area on <code class="docutils literal notranslate"><span class="pre">anaconda.org</span></code> and
-the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
-that only the maintainers of a given feedstock can upload packages built by that feedstock. Later in January, we were informed
-by CircleCI that their security breach started on December 19, 2022, with the bulk of the secrets being exfiltrated in plain
-text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
-compromised versions of any package on <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> in a so-called “supply chain” attack.</p>
-</div>
-
-    <p class="ablog-post-expand"><a href="../../posts/2023-03-12-circle-ci-security-breach/"><em>Read more ...</em></a></p>
-    <hr />
-  </div>
    
 </div>
 
@@ -180,14 +131,14 @@ the conda-forge blog
 <ul>
    
   <li>
-    <a href="../../posts/2022-08-19-outreachy-wrap-up-blog-2022/"
-      >2022-08-26 - Outreachy 2022 Wrap-up Blog</a
+    <a href="../../posts/2023-03-12-circle-ci-security-breach/"
+      >2023-03-12 - CircleCI Security Incident</a
     >
   </li>
   
   <li>
-    <a href="../../posts/2023-03-12-circle-ci-security-breach/"
-      >2022-03-11 - CircleCI Security Incident</a
+    <a href="../../posts/2022-08-19-outreachy-wrap-up-blog-2022/"
+      >2022-08-26 - Outreachy 2022 Wrap-up Blog</a
     >
   </li>
   
@@ -285,7 +236,11 @@ the conda-forge blog
 <ul>
    
   <li>
-    <a href="#">2022 (2)</a>
+    <a href="../2023/">2023 (1)</a>
+  </li>
+    
+  <li>
+    <a href="#">2022 (1)</a>
   </li>
     
   <li>

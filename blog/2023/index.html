@@ -4,19 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Posts by ForgottenProgramme &#8212; the conda-forge blog</title>
-    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/language_data.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="index" title="Index" href="../../../genindex/" />
-    <link rel="search" title="Search" href="../../../search/" /> 
+    <title>Posted in 2023 &#8212; the conda-forge blog</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
    
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -24,8 +24,8 @@
 <link
   rel="alternate"
   type="application/atom+xml"
-  href="../../../blog/atom.xml"
-  title="Posts by ForgottenProgramme"
+  href="../../blog/atom.xml"
+  title="Posted in 2023"
 />
  
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
@@ -67,20 +67,20 @@
             
 <div class="section">
   <h1>
-     Posts by  ForgottenProgramme 
+     Posted in  2023 
   </h1>
    
 
   <div class="section ablog-post">
     <h2 class="ablog-post-title">
-      <a href="../../../posts/2021-06-16-graykull-step-by-step/"
-        >Contributing Packages To conda-forge Using Grayskull</a
+      <a href="../../posts/2023-03-12-circle-ci-security-breach/"
+        >CircleCI Security Incident</a
       >
     </h2>
 
     <ul class="ablog-archive">
       <li>
-         <i class="fa fa-calendar"></i> 2021-06-16 
+         <i class="fa fa-calendar"></i> 2023-03-12 
       </li>
        
 <li id="author">
@@ -88,7 +88,7 @@
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="#">ForgottenProgramme</a>  
+  <a href="../author/conda-forge/">conda-forge</a>  
 </li>
     
 <li id="tags">
@@ -99,16 +99,23 @@
     ></span
   >
    
-  <a href="../../tag/grayskull/">Grayskull</a>  
+  <a href="../tag/security/">security</a>  
 </li>
  
     </ul>
     <div class="ablog-post-excerpt docutils container">
-<p>When contributing packages to conda-forge, Grayskull can make your life much easier.
-Grayskull generates recipes for Python packages hosted on PyPI.</p>
+<p>In early January 2023, CircleCI informed us that they had a large
+<a class="reference external" href="https://circleci.com/blog/jan-4-2023-incident-report/">security breach</a> where a third party had
+gained access to all the environment secrets stored in the service.
+For <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, these secrets are the API token used to upload built packages to our staging area on <code class="docutils literal notranslate"><span class="pre">anaconda.org</span></code> and
+the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
+that only the maintainers of a given feedstock can upload packages built by that feedstock. Later in January, we were informed
+by CircleCI that their security breach started on December 19, 2022, with the bulk of the secrets being exfiltrated in plain
+text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
+compromised versions of any package on <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> in a so-called “supply chain” attack.</p>
 </div>
 
-    <p class="ablog-post-expand"><a href="../../../posts/2021-06-16-graykull-step-by-step/"><em>Read more ...</em></a></p>
+    <p class="ablog-post-expand"><a href="../../posts/2023-03-12-circle-ci-security-breach/"><em>Read more ...</em></a></p>
     <hr />
   </div>
    
@@ -120,49 +127,49 @@ Grayskull generates recipes for Python packages hosted on PyPI.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="../../../">
-              <img class="logo" src="../../../_static/logo_black_on_trans.png" alt="Logo"/>
+            <p class="logo"><a href="../../">
+              <img class="logo" src="../../_static/logo_black_on_trans.png" alt="Logo"/>
             </a></p><p>
 the conda-forge blog
 </p>
 <h3>
-  <a href="../../">Recent Posts</a>
+  <a href="../">Recent Posts</a>
 </h3>
 <ul>
    
   <li>
-    <a href="../../../posts/2023-03-12-circle-ci-security-breach/"
+    <a href="../../posts/2023-03-12-circle-ci-security-breach/"
       >2023-03-12 - CircleCI Security Incident</a
     >
   </li>
   
   <li>
-    <a href="../../../posts/2022-08-19-outreachy-wrap-up-blog-2022/"
+    <a href="../../posts/2022-08-19-outreachy-wrap-up-blog-2022/"
       >2022-08-26 - Outreachy 2022 Wrap-up Blog</a
     >
   </li>
   
   <li>
-    <a href="../../../posts/2021-11-03-tensorflow-gpu/"
+    <a href="../../posts/2021-11-03-tensorflow-gpu/"
       >2021-11-03 - GPU enabled TensorFlow builds on conda-forge</a
     >
   </li>
   
   <li>
-    <a href="../../../posts/2021-09-24-travis-security/"
+    <a href="../../posts/2021-09-24-travis-security/"
       >2021-09-24 - Travis CI Security Incident</a
     >
   </li>
   
   <li>
-    <a href="../../../posts/2021-06-16-graykull-step-by-step/"
+    <a href="../../posts/2021-06-16-graykull-step-by-step/"
       >2021-06-16 - Contributing Packages To conda-forge Using Grayskull</a
     >
   </li>
   
 </ul>
 
-<h3><a href="../../tag/">Tags</a></h3>
+<h3><a href="../tag/">Tags</a></h3>
 <style type="text/css">
   ul.ablog-cloud {
     list-style: none;
@@ -197,62 +204,62 @@ the conda-forge blog
 <ul class="ablog-cloud">
    
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../../tag/grayskull/">Grayskull</a>
+    <a href="../tag/grayskull/">Grayskull</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../../tag/outreachy/">Outreachy</a>
+    <a href="../tag/outreachy/">Outreachy</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../../tag/autotick-bot/">autotick-bot</a>
+    <a href="../tag/autotick-bot/">autotick-bot</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../../tag/conda/">conda</a>
+    <a href="../tag/conda/">conda</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-5">
-    <a href="../../tag/conda-forge/">conda-forge</a>
+    <a href="../tag/conda-forge/">conda-forge</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../../tag/infrastructure/">infrastructure</a>
+    <a href="../tag/infrastructure/">infrastructure</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../../tag/scipy/">scipy</a>
+    <a href="../tag/scipy/">scipy</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../../tag/security/">security</a>
+    <a href="../tag/security/">security</a>
   </li>
    
 </ul>
 
 <h3>
-  <a href="../../archive/">Archives</a>
+  <a href="../archive/">Archives</a>
 </h3>
 <ul>
    
   <li>
-    <a href="../../2023/">2023 (1)</a>
+    <a href="#">2023 (1)</a>
   </li>
     
   <li>
-    <a href="../../2022/">2022 (1)</a>
+    <a href="../2022/">2022 (1)</a>
   </li>
     
   <li>
-    <a href="../../2021/">2021 (4)</a>
+    <a href="../2021/">2021 (4)</a>
   </li>
     
   <li>
-    <a href="../../2020/">2020 (10)</a>
+    <a href="../2020/">2020 (10)</a>
   </li>
     
   <li>
-    <a href="../../2019/">2019 (1)</a>
+    <a href="../2019/">2019 (1)</a>
   </li>
    
 </ul>
@@ -260,7 +267,7 @@ the conda-forge blog
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="../../../search/" method="get">
+    <form class="search" action="../../search/" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
