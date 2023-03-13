@@ -10,7 +10,7 @@ CircleCI Security Incident
 ==========================
 
 In early January 2023, CircleCI informed us that they had a large
-`security breach  <https://circleci.com/blog/jan-4-2023-incident-report/>`_ where a third party had
+`security breach  <https://circleci.com/blog/jan-4-2023-incident-report/>`__ where a third party had
 gained access to all the environment secrets stored in the service.
 For ``conda-forge``, these secrets are the API token used to upload built packages to our staging area on ``anaconda.org`` and
 the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
@@ -19,8 +19,8 @@ by CircleCI that their security breach started on December 19, 2022, with the bu
 text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
 compromised versions of any package on ``conda-forge`` in a so-called "supply chain" attack.
 
-**We have produced a list of all possibly compromised artifacts**
-`here <https://raw.githubusercontent.com/conda-forge/conda-forge.github.io/main/misc/circle_ci_pkgs_dec2022_breach.json>`_.
+**We have produced a** `list of all possibly compromised artifacts <https://raw.githubusercontent.com/conda-forge/conda-forge.github.io/main/misc/circle_ci_pkgs_dec2022_breach.json>`__.
+
 **If you use** ``conda-forge`` **in very sensitive environments (which we do not recommend!), please remove these
 artifacts from your system.**
 
@@ -37,9 +37,8 @@ We took the following steps to respond to this incident.
 - We immediately started a token rotation of all of our feedstock tokens and our staging area upload tokens as precautionary
   measures. This token rotation hit a few bugs, but was completed as of January 13, 2023.
 - We produced a census of all packages uploaded between December 19, 2022 and January 13, 2023. This data is available for
-  download as a JSON file `here <https://raw.githubusercontent.com/conda-forge/conda-forge.github.io/main/misc/circle_ci_pkgs_dec2022_breach.json>`_.
-- We examined all the artifacts built during this time period for the malicious files listed by CicleCI
-  `here <https://circleci.com/blog/jan-4-2023-incident-report/>`_. We did not find any of those files in our artifacts.
+  download as a `JSON file <https://raw.githubusercontent.com/conda-forge/conda-forge.github.io/main/misc/circle_ci_pkgs_dec2022_breach.json>`__.
+- We examined all the artifacts built during this time period for the `malicious files <https://circleci.com/blog/jan-4-2023-incident-report/>`__ listed by CicleCI. We did not find any of those files in our artifacts.
 - As detailed below, we have begun retooling our system for feedstock tokens to be more robust and enable greater
   flexibility in our response to incidents like this.
 - We have begun systematically invalidating old tokens, decommissioning old bots, and minimizing permissions of our
