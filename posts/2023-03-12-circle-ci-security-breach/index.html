@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>CircleCI Security Incident &#8212; the conda-forge blog</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="conda-forge Blog"
+/>
+ 
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+             <div class="section" id="circleci-security-incident">
+<h1>CircleCI Security Incident<a class="headerlink" href="#circleci-security-incident" title="Permalink to this headline">¶</a></h1>
+<p>In early January 2023, CircleCI informed us that they had a large
+<a class="reference external" href="https://circleci.com/blog/jan-4-2023-incident-report/">security breach</a> where a third party had
+gained access to all the environment secrets stored in the service.
+For <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, these secrets are the API token used to upload built packages to our staging area on <code class="docutils literal notranslate"><span class="pre">anaconda.org</span></code> and
+the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
+that only the maintainers of a given feedstock can upload packages built by that feedstock. Later in January, we were informed
+by CircleCI that their security breach started on December 19, 2022, with the bulk of the secrets being exfiltrated in plain
+text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
+compromised versions of any package on <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> in a so-called “supply chain” attack.</p>
+<p><strong>We have produced a</strong> <a class="reference external" href="https://raw.githubusercontent.com/conda-forge/conda-forge.github.io/main/misc/circle_ci_pkgs_dec2022_breach.json">list of all possibly compromised artifacts</a>.</p>
+<p><strong>If you use</strong> <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> <strong>in very sensitive environments (which we do not recommend!), please remove these
+artifacts from your system.</strong></p>
+<p><strong>To date, we know of no compromised artifacts in</strong> <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>.</p>
+<p><strong>API tokens for the main</strong> <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> <strong>channel were never exposed and remain secure to our knowledge.</strong></p>
+<div class="section" id="our-response">
+<h2>Our Response<a class="headerlink" href="#our-response" title="Permalink to this headline">¶</a></h2>
+<p>We took the following steps to respond to this incident.</p>
+<ul class="simple">
+<li><p>We immediately started a token rotation of all of our feedstock tokens and our staging area upload tokens as precautionary
+measures. This token rotation hit a few bugs, but was completed as of January 13, 2023.</p></li>
+<li><p>We produced a census of all packages uploaded between December 19, 2022 and January 13, 2023. This data is available for
+download as a <a class="reference external" href="https://raw.githubusercontent.com/conda-forge/conda-forge.github.io/main/misc/circle_ci_pkgs_dec2022_breach.json">JSON file</a>.</p></li>
+<li><p>We examined all the artifacts built during this time period for the <a class="reference external" href="https://circleci.com/blog/jan-4-2023-incident-report/">malicious files</a> listed by CicleCI. We did not find any of those files in our artifacts.</p></li>
+<li><p>As detailed below, we have begun retooling our system for feedstock tokens to be more robust and enable greater
+flexibility in our response to incidents like this.</p></li>
+<li><p>We have begun systematically invalidating old tokens, decommissioning old bots, and minimizing permissions of our
+current tokens in order to further enhance <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>’s security.</p></li>
+</ul>
+<p>Rotating all of our tokens was taken as a precautionary measure. Unfortunately, during this token rotation,
+one of our bots encountered a bug which resulted in us losing the tokens for a very large fraction of feedstocks.
+This situation resulted in an extended outage that lasted about five days and was resolved on January 13, 2023, when the
+full token rotation was completed.</p>
+</div>
+<div class="section" id="what-did-we-learn">
+<h2>What did we learn?<a class="headerlink" href="#what-did-we-learn" title="Permalink to this headline">¶</a></h2>
+<p>We learned a few things about our system for feedstock tokens and general maintenance of our CI service integrations.
+We probably should have known them already, but here we are.</p>
+<ul class="simple">
+<li><p>We used the same feedstock token across multiple CI services. This limited
+our ability to immediately invalidate tokens associated with a single CI service and exposed all
+services if any single service had an incident.</p></li>
+<li><p>Our token system only allowed one valid token per feedstock. This limitation means that we cannot
+recover from partially failed token resets/rotations and are subject to race conditions during the
+reset/rotation process that can cause failed package uploads.</p></li>
+<li><p>We need to be more proactive about cleaning up deprecated/removed CI services. The use of CircleCI
+in <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> has been deprecated for quite a while. Had we taken the time, and had the foresight,
+to remove all of our secrets from CircleCI when it was deprecated, we could have avoided the security
+incident all together.</p></li>
+</ul>
+<p>We have begun retooling our system for feedstock tokens in order to fix the issues identified above and allow
+us to have more flexibility in responding to security incidents. We have also started the process of
+decommissioning several of our old CI services. These changes will take time to implement. You can follow the
+progress on our various public issue trackers.</p>
+</div>
+<div class="section" id="closing-thoughts-what-can-you-do">
+<h2>Closing Thoughts &amp; What can you do?<a class="headerlink" href="#closing-thoughts-what-can-you-do" title="Permalink to this headline">¶</a></h2>
+<p>We, the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> core dev team, want to thank everyone for their patience and support as we have responded
+to the various security incidents and bugs detailed above. It goes without saying that the public nature
+of <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>’s infrastructure carries risks. On the other hand, by being public, anyone can look and
+verify our artifact builds. Security for <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is about reducing risk, and we will continue to do our best.</p>
+<p>As a reminder, we do not recommend that you use <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> in environments with sensitive information.
+<code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>’s software is built by our users and the core dev team cannot verify or guarantee that this
+software is not malicious or has not been tampered with.</p>
+<p>Our best defense against security incidents in <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is you! Our feedstock maintainers are in the best
+position to notice incidents and issues. Please responsibly report anything you find to us at <code class="docutils literal notranslate"><span class="pre">condaforge+security&#64;gmail.com</span></code>.</p>
+</div>
+</div>
+
+<div class="section">
+    
+
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../2021-11-03-tensorflow-gpu/">
+      <i class="fa fa-arrow-circle-left"></i> GPU enabled TensorFlow builds on conda-forge
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+     
+    <a href="../2022-08-19-outreachy-wrap-up-blog-2022/">
+      Outreachy 2022 Wrap-up Blog <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
+    
+  </span>
+</div>
+  
+</div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../">
+              <img class="logo" src="../../_static/logo_black_on_trans.png" alt="Logo"/>
+            </a></p><p>
+the conda-forge blog
+</p>  
+<h2>
+   <i class="fa fa-calendar"></i>
+  2022-03-11 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../blog/author/conda-forge/">conda-forge</a>  
+</li>
+    
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="../../blog/tag/security/">security</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../2022-08-19-outreachy-wrap-up-blog-2022/"
+      >2022-08-26 - Outreachy 2022 Wrap-up Blog</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2021-11-03-tensorflow-gpu/"
+      >2021-11-03 - GPU enabled TensorFlow builds on conda-forge</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2021-09-24-travis-security/"
+      >2021-09-24 - Travis CI Security Incident</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2021-06-16-graykull-step-by-step/"
+      >2021-06-16 - Contributing Packages To conda-forge Using Grayskull</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2021-02-02-Outreachy/"
+      >2021-02-02 - Conda-forge Outreachy</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="../../blog/tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/grayskull/">Grayskull</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/outreachy/">Outreachy</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/autotick-bot/">autotick-bot</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/conda/">conda</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../../blog/tag/conda-forge/">conda-forge</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/infrastructure/">infrastructure</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/scipy/">scipy</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../blog/tag/security/">security</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../blog/2022/">2022 (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2021/">2021 (4)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2020/">2020 (10)</a>
+  </li>
+    
+  <li>
+    <a href="../../blog/2019/">2019 (1)</a>
+  </li>
+   
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2023, conda-forge.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../../_sources/posts/2023-03-12-circle-ci-security-breach.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

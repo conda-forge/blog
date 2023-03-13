@@ -73,6 +73,17 @@
 <p class="ablog-post-excerpt">This blog is about my work during my Outreachy internship with <a class="reference external" href="https://conda-forge.github.io">conda-forge</a>. Before that a little about me -
 I am <a class="reference external" href="https://github.com/ssurbhi560">Surbhi</a>, an Outreachy intern with conda-forge for the May-August 2022 cohort and I worked on documenting the conda-forge ecosystem.</p>
 </li>
+<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="posts/2023-03-12-circle-ci-security-breach/">CircleCI Security Incident</a> - <a class="reference internal" href="blog/author/conda-forge/" title="conda-forge"><em>conda-forge</em></a>, 2022-03-11</p>
+<p class="ablog-post-excerpt">In early January 2023, CircleCI informed us that they had a large
+<a class="reference external" href="https://circleci.com/blog/jan-4-2023-incident-report/">security breach</a> where a third party had
+gained access to all the environment secrets stored in the service.
+For <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, these secrets are the API token used to upload built packages to our staging area on <code class="docutils literal notranslate"><span class="pre">anaconda.org</span></code> and
+the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
+that only the maintainers of a given feedstock can upload packages built by that feedstock. Later in January, we were informed
+by CircleCI that their security breach started on December 19, 2022, with the bulk of the secrets being exfiltrated in plain
+text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
+compromised versions of any package on <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> in a so-called “supply chain” attack.</p>
+</li>
 <li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="posts/2021-11-03-tensorflow-gpu/">GPU enabled TensorFlow builds on conda-forge</a> - <a class="reference internal" href="blog/author/wolf-vollprecht/" title="Wolf Vollprecht"><em>Wolf Vollprecht</em></a>, 2021-11-03</p>
 <p class="ablog-post-excerpt">Recently we’ve been able to add GPU-enabled TensorFlow builds to conda-forge! This was quite a journey, with multiple contributors trying different ways to convince the Bazel-based build system of TensorFlow to build CUDA-enabled packages. But we managed, <a class="reference external" href="https://github.com/conda-forge/tensorflow-feedstock/pull/157">and the pull request got merged</a>.</p>
 </li>
@@ -88,12 +99,6 @@ conda-forge which used this vulnerability.</strong></p>
 <li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="posts/2021-06-16-graykull-step-by-step/">Contributing Packages To conda-forge Using Grayskull</a> - <a class="reference internal" href="blog/author/forgottenprogramme/" title="ForgottenProgramme"><em>ForgottenProgramme</em></a>, 2021-06-16</p>
 <p class="ablog-post-excerpt">When contributing packages to conda-forge, Grayskull can make your life much easier.
 Grayskull generates recipes for Python packages hosted on PyPI.</p>
-</li>
-<li class="ablog-post"><p class="ablog-post-title"><a class="reference internal" href="posts/2021-02-02-Outreachy/">Conda-forge Outreachy</a> - <a class="reference internal" href="blog/author/viniciusdc/" title="viniciusdc"><em>viniciusdc</em></a>, 2021-02-02</p>
-<p class="ablog-post-excerpt">Conda-forge is participating in the upcoming round of <a class="reference external" href="https://www.outreachy.org/">Outreachy</a> i.e May 2021 to August 2021. The goal of
-this program is to increase participation from under-represented groups
-in free and open-source software. Outreachy is organized by <a class="reference external" href="https://sfconservancy.org/">Software
-Freedom Conservancy</a>.</p>
 </li>
 </ul>
 <div class="toctree-wrapper compound">
@@ -127,6 +132,12 @@ the conda-forge blog
   </li>
   
   <li>
+    <a href="posts/2023-03-12-circle-ci-security-breach/"
+      >2022-03-11 - CircleCI Security Incident</a
+    >
+  </li>
+  
+  <li>
     <a href="posts/2021-11-03-tensorflow-gpu/"
       >2021-11-03 - GPU enabled TensorFlow builds on conda-forge</a
     >
@@ -141,12 +152,6 @@ the conda-forge blog
   <li>
     <a href="posts/2021-06-16-graykull-step-by-step/"
       >2021-06-16 - Contributing Packages To conda-forge Using Grayskull</a
-    >
-  </li>
-  
-  <li>
-    <a href="posts/2021-02-02-Outreachy/"
-      >2021-02-02 - Conda-forge Outreachy</a
     >
   </li>
   
@@ -226,7 +231,7 @@ the conda-forge blog
 <ul>
    
   <li>
-    <a href="blog/2022/">2022 (1)</a>
+    <a href="blog/2022/">2022 (2)</a>
   </li>
     
   <li>
@@ -262,7 +267,7 @@ the conda-forge blog
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
       <a href="_sources/index.rst.txt"

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2023-01-05T11:31:08.868674+00:00</updated>
+  <updated>2023-03-13T11:48:10.842922+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.25">ABlog</generator>
@@ -317,6 +317,38 @@ conda-forge which used this vulnerability.</summary>
     <summary>Recently we’ve been able to add GPU-enabled TensorFlow builds to conda-forge! This was quite a journey, with multiple contributors trying different ways to convince the Bazel-based build system of TensorFlow to build CUDA-enabled packages. But we managed, and the pull request got merged.</summary>
     <category term="conda-forge" label="conda-forge"/>
     <published>2021-11-03T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>www.conda-forge.org/blog/posts/2023-03-12-circle-ci-security-breach/</id>
+    <title>CircleCI Security Incident</title>
+    <updated>2022-03-11T00:00:00+00:00</updated>
+    <author>
+      <name>conda-forge</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;In early January 2023, CircleCI informed us that they had a large
+&lt;a class="reference external" href="https://circleci.com/blog/jan-4-2023-incident-report/"&gt;security breach&lt;/a&gt; where a third party had
+gained access to all the environment secrets stored in the service.
+For &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda-forge&lt;/span&gt;&lt;/code&gt;, these secrets are the API token used to upload built packages to our staging area on &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;anaconda.org&lt;/span&gt;&lt;/code&gt; and
+the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
+that only the maintainers of a given feedstock can upload packages built by that feedstock. Later in January, we were informed
+by CircleCI that their security breach started on December 19, 2022, with the bulk of the secrets being exfiltrated in plain
+text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
+compromised versions of any package on &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;conda-forge&lt;/span&gt;&lt;/code&gt; in a so-called “supply chain” attack.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="www.conda-forge.org/blog/posts/2023-03-12-circle-ci-security-breach/" rel="alternate"/>
+    <summary>In early January 2023, CircleCI informed us that they had a large
+security breach where a third party had
+gained access to all the environment secrets stored in the service.
+For conda-forge, these secrets are the API token used to upload built packages to our staging area on anaconda.org and
+the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
+that only the maintainers of a given feedstock can upload packages built by that feedstock. Later in January, we were informed
+by CircleCI that their security breach started on December 19, 2022, with the bulk of the secrets being exfiltrated in plain
+text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
+compromised versions of any package on conda-forge in a so-called “supply chain” attack.</summary>
+    <category term="security" label="security"/>
+    <published>2022-03-11T00:00:00+00:00</published>
   </entry>
   <entry>
     <id>www.conda-forge.org/blog/posts/2022-08-19-outreachy-wrap-up-blog-2022/</id>

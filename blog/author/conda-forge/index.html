@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Posts tagged conda &#8212; the conda-forge blog</title>
+    <title>Posts by conda-forge &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -25,7 +25,7 @@
   rel="alternate"
   type="application/atom+xml"
   href="../../../blog/atom.xml"
-  title="Posts tagged conda"
+  title="Posts by conda-forge"
 />
  
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
@@ -67,20 +67,22 @@
             
 <div class="section">
   <h1>
-     Posts tagged  conda 
+     Posts by 
+    <a href="https://conda-forge.org/">conda-forge</a>
+    
   </h1>
    
 
   <div class="section ablog-post">
     <h2 class="ablog-post-title">
-      <a href="../../../posts/2020-03-05-grayskull/"
-        >By the power of Grayskull… I have the Conda recipe!</a
+      <a href="../../../posts/2023-03-12-circle-ci-security-breach/"
+        >CircleCI Security Incident</a
       >
     </h2>
 
     <ul class="ablog-archive">
       <li>
-         <i class="fa fa-calendar"></i> 2020-02-04 
+         <i class="fa fa-calendar"></i> 2022-03-11 
       </li>
        
 <li id="author">
@@ -88,7 +90,7 @@
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="../../author/marcelo-duarte-trevisani/">Marcelo Duarte Trevisani</a>  
+  <a href="#">conda-forge</a>  
 </li>
     
 <li id="tags">
@@ -99,15 +101,23 @@
     ></span
   >
    
-  <a href="#">conda</a>  
+  <a href="../../tag/security/">security</a>  
 </li>
  
     </ul>
     <div class="ablog-post-excerpt docutils container">
-<p><span class="raw-html"><em>The main goal of the Skeleto<s>n</s>r is to conquer Grayskull.</em></span></p>
+<p>In early January 2023, CircleCI informed us that they had a large
+<a class="reference external" href="https://circleci.com/blog/jan-4-2023-incident-report/">security breach</a> where a third party had
+gained access to all the environment secrets stored in the service.
+For <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, these secrets are the API token used to upload built packages to our staging area on <code class="docutils literal notranslate"><span class="pre">anaconda.org</span></code> and
+the unique token we generate for each feedstock. The feedstock tokens are used as part of our artifact staging process to ensure
+that only the maintainers of a given feedstock can upload packages built by that feedstock. Later in January, we were informed
+by CircleCI that their security breach started on December 19, 2022, with the bulk of the secrets being exfiltrated in plain
+text from their servers a few days later. A malicious third-party with access to these secrets could potentially upload
+compromised versions of any package on <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> in a so-called “supply chain” attack.</p>
 </div>
 
-    <p class="ablog-post-expand"><a href="../../../posts/2020-03-05-grayskull/"><em>Read more ...</em></a></p>
+    <p class="ablog-post-expand"><a href="../../../posts/2023-03-12-circle-ci-security-breach/"><em>Read more ...</em></a></p>
     <hr />
   </div>
    
@@ -161,7 +171,7 @@ the conda-forge blog
   
 </ul>
 
-<h3><a href="../">Tags</a></h3>
+<h3><a href="../../tag/">Tags</a></h3>
 <style type="text/css">
   ul.ablog-cloud {
     list-style: none;
@@ -196,35 +206,35 @@ the conda-forge blog
 <ul class="ablog-cloud">
    
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../grayskull/">Grayskull</a>
+    <a href="../../tag/grayskull/">Grayskull</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../outreachy/">Outreachy</a>
+    <a href="../../tag/outreachy/">Outreachy</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../autotick-bot/">autotick-bot</a>
+    <a href="../../tag/autotick-bot/">autotick-bot</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="#">conda</a>
+    <a href="../../tag/conda/">conda</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-5">
-    <a href="../conda-forge/">conda-forge</a>
+    <a href="../../tag/conda-forge/">conda-forge</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../infrastructure/">infrastructure</a>
+    <a href="../../tag/infrastructure/">infrastructure</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../scipy/">scipy</a>
+    <a href="../../tag/scipy/">scipy</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../security/">security</a>
+    <a href="../../tag/security/">security</a>
   </li>
    
 </ul>
