@@ -8,7 +8,7 @@
 Security updates to our installers
 ==================================
 
-In June 2023, software engineers from `Anaconda <https://www.anaconda.com>`__ have reported a security issue in the uninstallers that are included in the Windows versions of the `miniforge and mambaforge installers <https://github.com/conda-forge/miniforge>`__, one of the main ways to bootstrap conda-forge based conda & mamba distributions.
+In June 2023, software engineers from `Anaconda <https://www.anaconda.com>`__ have reported a security issue in the uninstallers that are included in the Windows versions of the `miniforge and mambaforge installers <https://github.com/conda-forge/miniforge>`__, one of the main ways to bootstrap conda-forge based conda and mamba distributions.
 
 The issue could, under specific conditions, unintentionally delete files from your system during the uninstallation process. Anaconda has published more details in the related `blogpost <https://www.anaconda.com/blog/windows-installer-security-fix>`__ about the security fix for the miniconda and Anaconda Distribution Windows installers as well.
 
