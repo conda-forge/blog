@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Automatically Deployed ABI Migrations &#8212; the conda-forge blog</title>
+    <title>Security updates to our installers &#8212; the conda-forge blog</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -64,34 +64,20 @@
           
 
           <div class="body" role="main">
-             <div class="section" id="automatically-deployed-abi-migrations">
-<h1>Automatically Deployed ABI Migrations<a class="headerlink" href="#automatically-deployed-abi-migrations" title="Permalink to this headline">¶</a></h1>
-<p>Handling application binary interface (ABI) migrations has always been a hassle for Conda-Forge.
-Maintaining ABI consistency helps enable the “just use conda-forge” experience for many of our users,
-making certain that numpy’s blas is the same as scipy’s.
-As libraries update their code, the new versions may be ABI incompatible, as function signatures and other symbols
-may have changed, leading to the dreaded <code class="docutils literal notranslate"><span class="pre">SegmentationFault</span></code> and other errors.</p>
-<p>Conda-Forge handles this by having a pinning file that tracks all the currently supported ABIs.
-These pinned ABIs are then used to build the downstream packages, making certain that all are consistent.
-As new versions of pinned software are released the pins are updated, causing a migration of the pin, and the
-rebuilding of all packages which rely on the pinned package.
-In the past, this was handled by a change to the global pinnings and a subsequent migration via the auto-tick bot.
-While this worked, there were issues that this created.
-Firstly, this approach could cause unsatisfiable build dependencies for new packages, as some of the new package’s
-dependencies had been compiled with the new pins, but not all.
-Secondly, migrations happened in series, if a second pin was moved while the first was being migrated then the
-migration could go wrong as packages which were being rebuilt for the first pin got the second pin before they were
-ready.</p>
-<p>Conda-Forge Core has recently approved CFEP-9, a migration policy to fix these issues.
-With CFEP-9 pinnings are proposed as small yaml snippets which contain the new pins.
-The auto-tick bot then starts migrating the packages in order, applying the yaml snippet to each package in turn.
-If a second pinning change is issued then the bot starts the migration for that package too, enabling the
-two migrations to work independently.
-If a package needs a change in both pins then the maintainers can choose the order in which they apply the pins
-by merging one pin before the other.</p>
-<p>This approach will yield much greater stability in migrations and will enable more maintainers to issue migrations.
-Migrations can be issued by putting a PR into <cite>conda-forge/conda-forge-pinning-feedstock</cite>, adding a file to the
-<cite>migrations</cite> folder, PRs into the auto-tick bot are not needed anymore.</p>
+             <div class="section" id="security-updates-to-our-installers">
+<h1>Security updates to our installers<a class="headerlink" href="#security-updates-to-our-installers" title="Permalink to this headline">¶</a></h1>
+<p>In June 2023, software engineers from <a class="reference external" href="https://www.anaconda.com">Anaconda</a> have reported a security issue in the uninstallers that are included in the Windows versions of the <a class="reference external" href="https://github.com/conda-forge/miniforge">miniforge and mambaforge installers</a>, one of the main ways to bootstrap conda-forge based conda and mamba distributions.</p>
+<p>The issue could, under specific conditions, unintentionally delete files from your system during the uninstallation process. Anaconda has published more details in the related <a class="reference external" href="https://www.anaconda.com/blog/windows-installer-security-fix">blogpost</a> about the security fix for the miniconda and Anaconda Distribution Windows installers as well.</p>
+<p>conda-forge is committed to fix the miniforge and mambaforge installers equally to reduce the possible impact on conda-forge users and has worked with Anaconda to mitigate the issue.</p>
+<ul class="simple">
+<li><p>As such, we are strongly recommending all users of miniforge and mambaforge to <strong>update immediately</strong> to the latest versions of miniforge and mambaforge. Please download them from the <a class="reference external" href="https://github.com/conda-forge/miniforge">miniforge repository’s main page</a> or the <a class="reference external" href="https://github.com/conda-forge/miniforge/releases/tag/23.1.0-4">release specific page</a>.</p></li>
+<li><p>For older versions, we are providing a <strong>security patch for already installed miniforge and mambaforge installations</strong>. You can download these from <a class="reference external" href="https://github.com/conda-forge/miniforge/releases/tag/23.1.0-4">release specific page</a> as well, under the names <code class="docutils literal notranslate"><span class="pre">Miniforge3-uninstaller-patch-Windows-x86_64.exe</span></code> and <code class="docutils literal notranslate"><span class="pre">Mambaforge-uninstaller-patch-Windows-x86_64.exe</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To uninstall older versions of miniforge and mambaforge released before July 1, 2023, please download the security patch fix prior to uninstallation.</p>
+</div>
+<p>In order for this flaw to be triggered, a specific combination of factors must align, including uninstallation permissions, system access, usage of Windows, and an existing installation of miniforge or mambaforge.</p>
 </div>
 
 <div class="section">
@@ -99,17 +85,14 @@ Migrations can be issued by putting a PR into <cite>conda-forge/conda-forge-pinn
 
 <div class="section">
   <span style="float: left">
+     
+    <a href="../2023-03-12-circle-ci-security-breach/">
+      <i class="fa fa-arrow-circle-left"></i> CircleCI Security Incident
+    </a>
     
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
-     
-    <a href="../2020-03-05-grayskull/">
-      By the power of Grayskull… I have the Conda recipe! <i
-        class="fa fa-arrow-circle-right"
-      ></i
-      >
-    </a>
     
   </span>
 </div>
@@ -129,7 +112,7 @@ the conda-forge blog
 </p>  
 <h2>
    <i class="fa fa-calendar"></i>
-  2019-12-06 
+  2023-07-13 
 </h2>
 
 <ul>
@@ -139,7 +122,7 @@ the conda-forge blog
     ><i class="fa-fw fa fa-user"></i></span
   >
    
-  <a href="../../blog/author/cj-wright/">C.J. Wright</a>  
+  <a href="../../blog/author/conda-forge/">conda-forge</a>  
 </li>
     
 <li id="tags">
@@ -150,7 +133,7 @@ the conda-forge blog
     ></span
   >
    
-  <a href="../../blog/tag/autotick-bot/">autotick-bot</a>  
+  <a href="../../blog/tag/security/">security</a>  
 </li>
  
 </ul>
@@ -160,12 +143,6 @@ the conda-forge blog
 </h3>
 <ul>
    
-  <li>
-    <a href="../2023-07-13-installer-security-fixes/"
-      >2023-07-13 - Security updates to our installers</a
-    >
-  </li>
-  
   <li>
     <a href="../2023-03-12-circle-ci-security-breach/"
       >2023-03-12 - CircleCI Security Incident</a
@@ -187,6 +164,12 @@ the conda-forge blog
   <li>
     <a href="../2021-09-24-travis-security/"
       >2021-09-24 - Travis CI Security Incident</a
+    >
+  </li>
+  
+  <li>
+    <a href="../2021-06-16-graykull-step-by-step/"
+      >2021-06-16 - Contributing Packages To conda-forge Using Grayskull</a
     >
   </li>
   
@@ -309,7 +292,7 @@ the conda-forge blog
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
-      <a href="../../_sources/posts/2019-12-06-cfep09.rst.txt"
+      <a href="../../_sources/posts/2023-07-13-installer-security-fixes.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

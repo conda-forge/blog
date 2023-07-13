@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>www.conda-forge.org/blog</id>
   <title>conda-forge Blog</title>
-  <updated>2023-06-08T18:50:23.383268+00:00</updated>
+  <updated>2023-07-13T20:04:47.573465+00:00</updated>
   <link href="www.conda-forge.org/blog"/>
   <link href="www.conda-forge.org/blog/blog/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.25">ABlog</generator>
@@ -367,5 +367,21 @@ text from their servers a few days later. A malicious third-party with access to
 compromised versions of any package on conda-forge in a so-called “supply chain” attack.</summary>
     <category term="security" label="security"/>
     <published>2023-03-12T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>www.conda-forge.org/blog/posts/2023-07-13-installer-security-fixes/</id>
+    <title>Security updates to our installers</title>
+    <updated>2023-07-13T00:00:00+00:00</updated>
+    <author>
+      <name>conda-forge</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;In June 2023, software engineers from &lt;a class="reference external" href="https://www.anaconda.com"&gt;Anaconda&lt;/a&gt; have reported a security issue in the uninstallers that are included in the Windows versions of the &lt;a class="reference external" href="https://github.com/conda-forge/miniforge"&gt;miniforge and mambaforge installers&lt;/a&gt;, one of the main ways to bootstrap conda-forge based conda and mamba distributions.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+    <link href="www.conda-forge.org/blog/posts/2023-07-13-installer-security-fixes/" rel="alternate"/>
+    <summary>In June 2023, software engineers from Anaconda have reported a security issue in the uninstallers that are included in the Windows versions of the miniforge and mambaforge installers, one of the main ways to bootstrap conda-forge based conda and mamba distributions.</summary>
+    <category term="security" label="security"/>
+    <published>2023-07-13T00:00:00+00:00</published>
   </entry>
 </feed>
