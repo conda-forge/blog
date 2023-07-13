@@ -16,7 +16,7 @@ conda-forge is committed to fix the miniforge and mambaforge installers equally 
 
 - As such, we are strongly recommending all users of miniforge and mambaforge to **update immediately** to the latest versions of miniforge and mambaforge. Please download them from the `miniforge repository's main page <https://github.com/conda-forge/miniforge>`__ or the `release specific page <https://github.com/conda-forge/miniforge/releases/tag/23.1.0-4>`__.
 
-- For older versions, we are providing a **security patch for already installed miniforge and mambaforge installations**. You can download these from `release specific page <https://github.com/conda-forge/miniforge/releases/tag/23.1.0-4>`__ as well, under the names ``Miniforge3-uninstaller-patch-win-64-2023.07-0.exe`` and ``Mambaforge-uninstaller-patch-win-64-2023.07-0.exe``.
+- For older versions, we are providing a **security patch for already installed miniforge and mambaforge installations**. You can download these from `release specific page <https://github.com/conda-forge/miniforge/releases/tag/23.1.0-4>`__ as well, under the names ``Miniforge3-uninstaller-patch-Windows-x86_64.exe`` and ``Mambaforge-uninstaller-patch-Windows-x86_64.exe``.
 
 .. note::
 
